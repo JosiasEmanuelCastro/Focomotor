@@ -12,7 +12,7 @@ class UserTest extends TestCase
     
     public function test_it_should_return_an_user_registered()
     {
-        //$this->withoutExceptionHandling();
+        $this->withoutExceptionHandling();
 
         $user = "Demo";
 
@@ -21,13 +21,14 @@ class UserTest extends TestCase
             "password" => "secret",
             "password_confirmation" => "secret",
             "email" => "demo@focomotor.com",
-            "location" => '{"city": "Olavarria", "province": "Buenos Aires", "country": "Argentina"}'
+            "location" => '{"city": "Olavarria", "province": "Buenos Aires", "country": "Argentina"}',
+            "telephone" => 4444444
             ,
         ]);
 
         //$response->dump();
 
-        $response->assertRedirect("/dashboard");
+        $response->assertRedirect("/profile");
         $response->assertStatus(302);
 
         $this->assertDatabaseHas('users', [
@@ -42,12 +43,15 @@ class UserTest extends TestCase
 
         $user = "";
 
+        $this->get('/register');
+
         $response = $this->post('/register', [
             "name" => $user,
             "password" => "secret",
             "password_confirmation" => "secret",
             "email" => "demo@focomotor.com",
-            "location" => '{"city": "Olavarria", "province": "Buenos Aires", "country": "Argentina"}'
+            "location" => '{"city": "Olavarria", "province": "Buenos Aires", "country": "Argentina"}',
+            "telephone" => 4444444
             ,
         ]);
 
