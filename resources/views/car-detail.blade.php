@@ -1,4 +1,4 @@
-@extends('template')
+@extends('layouts.default')
 
 
 @section('section')
@@ -270,5 +270,5 @@
 @endsection
 
 @section('scripts')
-    <script type="text/javascript" src="{{ asset('js/focom-pageVehicle.js') }}"></script>
+    <script type="text/javascript" src="/js/focom-pageVehicle.js"></script>
 @endsection

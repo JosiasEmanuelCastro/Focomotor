@@ -1,9 +1,9 @@
-@extends('template')
+@extends('layouts.default')
 
 @section('section')
 
     <div class="focom-slide position-relative d-none d-md-inline-block w-100">
-        <img src="../img/Slide (7).jpg" class="d-block" alt="...">
+        <img src="/img/Slide7.jpg" class="d-block" alt="Contacto">
         <h1 class="text-white display">Contacto</h1>
     </div>
 

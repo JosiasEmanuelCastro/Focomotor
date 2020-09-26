@@ -1,4 +1,4 @@
-@extends('template')
+@extends('layouts.default')
 
 
 @section('section')
@@ -64,7 +64,7 @@
         <!-- BEGIN LIST --->
         <div class="col-12 col-md-9 row focom-reset-padding focom-reset-margin focom-vehicles-list mt-md-n2">
             <div class="col-6 col-sm-4 col-md-4 col-xl-3 focom-list focom-reset-padding p-1 p-sm-2 p-md-2">
-                <a href="{{ route('vehiculo') }}" class="text-dark">
+                <a href="{{ route('car.details') }}" class="text-dark">
                     <div class="border rounded shadow-sm bg-white rounded focom-list h-100">
                         <img src="https://focomotor.com.ar/wp-content/uploads/elementor/thumbs/Car-21-otis76li15rp12tqtltcwnc8mkmgebx4o5899jhd0g.jpg">
                         <h4 class="m-1 h5 font-weight-normal">Irure elit ut ad quis ea reprehenderit in sint elit</h4>
