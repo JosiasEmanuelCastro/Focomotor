@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\PagesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,23 +14,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'inicio')->name('inicio');
-Route::view('listado', 'listado')->name('listado');
-Route::view('publicar', 'publicar')->name('publicar');
-Route::view('planes', 'planes')->name('planes');
-Route::view('ayuda', 'info.ayuda')->name('ayuda');
+Route::get('/profile', [UsersController::class, 'dashboard'])->name('user.dashboard')->middleware('auth');
 
-Route::view('politica-de-privacidad', 'info.politica_de_privacidad')->name('politica');
-Route::view('preguntas-frecuentes', 'info.preguntas_frecuentes')->name('preguntas');
-Route::view('terminos-y-condiciones', 'info.terminos_y_condiciones')->name('terminos');
+Route::get('/',  [PagesController::class, 'index'])->name('home');
+Route::view('listado', 'list')->name('list');
+Route::view('publicar', 'publish')->name('publish')->middleware('auth');
+Route::view('planes', 'plans')->name('plans')->middleware('auth');
+Route::view('ayuda', 'info.help')->name('info.help');
 
-Route::view('contacto', 'info.contacto')->name('contacto');
-Route::view('ingresar', 'ingresar')->name('ingresar');
-Route::view('registro', 'registro')->name('registro');
+Route::view('politica-de-privacidad', 'info.policy')->name('info.policy');
+Route::view('faqs', 'info.faq')->name('info.faq');
+Route::view('terminos-y-condiciones', 'info.terms')->name('info.terms');
 
-Route::view('exampleVehicle', 'vehiculosTemplate')->name('vehiculo');
+Route::view('contacto', 'info.contact')->name('contact');
 
-
+Route::view('car/detalle', 'car-detail')->name('car.details');
 
 
 
@@ -37,3 +36,9 @@ Route::view('exampleVehicle', 'vehiculosTemplate')->name('vehiculo');
 
 
 
+
+
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return Inertia\Inertia::render('Dashboard');
+})->name('dashboard');
