@@ -16,6 +16,8 @@ use App\Http\Controllers\PagesController;
 
 Route::get('/profile', [UsersController::class, 'dashboard'])->name('user.dashboard')->middleware('auth');
 
+//Route::get('/profile', [UsersController::class, 'dashboard'])->name('user.dashboard');
+
 Route::get('/',  [PagesController::class, 'index'])->name('home');
 Route::view('listado', 'list')->name('list');
 Route::view('publicar', 'publish')->name('publish')->middleware('auth');
