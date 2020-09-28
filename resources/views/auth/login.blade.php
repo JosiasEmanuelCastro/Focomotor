@@ -19,9 +19,9 @@
             <form action="{{ route('login') }}" method="POST">
                 @csrf
             <label for="email" class="pt-2">E-mail</label>
-            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+            <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
             <label for="password" class="mt-3">Contraseña</label>
-            <input type="password" class="form-control" id="password" aria-describedby="passwordHelp">
+            <input type="password" class="form-control" name="password" id="password" aria-describedby="passwordHelp">
             <div class="form-group form-check pt-4">º
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label text-muted" for="exampleCheck1">Mantenerme conectado</label>
