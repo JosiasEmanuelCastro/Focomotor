@@ -30,7 +30,12 @@ Route::view('contacto', 'info.contact')->name('contact');
 
 Route::view('car/detalle', 'car-detail')->name('car.details');
 
+Route::view('bienvenido', 'welcome')->name('welcome');
 
+
+/* ESTAS RUTAS SON DE PRUEBA PARA VER LOS DISEÑOS SIN REGISTRO */
+Route::view('publishLogout', 'publishLogout');
+Route::view('plans', 'plans');
 
 
 

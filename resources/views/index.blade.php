@@ -3,87 +3,200 @@
 
 @section('section')
     @include('elements.slider')
+    <div class="focom-section mx-3 mx-lg-5">
+        <h1 class="h4 mt-4">Ultimas publicaciones:</h1>
+        <div class="row mt-1">
 
-    <h1 class="h4 mt-4 pl-2 mx-1 mx-md-3 mx-lg-5">Ultimas publicaciones:</h1>
-    <div class="row focom-section mt-1 mx-1 mx-md-3 mx-lg-5">
-        <div class="col-6 col-sm-4 col-md-3 col-lg-3 focom-list focom-reset-padding p-1 p-sm-2 p-md-2">
-            <a href="{{ route('car.details') }}" class="text-dark">
-                <div class="border rounded shadow bg-white rounded focom-list">
-                    <img src="https://focomotor.com.ar/wp-content/uploads/elementor/thumbs/Car-21-otis76li15rp12tqtltcwnc8mkmgebx4o5899jhd0g.jpg" width="100%">
-                    <h4 class="m-1 h5 font-weight-normal">Irure elit ut ad quis ea reprehenderit in sint elit</h4>
-                    <p class="lead focom-list-price m-1 font-weight-normal">$489600</p>
-                    <div class="pt-3 m-1">
-                        <i class="fas fa-map-marker-alt fa-lg"></i>
-                        <p class="pl-1 lead d-inline-block font-weight-normal">Sit sunt</p>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-3 focom-list focom-reset-padding p-1 p-sm-2 p-md-2">
+                <a href="{{ route('car.details') }}" class="text-dark">
+                    <div class="border rounded shadow bg-white rounded focom-list">
+                        <img src="https://focomotor.com.ar/wp-content/uploads/elementor/thumbs/Car-21-otis76li15rp12tqtltcwnc8mkmgebx4o5899jhd0g.jpg" width="100%">
+                        <div class="px-1 px-md-2">  
+                            <h4 class="m-1 h5 focom-list-titleFont">Toyota Ambeliot Diesel 154.000km 2015</h4>
+                            <p class="lead focom-list-price m-1 font-weight-normal">$1.991.800</p>
+                            <div class="pt-3 m-1">
+                                <i class="fas fa-map-marker-alt fa-lg"></i>
+                                <p class="pl-1 lead d-inline-block font-weight-normal">Sit sunt</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-6 col-sm-4 col-md-3 col-lg-3 focom-list focom-reset-padding p-1 p-sm-2 p-md-2">
-            <a href="html/" class="text-dark">
-                <div class="border rounded shadow bg-white rounded focom-list">
-                    <img src="https://focomotor.com.ar/wp-content/uploads/elementor/thumbs/Car-21-otis76li15rp12tqtltcwnc8mkmgebx4o5899jhd0g.jpg" width="100%">
-                    <h4 class="m-1 h5 font-weight-normal">Irure elit ut ad quis ea reprehenderit in sint elit</h4>
-                    <p class="lead focom-list-price m-1 font-weight-normal">$489600</p>
-                    <div class="pt-3 m-1">
-                        <i class="fas fa-map-marker-alt fa-lg"></i>
-                        <p class="pl-1 lead d-inline-block font-weight-normal">Sit sunt</p>
+                </a>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-3 focom-list focom-reset-padding p-1 p-sm-2 p-md-2">
+                <a href="{{ route('car.details') }}" class="text-dark">
+                    <div class="border rounded shadow bg-white rounded focom-list">
+                        <img src="https://focomotor.com.ar/wp-content/uploads/elementor/thumbs/Car-21-otis76li15rp12tqtltcwnc8mkmgebx4o5899jhd0g.jpg" width="100%">
+                        <div class="px-1 px-md-2">  
+                            <h4 class="m-1 h5 focom-list-titleFont">Toyota Ambeliot Diesel 154.000km 2015</h4>
+                            <p class="lead focom-list-price m-1 font-weight-normal">$1.991.800</p>
+                            <div class="pt-3 m-1">
+                                <i class="fas fa-map-marker-alt fa-lg"></i>
+                                <p class="pl-1 lead d-inline-block font-weight-normal">Sit sunt</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-6 col-sm-4 col-md-3 col-lg-3 focom-list focom-reset-padding p-1 p-sm-2 p-md-2">
-            <a href="html/" class="text-dark">
-                <div class="border rounded shadow bg-white rounded focom-list">
-                    <img src="https://focomotor.com.ar/wp-content/uploads/elementor/thumbs/Car-21-otis76li15rp12tqtltcwnc8mkmgebx4o5899jhd0g.jpg" width="100%">
-                    <h4 class="m-1 h5 font-weight-normal">Irure elit ut ad quis ea reprehenderit in sint elit</h4>
-                    <p class="lead focom-list-price m-1 font-weight-normal">$489600</p>
-                    <div class="pt-3 m-1">
-                        <i class="fas fa-map-marker-alt fa-lg"></i>
-                        <p class="pl-1 lead d-inline-block font-weight-normal">Sit sunt</p>
+                </a>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-3 focom-list focom-reset-padding p-1 p-sm-2 p-md-2">
+                <a href="{{ route('car.details') }}" class="text-dark">
+                    <div class="border rounded shadow bg-white rounded focom-list">
+                        <img src="https://focomotor.com.ar/wp-content/uploads/elementor/thumbs/Car-21-otis76li15rp12tqtltcwnc8mkmgebx4o5899jhd0g.jpg" width="100%">
+                        <div class="px-1 px-md-2">  
+                            <h4 class="m-1 h5 focom-list-titleFont">Toyota Ambeliot Diesel 154.000km 2015</h4>
+                            <p class="lead focom-list-price m-1 font-weight-normal">$1.991.800</p>
+                            <div class="pt-3 m-1">
+                                <i class="fas fa-map-marker-alt fa-lg"></i>
+                                <p class="pl-1 lead d-inline-block font-weight-normal">Sit sunt</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-6 col-sm-4 col-md-3 col-lg-3 focom-list focom-reset-padding p-1 p-sm-2 p-md-2">
-            <a href="html/" class="text-dark">
-                <div class="border rounded shadow bg-white rounded focom-list">
-                    <img src="https://focomotor.com.ar/wp-content/uploads/elementor/thumbs/Car-21-otis76li15rp12tqtltcwnc8mkmgebx4o5899jhd0g.jpg" width="100%">
-                    <h4 class="m-1 h5 font-weight-normal">Irure elit ut ad quis ea reprehenderit in sint elit</h4>
-                    <p class="lead focom-list-price m-1 font-weight-normal">$489600</p>
-                    <div class="pt-3 m-1">
-                        <i class="fas fa-map-marker-alt fa-lg"></i>
-                        <p class="pl-1 lead d-inline-block font-weight-normal">Sit sunt</p>
+                </a>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-3 focom-list focom-reset-padding p-1 p-sm-2 p-md-2">
+                <a href="{{ route('car.details') }}" class="text-dark">
+                    <div class="border rounded shadow bg-white rounded focom-list">
+                        <img src="https://focomotor.com.ar/wp-content/uploads/elementor/thumbs/Car-21-otis76li15rp12tqtltcwnc8mkmgebx4o5899jhd0g.jpg" width="100%">
+                        <div class="px-1 px-md-2">  
+                            <h4 class="m-1 h5 focom-list-titleFont">Toyota Ambeliot Diesel 154.000km 2015</h4>
+                            <p class="lead focom-list-price m-1 font-weight-normal">$1.991.800</p>
+                            <div class="pt-3 m-1">
+                                <i class="fas fa-map-marker-alt fa-lg"></i>
+                                <p class="pl-1 lead d-inline-block font-weight-normal">Sit sunt</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-6 col-sm-4 col-md-3 col-lg-3 focom-list focom-reset-padding p-1 p-sm-2 p-md-2">
-            <a href="html/" class="text-dark">
-                <div class="border rounded shadow bg-white rounded focom-list">
-                    <img src="https://focomotor.com.ar/wp-content/uploads/elementor/thumbs/Car-21-otis76li15rp12tqtltcwnc8mkmgebx4o5899jhd0g.jpg" width="100%">
-                    <h4 class="m-1 h5 font-weight-normal">Irure elit ut ad quis ea reprehenderit in sint elit</h4>
-                    <p class="lead focom-list-price m-1 font-weight-normal">$489600</p>
-                    <div class="pt-3 m-1">
-                        <i class="fas fa-map-marker-alt fa-lg"></i>
-                        <p class="pl-1 lead d-inline-block font-weight-normal">Sit sunt</p>
+                </a>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-3 focom-list focom-reset-padding p-1 p-sm-2 p-md-2">
+                <a href="{{ route('car.details') }}" class="text-dark">
+                    <div class="border rounded shadow bg-white rounded focom-list">
+                        <img src="https://focomotor.com.ar/wp-content/uploads/elementor/thumbs/Car-21-otis76li15rp12tqtltcwnc8mkmgebx4o5899jhd0g.jpg" width="100%">
+                        <div class="px-1 px-md-2">  
+                            <h4 class="m-1 h5 focom-list-titleFont">Toyota Ambeliot Diesel 154.000km 2015</h4>
+                            <p class="lead focom-list-price m-1 font-weight-normal">$1.991.800</p>
+                            <div class="pt-3 m-1">
+                                <i class="fas fa-map-marker-alt fa-lg"></i>
+                                <p class="pl-1 lead d-inline-block font-weight-normal">Sit sunt</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-6 col-sm-4 col-md-3 col-lg-3 focom-list focom-reset-padding p-1 p-sm-2 p-md-2">
-            <a href="html/" class="text-dark">
-                <div class="border rounded shadow bg-white rounded focom-list">
-                    <img src="https://focomotor.com.ar/wp-content/uploads/elementor/thumbs/Car-21-otis76li15rp12tqtltcwnc8mkmgebx4o5899jhd0g.jpg" width="100%">
-                    <h4 class="m-1 h5 font-weight-normal">Irure elit ut ad quis ea reprehenderit in sint elit</h4>
-                    <p class="lead focom-list-price m-1 font-weight-normal">$489600</p>
-                    <div class="pt-3 m-1">
-                        <i class="fas fa-map-marker-alt fa-lg"></i>
-                        <p class="pl-1 lead d-inline-block font-weight-normal">Sit sunt</p>
+                </a>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-3 focom-list focom-reset-padding p-1 p-sm-2 p-md-2">
+                <a href="{{ route('car.details') }}" class="text-dark">
+                    <div class="border rounded shadow bg-white rounded focom-list">
+                        <img src="https://focomotor.com.ar/wp-content/uploads/elementor/thumbs/Car-21-otis76li15rp12tqtltcwnc8mkmgebx4o5899jhd0g.jpg" width="100%">
+                        <div class="px-1 px-md-2">  
+                            <h4 class="m-1 h5 focom-list-titleFont">Toyota Ambeliot Diesel 154.000km 2015</h4>
+                            <p class="lead focom-list-price m-1 font-weight-normal">$1.991.800</p>
+                            <div class="pt-3 m-1">
+                                <i class="fas fa-map-marker-alt fa-lg"></i>
+                                <p class="pl-1 lead d-inline-block font-weight-normal">Sit sunt</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            </div>
         </div>
+
+
+        @include('elements.advertisement_publishNow')
+
+        <h1 class="h4 mt-n2">Te puede interesar:</h1>
+        <div class="row">
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-3 focom-list focom-reset-padding p-1 p-sm-2 p-md-2">
+                <a href="{{ route('car.details') }}" class="text-dark">
+                    <div class="border rounded shadow bg-white rounded focom-list">
+                        <img src="https://focomotor.com.ar/wp-content/uploads/elementor/thumbs/Car-21-otis76li15rp12tqtltcwnc8mkmgebx4o5899jhd0g.jpg" width="100%">
+                        <div class="px-1 px-md-2">  
+                            <h4 class="m-1 h5 focom-list-titleFont">Toyota Ambeliot Diesel 154.000km 2015</h4>
+                            <p class="lead focom-list-price m-1 font-weight-normal">$1.991.800</p>
+                            <div class="pt-3 m-1">
+                                <i class="fas fa-map-marker-alt fa-lg"></i>
+                                <p class="pl-1 lead d-inline-block font-weight-normal">Sit sunt</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-3 focom-list focom-reset-padding p-1 p-sm-2 p-md-2">
+                <a href="{{ route('car.details') }}" class="text-dark">
+                    <div class="border rounded shadow bg-white rounded focom-list">
+                        <img src="https://focomotor.com.ar/wp-content/uploads/elementor/thumbs/Car-21-otis76li15rp12tqtltcwnc8mkmgebx4o5899jhd0g.jpg" width="100%">
+                        <div class="px-1 px-md-2">  
+                            <h4 class="m-1 h5 focom-list-titleFont">Toyota Ambeliot Diesel 154.000km 2015</h4>
+                            <p class="lead focom-list-price m-1 font-weight-normal">$1.991.800</p>
+                            <div class="pt-3 m-1">
+                                <i class="fas fa-map-marker-alt fa-lg"></i>
+                                <p class="pl-1 lead d-inline-block font-weight-normal">Sit sunt</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-3 focom-list focom-reset-padding p-1 p-sm-2 p-md-2">
+                <a href="{{ route('car.details') }}" class="text-dark">
+                    <div class="border rounded shadow bg-white rounded focom-list">
+                        <img src="https://focomotor.com.ar/wp-content/uploads/elementor/thumbs/Car-21-otis76li15rp12tqtltcwnc8mkmgebx4o5899jhd0g.jpg" width="100%">
+                        <div class="px-1 px-md-2">  
+                            <h4 class="m-1 h5 focom-list-titleFont">Toyota Ambeliot Diesel 154.000km 2015</h4>
+                            <p class="lead focom-list-price m-1 font-weight-normal">$1.991.800</p>
+                            <div class="pt-3 m-1">
+                                <i class="fas fa-map-marker-alt fa-lg"></i>
+                                <p class="pl-1 lead d-inline-block font-weight-normal">Sit sunt</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-3 focom-list focom-reset-padding p-1 p-sm-2 p-md-2">
+                <a href="{{ route('car.details') }}" class="text-dark">
+                    <div class="border rounded shadow bg-white rounded focom-list">
+                        <img src="https://focomotor.com.ar/wp-content/uploads/elementor/thumbs/Car-21-otis76li15rp12tqtltcwnc8mkmgebx4o5899jhd0g.jpg" width="100%">
+                        <div class="px-1 px-md-2">  
+                            <h4 class="m-1 h5 focom-list-titleFont">Toyota Ambeliot Diesel 154.000km 2015</h4>
+                            <p class="lead focom-list-price m-1 font-weight-normal">$1.991.800</p>
+                            <div class="pt-3 m-1">
+                                <i class="fas fa-map-marker-alt fa-lg"></i>
+                                <p class="pl-1 lead d-inline-block font-weight-normal">Sit sunt</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-3 focom-list focom-reset-padding p-1 p-sm-2 p-md-2">
+                <a href="{{ route('car.details') }}" class="text-dark">
+                    <div class="border rounded shadow bg-white rounded focom-list">
+                        <img src="https://focomotor.com.ar/wp-content/uploads/elementor/thumbs/Car-21-otis76li15rp12tqtltcwnc8mkmgebx4o5899jhd0g.jpg" width="100%">
+                        <div class="px-1 px-md-2">  
+                            <h4 class="m-1 h5 focom-list-titleFont">Toyota Ambeliot Diesel 154.000km 2015</h4>
+                            <p class="lead focom-list-price m-1 font-weight-normal">$1.991.800</p>
+                            <div class="pt-3 m-1">
+                                <i class="fas fa-map-marker-alt fa-lg"></i>
+                                <p class="pl-1 lead d-inline-block font-weight-normal">Sit sunt</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-3 focom-list focom-reset-padding p-1 p-sm-2 p-md-2">
+                <a href="{{ route('car.details') }}" class="text-dark">
+                    <div class="border rounded shadow bg-white rounded focom-list">
+                        <img src="https://focomotor.com.ar/wp-content/uploads/elementor/thumbs/Car-21-otis76li15rp12tqtltcwnc8mkmgebx4o5899jhd0g.jpg" width="100%">
+                        <div class="px-1 px-md-2">  
+                            <h4 class="m-1 h5 focom-list-titleFont">Toyota Ambeliot Diesel 154.000km 2015</h4>
+                            <p class="lead focom-list-price m-1 font-weight-normal">$1.991.800</p>
+                            <div class="pt-3 m-1">
+                                <i class="fas fa-map-marker-alt fa-lg"></i>
+                                <p class="pl-1 lead d-inline-block font-weight-normal">Sit sunt</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
     </div>
 
     @include('elements.notification')

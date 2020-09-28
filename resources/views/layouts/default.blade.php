@@ -59,10 +59,20 @@
 
             @auth('web')
                 {{-- expr --}}
+                <div class="d-flex align-content-center">
+                <a href="sitio del  usuario">
+                    <div class="focom-header-imageProfile mr-2">
+                        <img class="border" src="/img/default_profile.jpg">
+                    </div>
+                </a>
+                <a href="sitio del usuario" class="text-secondary my-auto text-decoration-none">Nombre del usuario</a>
+                
+                <-- 
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <button class="btn btn-primary">Logout</button>
                 </form>
+                 -->
             @endauth
         </div>
     </header>
