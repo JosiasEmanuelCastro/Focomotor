@@ -19,7 +19,7 @@
                 </ul>
             </div>
         @endif
-        
+
         <div class="text-center pt-1 pb-4">
             <a href="{{ route('login') }}">Ingresar</a>
             <a href="{{ route('register') }}" class="pl-3 font-weight-bold">Registro</a>
@@ -27,9 +27,9 @@
         <form action="{{ route('register') }}" method="POST" id="register">
             @csrf
             <label for="name" class="pt-2">Nombre y Apellido</label>
-            <input type="text" class="form-control" name="name" aria-describedby="nameHelp">
+            <input type="text" class="form-control" name="name" value="{{ old('name') }}" aria-describedby="nameHelp">
             <label for="email" class="mt-3">Correo electrónico</label>
-            <input type="email" class="form-control" name="email" aria-describedby="emailHelp">
+            <input type="email" class="form-control" name="email" value="{{ old('email') }}" aria-describedby="emailHelp">
             <label for="password" class="mt-3">Contraseña</label>
             <input type="password" class="form-control" name="password" aria-describedby="passwordHelp">
             <label for="password_confirmation" class="mt-3">Confirmar Contraseña</label>
@@ -53,7 +53,7 @@
             </v-select>
             <input type="hidden" name="location">
             <label for="telephone" class="pt-2">Telefono</label>
-            <input type="text" class="form-control" name="telephone" aria-describedby="telephoneHelp">
+            <input type="text" class="form-control" name="telephone" value="{{ old('telephone') }}" aria-describedby="telephoneHelp">
             <div class="d-flex justify-content-center">
                 <button @click.prevent="submit" class="btn btn-primary px-5 mt-4">Registrarse</button>
             </div>
