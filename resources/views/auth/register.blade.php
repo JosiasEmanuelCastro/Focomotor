@@ -9,11 +9,17 @@
 </div>
 <div class="d-flex justify-content-center">
     <div class="bg-white focom-signin-card border shadow rounded w-100 mx-3">
-        @if($errors)
-        @foreach($errors as $error)
-        <div>{{ dump($error) }}</div>
-        @endforeach
+        
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
         @endif
+        
         <div class="text-center pt-1 pb-4">
             <a href="{{ route('login') }}">Ingresar</a>
             <a href="{{ route('register') }}" class="pl-3 font-weight-bold">Registro</a>

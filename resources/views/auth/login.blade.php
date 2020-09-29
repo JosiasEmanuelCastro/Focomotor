@@ -1,23 +1,29 @@
 @extends('layouts.lite')
-
 @section('section')
-
-    
-    <div class="text-center bg-primary focom-signin-paddingy">
-        <div>
-            <a href="{{ route('home') }}">
-                <img height="25px" class="focom-logo" src="../img/focom-white.png">
-            </a>
-        </div>
+<div class="text-center bg-primary focom-signin-paddingy">
+    <div>
+        <a href="{{ route('home') }}">
+            <img height="25px" class="focom-logo" src="/img/focom-white.png">
+        </a>
     </div>
-    <div class="d-flex justify-content-center mb-5">
-        <div class="bg-white focom-signin-card border shadow rounded w-100 mx-3">
-            <div class="text-center pt-1 pb-4">
-                <a href="{{ route('login') }}" class="pr-3 font-weight-bold">Ingresar</a>
-                <a href="{{ route('register') }}">Registro</a>
-            </div>
-            <form action="{{ route('login') }}" method="POST">
-                @csrf
+</div>
+<div class="d-flex justify-content-center mb-5">
+    <div class="bg-white focom-signin-card border shadow rounded w-100 mx-3">
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+        <div class="text-center pt-1 pb-4">
+            <a href="{{ route('login') }}" class="pr-3 font-weight-bold">Ingresar</a>
+            <a href="{{ route('register') }}">Registro</a>
+        </div>
+        <form action="{{ route('login') }}" method="POST">
+            @csrf
             <label for="email" class="pt-2">E-mail</label>
             <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
             <label for="password" class="mt-3">Contraseña</label>
@@ -32,8 +38,7 @@
                     <a href="restablecer.html" class="text-muted small">¿Has olvidado tu contraseña?</a>
                 </div>
             </div>
-            </form>
-        </div>
+        </form>
     </div>
-
+</div>
 @endsection
