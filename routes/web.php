@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\ArticlesController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,8 +21,14 @@ Route::get('/profile', [UsersController::class, 'dashboard'])->name('user.dashbo
 //Route::get('/profile', [UsersController::class, 'dashboard'])->name('user.dashboard');
 
 Route::get('/',  [PagesController::class, 'index'])->name('home');
+
+
+Route::get('/publicar',  [ArticlesController::class, 'create'])->name('articles.create')->middleware(['auth', 'plan.limit']);
+
+Route::post('/articles',  [ArticlesController::class, 'store'])->name('articles.store')->middleware(['auth', 'plan.limit']);
+
 Route::view('listado', 'list')->name('list');
-Route::view('publicar', 'publish')->name('publish')->middleware('auth');
+//Route::view('publicar', 'publish')->name('publish')->middleware('auth');
 Route::view('planes', 'plans')->name('plans')->middleware('auth');
 Route::view('ayuda', 'info.help')->name('info.help');
 
