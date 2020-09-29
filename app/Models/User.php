@@ -29,6 +29,8 @@ class User extends Authenticatable
         'password',
         'location',
         'telephone',
+        'plan_id',
+        'role_id',
     ];
 
     /**
@@ -60,4 +62,14 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function articles()
+    {
+        return $this->hasMany(Article::class);
+    }
+
+    public function plan()
+    {
+        return $this->belongsTo(Plan::class);
+    }
 }
