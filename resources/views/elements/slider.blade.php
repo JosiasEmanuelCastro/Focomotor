@@ -2,7 +2,7 @@
     <div id="focomSlideHome" class="carousel slide mt-n4 mt-md-0" data-ride="carousel" data-pause="false" data-interval="4500" keyboard="false" data-touch="true">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <a href="{{ route('publish') }}">
+                <a href="{{ route('articles.create') }}">
                     <img src="/img/Banner1.jpg" class="w-100 d-none d-md-block" alt="Publish">
                     <img src="/img/BannerMobile1.jpg" class="w-100 d-block d-md-none" alt="Publish">
                 </a>
@@ -14,7 +14,7 @@
                 </a>
             </div>
             <div class="carousel-item">
-                <a href="{{ route('publish') }}">
+                <a href="{{ route('articles.create') }}">
                     <img src="/img/Banner3.jpg" class="w-100 d-none d-md-block" alt="Publish">
                     <img src="/img/BannerMobile3.jpg" class="w-100 d-block d-md-none" alt="Publish">
                 </a>

@@ -41,7 +41,7 @@
                 <div class="focom-nav-desktop">
                     <a href="{{ route('home')}}" class="text-primary">Inicio</a>
                     <a href="{{ route('list') }}" class="text-black-50">Listado</a>
-                    <a href="{{ route('publish') }}" class="text-black-50">Publicar</a>
+                    <a href="{{ route('articles.create') }}" class="text-black-50">Publicar</a>
                     <a href="{{ route('plans') }}" class="text-black-50">Concesionarias</a>
                     <a href="{{ route('info.help') }}" class="text-black-50">Ayuda</a>
                 </div>
@@ -98,7 +98,7 @@
                 <i class="fas fa-car focom-mobile-nav-icon"></i>
                 <p class="focom-mobile-nav-text">Vehículos</p>
             </a>
-            <a href="{{ route('publish') }}" class="m-auto text-decoration-none">
+            <a href="{{ route('articles.create') }}" class="m-auto text-decoration-none">
                 <i class="fab fa-wpforms fa-2x focom-mobile-nav-icon"></i>
                 <p class="focom-mobile-nav-text">Publicar</p>
             </a>
@@ -148,7 +148,7 @@
                     <u>Registrarse</u>
                 </a>
                 <br>
-                <a href="{{ route('publish') }}" class="small text-white">
+                <a href="{{ route('articles.create') }}" class="small text-white">
                     <u>Publicar</u>
                 </a>
                 <br>
