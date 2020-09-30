@@ -23,7 +23,8 @@ class CreateArticlesTable extends Migration
             $table->double('price');
             $table->bigInteger('kilometers');
             $table->string('feature_image');
-            $table->string('description');
+            $table->integer('doors');
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }
