@@ -48,9 +48,12 @@ class ArticlesController extends Controller
             'feature_image' => ['required', 'image'],
         ]);
 
-        if($validator->errors()->messages()){
-             return response()->view('publish', $validator->errors(), 400);
+        if ($validator->fails()) {
+            return redirect()->route('articles.create')
+                        ->withErrors($validator)
+                        ->withInput();
         }
+
 
             $path = $request->file('feature_image')->store('images');
 
