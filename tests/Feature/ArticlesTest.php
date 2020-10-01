@@ -107,7 +107,6 @@ class ArticlesTest extends TestCase
 
         $this->assertDatabaseCount('articles', 0);
 
-        $response->assertStatus(400);
     }
 
     public function test_it_should_return_an_error_if_the_user_cannont_make_any_more_posts()
@@ -152,6 +151,43 @@ class ArticlesTest extends TestCase
 
         $response1->assertStatus(201);
         $response2->assertStatus(403);
+    }
+
+    public function test_it_should_return_an_articled_created_with_images()
+    {
+        $this->withoutExceptionHandling();
+
+        Storage::fake('images');
+
+        $file = UploadedFile::fake()->image('ford-fiesta.png');
+
+        $file1 = UploadedFile::fake()->image('ford-fiesta1.png');
+        $file2 = UploadedFile::fake()->image('ford-fiesta2.png');
+        $file3 = UploadedFile::fake()->image('ford-fiesta3.png');
+        $file4 = UploadedFile::fake()->image('ford-fiesta4.png');
+
+        $response = $this->actingAs($this->user)
+            ->post('/articles', [
+                "model_id" => 1,
+                "user_id" => $this->user->id,
+                "year" => "2020",
+                "fuel" => "Naftero",
+                "price" => 200000,
+                "condition" => "Nuevo",
+                "kilometers" => 0,
+                "feature_image" => $file,
+                "description" => "Soy un vehiculo. Prueba de que ha sido creado",
+                "images" => [$file1, $file2, $file3, $file4],
+            
+        ]);
+
+        //$response->dump();
+
+        //Storage::disk('images')->assertExists('images/'.$file->hashName());
+
+        $this->assertDatabaseCount('article_images', 4);
+
+        $response->assertStatus(201);
     }
 
 

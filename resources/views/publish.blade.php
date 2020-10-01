@@ -91,7 +91,7 @@
                 <div class="d-flex">
                     <!-- IMAGEN 2 -->
                     <div class="focom-input-image rounded border mr-3">
-                        <input type="file" class="file-1" name="image1" v-on:change="previewFile($event, 1)" accept="image/jpg, image/jpeg, image/png"><br>
+                        <input type="file" class="file-1" name="images[]" v-on:change="previewFile($event, 1)" accept="image/jpg, image/jpeg, image/png"><br>
                         <img src="" class="img-1 d-none focom-input-image-preview" alt="Image preview...">
                         
                         
@@ -99,7 +99,7 @@
                     </div>
                     <!-- IMAGEN 3 -->
                     <div class="focom-input-image rounded border">
-                         <input type="file" class="file-2" name="image2" v-on:change="previewFile($event, 2)" accept="image/jpg, image/jpeg, image/png"><br>
+                         <input type="file" class="file-2" name="images[]" v-on:change="previewFile($event, 2)" accept="image/jpg, image/jpeg, image/png"><br>
                         <img src="" class="img-2 d-none focom-input-image-preview" alt="Image preview...">
 
                         <a class="delete-2" @click="resetImage(2)"></a>
@@ -108,14 +108,14 @@
                 <div class="d-flex mt-3">
                     <!-- IMAGEN 4 -->
                     <div class="focom-input-image rounded border mr-3">
-                         <input type="file" class="file-3" name="image3" v-on:change="previewFile($event, 3)" accept="image/jpg, image/jpeg, image/png"><br>
+                         <input type="file" class="file-3" name="images[]" v-on:change="previewFile($event, 3)" accept="image/jpg, image/jpeg, image/png"><br>
                         <img src="" class="img-3 d-none focom-input-image-preview" alt="Image preview...">
 
                         <a class="delete-3" @click="resetImage('3')"></a>
                     </div>
                     <!-- IMAGEN 5 -->
                     <div class="focom-input-image rounded border">
-                         <input type="file" class="file-4" name="image4" v-on:change="previewFile($event, 4)" accept="image/jpg, image/jpeg, image/png"><br>
+                         <input type="file" class="file-4" name="images[]" v-on:change="previewFile($event, 4)" accept="image/jpg, image/jpeg, image/png"><br>
                         <img src="" class="img-4 d-none focom-input-image-preview" alt="Image preview...">
 
                         <a class="delete-4" @click="resetImage('file-4')"></a>

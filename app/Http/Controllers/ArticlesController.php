@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Auth;
 use App\Models\Article;
+use App\Models\ArticleImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -54,24 +55,36 @@ class ArticlesController extends Controller
                         ->withInput();
         }
 
+        $path = $request->file('feature_image')->store('images');
 
-            $path = $request->file('feature_image')->store('images');
+        $article = new Article();
 
-            $article = new Article();
+        $article->model_id = $request->model_id;
+        $article->kilometers = $request->kilometers;
+        $article->year = $request->year;
+        $article->fuel = $request->fuel;
+        $article->condition = $request->condition;   
+        $article->price = $request->price;
+        $article->description = $request->description;
+        $article->doors = $request->doors;
+        $article->feature_image = $path;
+        $article->user_id = Auth::id();
 
-            $article->model_id = $request->model_id;
-            $article->kilometers = $request->kilometers;
-            $article->year = $request->year;
-            $article->fuel = $request->fuel;
-            $article->condition = $request->condition;   
-            $article->price = $request->price;
-            $article->description = $request->description;
-            $article->feature_image = $path;
-            $article->user_id = Auth::id();
+        $article->save();
 
-            $article->save();
+        //$pathImages = array();
 
-            return redirect('profile', 201);
+        if(isset($request->images)){
+            foreach ($request->images as $image) {
+                $path = $image->store('images');
+                $imageModel = new ArticleImage();
+                $imageModel->image_path = $path;
+                $imageModel->article_id = $article->id;
+                $imageModel->save();
+            }
+        }
+
+        return redirect('profile', 201);
     }
 
     /**
