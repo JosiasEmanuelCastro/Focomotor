@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\ArticlesController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,8 +19,17 @@ use App\Http\Controllers\PagesController;
 Route::get('/profile', [UsersController::class, 'dashboard'])->name('user.dashboard')->middleware('auth');
 
 Route::get('/',  [PagesController::class, 'index'])->name('home');
+
+/* 
+* Para acceder a estas rutas, necesitaras crear un plan. Si no desea 
+* hacerlo de momento, puedes eliminar
+* el middleware 'plan.limit'
+*/
+Route::get('/publicar',  [ArticlesController::class, 'create'])->name('articles.create')->middleware(['auth', 'plan.limit']);
+
+Route::post('/articles',  [ArticlesController::class, 'store'])->name('articles.store')->middleware(['auth', 'plan.limit']);
+
 Route::view('listado', 'list')->name('list');
-Route::view('publicar', 'publish')->name('publish')->middleware('auth');
 Route::view('planes', 'plans')->name('plans')->middleware('auth');
 Route::view('ayuda', 'info.help')->name('info.help');
 
@@ -34,7 +45,7 @@ Route::view('bienvenido', 'welcome')->name('welcome');
 
 
 /* ESTAS RUTAS SON DE PRUEBA PARA VER LOS DISEÑOS SIN REGISTRO */
-Route::view('publishLogout', 'publishLogout');
+Route::view('guest', 'publish-guest')->name('publish.guest');;
 Route::view('plans', 'plans');
 
 

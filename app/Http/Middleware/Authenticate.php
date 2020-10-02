@@ -14,6 +14,12 @@ class Authenticate extends Middleware
      */
     protected function redirectTo($request)
     {
+
+        if ($request->is('publicar')) {
+            return route('publish.guest');
+        }
+
+
         if (! $request->expectsJson()) {
             return route('login');
         }

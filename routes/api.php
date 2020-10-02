@@ -3,6 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\DataController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\TrademarkController;
+use App\Http\Controllers\ModelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +23,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/locations/{query}', [DataController::class, 'getLocations']);
+
+Route::get('/categories', [CategoryController::class, 'index']);
+
+Route::get('/categories/{category}/trademarks', [TrademarkController::class, 'index']);
+
+Route::get('/trademarks/{trademark}/models', [ModelController::class, 'index']);
+
+
