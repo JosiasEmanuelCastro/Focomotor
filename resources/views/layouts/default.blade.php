@@ -59,22 +59,26 @@
 
             @auth('web')
                 {{-- expr --}}
-                <div class="d-flex align-content-center">
-                <a href="sitio del  usuario">
-                    <div class="focom-header-imageProfile mr-2">
-                        <img class="border" src="/img/default_profile.jpg">
-                    </div>
-                </a>
-                <a href="sitio del usuario" class="text-secondary my-auto text-decoration-none">Nombre del usuario</a>
-                
-                <-- 
-                <form action="{{ route('logout') }}" method="POST">
-                    @csrf
-                    <button class="btn btn-primary">Logout</button>
-                </form>
-                 -->
+            <div class="dropdown">
+                <div class="d-flex align-items-center" type="button" id="focomUserDropDownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a href="{{-- SITIO DEL USUARIO --}}">
+                        <div class="focom-header-imageProfile mr-2">
+                            <img class="border" src="/img/default_profile.jpg">
+                        </div>
+                    </a>
+                    <a href="{{-- SITIO DEL USUARIO --}}" class="text-secondary text-decoration-none">Nombre del usuario</a>
+                    <i class="ml-2 fas fa-angle-down text-secondary focom-userArrow" style="padding-top: 3px;"></i>
+                </div>
+                <div class="dropdown-menu w-100 ml-1 mt-2" aria-labelledby="focomUserDropDownMenu">
+                    <a class="dropdown-item" href="#">Mi cuenta</a>
+                    <div class="dropdown-divider"></div>
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button class="dropdown-item">Salir</button>
+                    </form>
+                </div> 
+            </div>
             @endauth
-        </div>
     </header>
     <div></div>
     <!-- END HEADER DESKTOP --->

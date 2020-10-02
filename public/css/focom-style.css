@@ -362,6 +362,9 @@
     border-radius: 50%;
 }
 
+.focom-userArrow {
+    padding-top: 3px;
+}
 /*      SOLO DESKTOP      */
 @media (min-width: 768px) {
     .focom-section-paddingx {
