@@ -9,36 +9,43 @@
 </div>
 <div class="d-flex justify-content-center">
     <div class="bg-white focom-signin-card border shadow rounded w-100 mx-3">
-        
         @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
         @endif
-
         <div class="text-center pt-1 pb-4">
             <a href="{{ route('login') }}">Ingresar</a>
             <a href="{{ route('register') }}" class="pl-3 font-weight-bold">Registro</a>
         </div>
         <form action="{{ route('register') }}" method="POST" id="register">
             @csrf
-            <label for="name" class="pt-2">Nombre y Apellido</label>
+            <label for="name" class="pt-2">Nombre y apellido</label>
+            <div class="alert alert-danger" role="alert">
+                El nombre y apellido es obligatorio
+            </div>
             <input type="text" class="form-control" name="name" value="{{ old('name') }}" aria-describedby="nameHelp">
-            <label for="email" class="mt-3">Correo electrónico</label>
-            <input type="email" class="form-control" name="email" value="{{ old('email') }}" aria-describedby="emailHelp">
+            <label for="email" class="mt-3">Email</label>
+            <div class="alert alert-danger" role="alert">
+                El email es obligatorio
+            </div>
+            <input type="email" class="form-control" value="{{ old('email') }}" name="email" aria-describedby="emailHelp">
             <label for="password" class="mt-3">Contraseña</label>
+            <div class="alert alert-danger" role="alert">
+                La contraseña es obligatoria
+            </div>
             <input type="password" class="form-control" name="password" aria-describedby="passwordHelp">
-            <label for="password_confirmation" class="mt-3">Confirmar Contraseña</label>
-            <input type="password" class="form-control" name="password_confirmation" aria-describedby="passwordConfirmationHelp">
             <label for="location" class="pt-2">Localidad</label>
+            <div class="alert alert-danger" role="alert">
+                Los localidad es obligatoria
+            </div>
             <v-select v-model="finder" :filterable="false" :options="cities" @search="find" label="display_name" aria-describedby="locationHelp">
-               
                 <template slot="no-options">
-                    Ingrese una localidad..
+                    Ingrese una localidad...
                 </template>
                 <template #option="{ display_name }">
                     <div class="d-center cursor-pointer">
@@ -51,9 +58,15 @@
                     </div>
                 </template>
             </v-select>
+            
+            <!-- ¿¿QUE PASA CON EL INPUT DE ABAJO?? ¡ESTA OCULTO! (Mayús. para que veas) -->
             <input type="hidden" name="location">
-            <label for="telephone" class="pt-2">Telefono</label>
-            <input type="text" class="form-control" name="telephone" value="{{ old('telephone') }}" aria-describedby="telephoneHelp">
+            <!-- ACÁ TERMINA EL INPUT DEL QUE TE HABLO-->
+            <label for="telephone" class="pt-2">Teléfono</label>
+            <div class="alert alert-danger" role="alert">
+                El teléfono es obligatorio
+            </div>
+            <input type="text" class="form-control" value="{{ old('telephone') }}" name="telephone" aria-describedby="telephoneHelp">
             <div class="d-flex justify-content-center">
                 <button @click.prevent="submit" class="btn btn-primary px-5 mt-4">Registrarse</button>
             </div>
@@ -77,7 +90,7 @@ var app = new Vue({
     el: '#app',
     data: {
         message: 'Hello Vue!',
-        finder: { display_name: '', icon: ''},
+        finder: { display_name: '', icon: '' },
         cities: []
 
     },
@@ -87,11 +100,11 @@ var app = new Vue({
     methods: {
         async find(search, loading) {
 
-            if(search != ''){
+            if (search != '') {
                 loading(true);
-                this.search(loading, search, this);    
+                this.search(loading, search, this);
             }
-            
+
             //const searchWeather = await fetch(`/api/weather/findByLocation/${search}`);
             //this.cities = await searchWeather.json()
         },
@@ -103,7 +116,7 @@ var app = new Vue({
                 loading(false);
             });
         }, 2000),
-        submit(){
+        submit() {
 
             $('input[name="location"]').val(JSON.stringify(this.finder));
 
@@ -111,7 +124,7 @@ var app = new Vue({
             const form = document.getElementById('register');
             form.submit();
 
-        } 
+        }
     }
 })
 
