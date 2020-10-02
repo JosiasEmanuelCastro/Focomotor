@@ -7,6 +7,7 @@
         </a>
     </div>
 </div>
+
 <div class="d-flex justify-content-center mb-5">
     <div class="bg-white focom-signin-card border shadow rounded w-100 mx-3">
         <div class="text-center pt-1 pb-4">
@@ -15,18 +16,20 @@
         </div>
         <form action="{{ route('login') }}" method="POST">
             @csrf
-            <div class="alert alert-danger" role="alert">
-                Los datos ingresados no son correctos
-            </div>
+
             <label for="email" class="pt-2">Email</label>
-            <div class="alert alert-danger" role="alert">
-                El email es obligatorio
-            </div>
+            @error('email')
+                <div class="alert alert-danger" role="alert">
+                    {{ $message }}
+                </div>
+            @enderror
             <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
             <label for="password" class="mt-3">Contraseña</label>
-            <div class="alert alert-danger" role="alert">
-                La contraseña es obligatoria
-            </div>
+            @error('password')
+                <div class="alert alert-danger" role="alert">
+                    {{ $message }}
+                </div>
+            @enderror
             <input type="password" class="form-control" name="password" id="password" aria-describedby="passwordHelp">
             <div class="form-group form-check pt-4">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">

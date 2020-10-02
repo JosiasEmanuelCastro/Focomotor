@@ -45,7 +45,7 @@ Route::view('bienvenido', 'welcome')->name('welcome');
 
 
 /* ESTAS RUTAS SON DE PRUEBA PARA VER LOS DISEÑOS SIN REGISTRO */
-Route::view('publishLogout', 'publishLogout');
+Route::view('guest', 'publish-guest')->name('publish.guest');;
 Route::view('plans', 'plans');
 
 

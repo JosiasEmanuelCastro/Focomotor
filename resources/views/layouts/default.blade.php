@@ -19,65 +19,9 @@
 
 <body class="focom-minwidth">
     <!-- BEGIN HEADER DESKTOP --->
-    <header class="d-none d-md-block my-3 mx-md-4 mx-lg-5">
-        <div class="d-flex align-items-center">
-            <div class="flex-grow-0">
-                <div class="pt-1 mb-n1">
-                    <a href="{{ route('home')}}">
-                        <img height="20px" src="/img/focom-primary.png">
-                    </a>
-                </div>
-                <div class="pt-4">
-                    <span href="html/" class="text-decoration-none focom-header-desktop-ubication"></span>
-                </div>
-            </div>
-            <div class="flex-grow-1 mx-md-4 mx-lg-5">
-                <div class="input-group focom-nav-desktop-search">
-                    <input type="text" class="form-control focom-nav-desktop-input" placeholder="Buscar en Focomotor">
-                    <div class="input-group-append">
-                        <button class="focom-nav-desktop-searchbutton bg-primary input-group-text fas fa-search fa-lg text-white" id=""></button>
-                    </div>
-                </div>
-                <div class="focom-nav-desktop">
-                    <a href="{{ route('home')}}" class="text-primary">Inicio</a>
-                    <a href="{{ route('list') }}" class="text-black-50">Listado</a>
-                    <a href="{{ route('articles.create') }}" class="text-black-50">Publicar</a>
-                    <a href="{{ route('plans') }}" class="text-black-50">Concesionarias</a>
-                    <a href="{{ route('info.help') }}" class="text-black-50">Ayuda</a>
-                </div>
-            </div>
-
-            @guest('web')
-                
-            <div class="flex-grow-0">
-                <a href="{{ route('login') }}" class="font-weight-normal text-black-50 px-1">Ingresar</a>
-                <a href="{{ route('register') }}" class="btn btn-primary">
-                    Registrarse
-                </a>
-            </div>
-            @endguest
-
-            @auth('web')
-                {{-- expr --}}
-                <div class="d-flex align-content-center">
-                <a href="sitio del  usuario">
-                    <div class="focom-header-imageProfile mr-2">
-                        <img class="border" src="/img/default_profile.jpg">
-                    </div>
-                </a>
-                <a href="sitio del usuario" class="text-secondary my-auto text-decoration-none">Nombre del usuario</a>
-                
-                <-- 
-                <form action="{{ route('logout') }}" method="POST">
-                    @csrf
-                    <button class="btn btn-primary">Logout</button>
-                </form>
-                 -->
-            @endauth
-        </div>
-    </header>
-    <div></div>
+    @include('layouts.partials.header')
     <!-- END HEADER DESKTOP --->
+    
     <!-- BEGIN HEADER MOBILE --->
     <div id="focom-mobile-navbar" class="focom-nav-transition fixed-top d-flex d-md-none bg-primary text-white align-items-center justify-content-between shadow-sm focom-minwidth px-3 py-3">
         <a id="focom-nav-mobile-logo-search" href="{{ route('home')}}">
@@ -97,6 +41,7 @@
     </div>
     <div class="d-block d-md-none focom-mobile-nav-padding w-100"></div>
     <!-- END HEADER MOBILE --->
+
     <!-- BEGIN NAV MOBILE --->
     <div id="focom-nav-mobile" class="focom-mobile-nav w-100 fixed-bottom bg-white d-md-none focom-minwidth border-top">
         <div class="d-flex font-weight-bold text-dark text-center">
@@ -131,61 +76,9 @@
 
 
     <!-- BEGIN FOOTER --->
-    <div class="mt-5 bg-dark text-white p-5 d-none d-md-block">
-        <div class="row">
-            <div class="col-3">
-                <img src="/img/focom-white.png" height="20px">
-            </div>
-            <div class="col-3">
-                <h5 class="mr-n5">SOBRE NOSOTROS</h5>
-                <p class="small">Focomotor es el nuevo mercado en línea para compradores y vendedores de vehículos nuevos o usados. Concesionarias y vendedores privados pueden publicar en Focomotor con planes de precios asequibles.</p>
-            </div>
-            <div class="col-3 pl-5">
-                <h5>SITIOS</h5>
-                <a href="{{ route('home')}}" class="small text-white">
-                    <u>Inicio</u>
-                </a>
-                <br>
-                <a href="{{ route('list') }}" class="small text-white">
-                    <u>Listado</u>
-                </a>
-                <br>
-                <a href="{{ route('login') }}" class="small text-white">
-                    <u>Iniciar sesión</u>
-                </a>
-                <br>
-                <a href="{{ route('register')}}" class="small text-white">
-                    <u>Registrarse</u>
-                </a>
-                <br>
-                <a href="{{ route('articles.create') }}" class="small text-white">
-                    <u>Publicar</u>
-                </a>
-                <br>
-                <a href="{{ route('plans')}}" class="small text-white">
-                    <u>Planes</u>
-                </a>
-                <br>
-                <a href="{{ route('info.help') }}" class="small text-white">
-                    <u>Ayuda</u>
-                </a>
-                <br>
-            </div>
-            <div class="col-3 pr-4">
-                <h5>CONTACTO</h5>
-                <p class="small text-white">
-                    ¿Tenés alguna pregunta?
-                    <a href="{{ route('contact') }}" class="text-white"><br>
-                        <u>Contáctanos</u>
-                    </a>
-                    <br>
-                    <br>O envíanos un correo electrónico<br>
-                    ayuda@focomotor.com.ar
-                </p>
-            </div>
-        </div>
-    </div>
+    @include('layouts.partials.footer')
     <!-- END FOOTER --->
+
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
