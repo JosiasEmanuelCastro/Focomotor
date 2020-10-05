@@ -7,28 +7,31 @@
         </a>
     </div>
 </div>
+
 <div class="d-flex justify-content-center mb-5">
     <div class="bg-white focom-signin-card border shadow rounded w-100 mx-3">
-        @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
         <div class="text-center pt-1 pb-4">
             <a href="{{ route('login') }}" class="pr-3 font-weight-bold">Ingresar</a>
             <a href="{{ route('register') }}">Registro</a>
         </div>
         <form action="{{ route('login') }}" method="POST">
             @csrf
-            <label for="email" class="pt-2">E-mail</label>
+
+            <label for="email" class="pt-2">Email</label>
+            @error('email')
+                <div class="alert alert-danger" role="alert">
+                    {{ $message }}
+                </div>
+            @enderror
             <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
             <label for="password" class="mt-3">Contraseña</label>
+            @error('password')
+                <div class="alert alert-danger" role="alert">
+                    {{ $message }}
+                </div>
+            @enderror
             <input type="password" class="form-control" name="password" id="password" aria-describedby="passwordHelp">
-            <div class="form-group form-check pt-4">º
+            <div class="form-group form-check pt-4">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label text-muted" for="exampleCheck1">Mantenerme conectado</label>
                 <div class="text-center">
