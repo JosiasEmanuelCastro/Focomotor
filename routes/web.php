@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ArticlesController;
+use App\Http\Controllers\Api\DataController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +17,13 @@ use App\Http\Controllers\ArticlesController;
 |
 */
 
+Route::get('/install', [DataController::class, 'saveData'])->name('install');
+
 Route::get('/profile', [UsersController::class, 'dashboard'])->name('user.dashboard')->middleware('auth');
 
 Route::get('/',  [PagesController::class, 'index'])->name('home');
+
+Route::get('/planes', [PagesController::class, 'plans'])->name('plans');
 
 /* 
 * Para acceder a estas rutas, necesitaras crear un plan. Si no desea 
@@ -29,8 +34,12 @@ Route::get('/publicar',  [ArticlesController::class, 'create'])->name('articles.
 
 Route::post('/articles',  [ArticlesController::class, 'store'])->name('articles.store')->middleware(['auth', 'plan.limit']);
 
+// example view for MercadoPago
+Route::view('checkout', 'checkout')->name('checkout');
+
+
 Route::view('listado', 'list')->name('list');
-Route::view('planes', 'plans')->name('plans')->middleware('auth');
+
 Route::view('ayuda', 'info.help')->name('info.help');
 
 Route::view('politica-de-privacidad', 'info.policy')->name('info.policy');
@@ -46,7 +55,6 @@ Route::view('bienvenido', 'welcome')->name('welcome');
 
 /* ESTAS RUTAS SON DE PRUEBA PARA VER LOS DISEÑOS SIN REGISTRO */
 Route::view('guest', 'publish-guest')->name('publish.guest');;
-Route::view('plans', 'plans');
 
 
 
