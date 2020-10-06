@@ -36,9 +36,8 @@ class DataController extends Controller
     			['category_id' => $category->id]
     		);
 
-    		$trademark = Model::firstOrCreate(
-    			['name' => $item->models], 
-    			['trademark_id' => $trademark->id]
+    		$trademark = Model::create(
+    			['name' => $item->models, 'trademark_id' => $trademark->id]
     		);
     	}
 
