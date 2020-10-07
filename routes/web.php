@@ -15,27 +15,34 @@ use App\Http\Controllers\Api\DataController;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
+
+/listado
+/publicar
+/planes
+/ingresar
+/registro
+/ayuda
+/preguntas-frecuentes
+/política-de-privacidad
+/términos-y-condiciones
+/contacto
+
+/usuario
+/usuario/configuraciones
+
 */
 
 Route::get('/install', [DataController::class, 'saveData'])->name('install');
 
-Route::get('/profile', [UsersController::class, 'dashboard'])->name('user.dashboard')->middleware('auth');
+Route::get('/usuario', [UsersController::class, 'dashboard'])->name('user.dashboard')->middleware('auth');
 
 Route::get('/',  [PagesController::class, 'index'])->name('home');
 
 Route::get('/planes', [PagesController::class, 'plans'])->name('plans');
 
-/* 
-* Para acceder a estas rutas, necesitaras crear un plan. Si no desea 
-* hacerlo de momento, puedes eliminar
-* el middleware 'plan.limit'
-*/
 Route::get('/publicar',  [ArticlesController::class, 'create'])->name('articles.create')->middleware(['auth', 'plan.limit']);
 
 Route::post('/articles',  [ArticlesController::class, 'store'])->name('articles.store')->middleware(['auth', 'plan.limit']);
-
-// example view for MercadoPago
-Route::view('checkout', 'checkout')->name('checkout');
 
 
 Route::view('listado', 'list')->name('list');
@@ -43,7 +50,7 @@ Route::view('listado', 'list')->name('list');
 Route::view('ayuda', 'info.help')->name('info.help');
 
 Route::view('politica-de-privacidad', 'info.policy')->name('info.policy');
-Route::view('faqs', 'info.faq')->name('info.faq');
+Route::view('preguntas-frecuentes', 'info.faq')->name('info.faq');
 Route::view('terminos-y-condiciones', 'info.terms')->name('info.terms');
 
 Route::view('contacto', 'info.contact')->name('contact');
