@@ -46,30 +46,7 @@
     <!-- END HEADER MOBILE --->
 
     <!-- BEGIN NAV MOBILE --->
-    <div id="focom-nav-mobile" class="focom-mobile-nav w-100 fixed-bottom bg-white d-md-none focom-minwidth border-top">
-        <div class="d-flex font-weight-bold text-dark text-center">
-            <a href="{{ route('home')}}" class="m-auto text-decoration-none">
-                <i class="fas fa-home focom-mobile-nav-icon text-primary"></i>
-                <p class="focom-mobile-nav-text text-primary">Inicio</p>
-            </a>
-            <a href="{{ route('list') }}" class="m-auto text-decoration-none">
-                <i class="fas fa-car focom-mobile-nav-icon"></i>
-                <p class="focom-mobile-nav-text">Vehículos</p>
-            </a>
-            <a href="{{ route('articles.create') }}" class="m-auto text-decoration-none">
-                <i class="fab fa-wpforms fa-2x focom-mobile-nav-icon"></i>
-                <p class="focom-mobile-nav-text">Publicar</p>
-            </a>
-            <a href="{{ route('plans') }}" class="m-auto text-decoration-none">
-                <i class="fas fa-arrow-circle-up fa-2x focom-mobile-nav-icon"></i>
-                <p class="focom-mobile-nav-text">Planes</p>
-            </a>
-            <a href="{{ route('login') }}" class="m-auto text-decoration-none">
-                <i class="fas fa-user fa-2x focom-mobile-nav-icon"></i>
-                <p class="focom-mobile-nav-text">Usuario</p>
-            </a>
-        </div>
-    </div>
+    @include('layouts.partials.mobile.nav')
     <!-- END NAV MOBILE --->
 
 
