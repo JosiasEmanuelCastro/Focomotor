@@ -54,11 +54,11 @@ Route::view('bienvenido', 'welcome')->name('welcome');
 
 
 /* ESTAS RUTAS SON DE PRUEBA PARA VER LOS DISEÑOS SIN REGISTRO */
-Route::view('guest', 'publish-guest')->name('publish.guest');;
+Route::view('guest', 'publish-guest')->name('publish.guest');
 
-
-
-
+Route::view('configuracion', 'newViews.config')->name('newViews.config');;
+Route::view('restablecer', 'newViews.restore')->name('newViews.restore');
+Route::view('usuario', 'newViews.user')->name('newViews.user');
 
 
 
