@@ -18,11 +18,11 @@
                 </div>
             </div>
             <div class="focom-nav-desktop">
-                <a href="{{ route('home')}}" class="text-primary">Inicio</a>
-                <a href="{{ route('list') }}" class="text-black-50">Listado</a>
-                <a href="{{ route('articles.create') }}" class="text-black-50">Publicar</a>
-                <a href="{{ route('plans') }}" class="text-black-50">Concesionarias</a>
-                <a href="{{ route('info.help') }}" class="text-black-50">Ayuda</a>
+                <a href="{{ route('home')}}" class="{{ request()->is('/') ? 'text-primary' : 'text-black-50' }}">Inicio</a>
+                <a href="{{ route('list') }}" class="{{ request()->is('listado') ? 'text-primary' : 'text-black-50' }}">Listado</a>
+                <a href="{{ route('articles.create') }}" class="{{ request()->is('publicar') ? 'text-primary' : 'text-black-50' }}">Publicar</a>
+                <a href="{{ route('plans') }}" class="{{ request()->is('planes') ? 'text-primary' : 'text-black-50' }}">Concesionarias</a>
+                <a href="{{ route('info.help') }}" class="{{ request()->is('ayuda') ? 'text-primary' : 'text-black-50' }}">Ayuda</a>
             </div>
         </div>
 
