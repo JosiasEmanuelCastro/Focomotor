@@ -7,7 +7,7 @@
     </div>
 
     <div class="container focom-section pt-3">
-        <h2 class="text-center">¡Hola! Para publicar <br class="d-none d-sm-block">primero debes registrarte</h2>
+        <h2 class="text-center pb-5 mb-5">¡Hola! Para publicar <br class="d-none d-sm-block">primero debes registrarte</h2>
         <p class="text-center focom-section-paddingx">Es simple, solo llená unos datos.</p>
         <div class="d-block pt-2">
 
