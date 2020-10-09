@@ -30,4 +30,7 @@ Route::get('/categories/{category}/trademarks', [TrademarkController::class, 'in
 
 Route::get('/trademarks/{trademark}/models', [ModelController::class, 'index']);
 
+Route::post('/notifications/webhook', [DataController::class, 'notifications']);
+
+
 

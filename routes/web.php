@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ArticlesController;
+use App\Http\Controllers\PlanController;
 use App\Http\Controllers\Api\DataController;
 
 /*
@@ -43,6 +44,8 @@ Route::get('/planes', [PagesController::class, 'plans'])->name('plans');
 Route::get('/publicar',  [ArticlesController::class, 'create'])->name('articles.create')->middleware(['auth', 'plan.limit']);
 
 Route::post('/articles',  [ArticlesController::class, 'store'])->name('articles.store')->middleware(['auth', 'plan.limit']);
+
+Route::get('/subscribe/{plan}',  [PlanController::class, 'subscribe'])->name('subscribe');
 
 
 Route::view('listado', 'list')->name('list');
