@@ -15,10 +15,8 @@ class PagesController extends Controller
 
     public function plans()
     {
-
-        $plans = Plan::where('role_id', 2)->get();
-        
-        return view('plans', compact('plans'));
+          
+        return view('plans');
     }
 
 }

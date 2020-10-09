@@ -9,12 +9,6 @@
             <p class="d-inline-block small py-4">Publicar hasta {{$plan->articles_limit}} clasificados</p>
         </div>
         <p class="btn btn-outline-primary rounded-pill px-4 mb-4 focom-price-btn">Conseguir</p>
-        <form action="/procesar-pago" method="POST">
-            <script
-             src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
-             data-preference-id="{{ $plan->preference->id }}">
-            </script>
-        </form>
 
         
                     
