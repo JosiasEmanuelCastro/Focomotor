@@ -12,7 +12,7 @@
 
         
                     
-<a mp-mode="dftl" href="http://mpago.la/2hquKnY" name="MP-payButton" class='blue-ar-l-rn-none'>Suscribirme</a>
+<a mp-mode="dftl" href="https://mpago.la/2hquKnY" name="MP-payButton" class='blue-ar-l-rn-none'>Suscribirme</a>
 <script type="text/javascript">
     (function() {
         function $MPC_load() {
