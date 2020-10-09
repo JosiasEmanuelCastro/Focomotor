@@ -47,7 +47,7 @@ class DataController extends Controller
 	
 	public function notifications()
 	{
-		\MercadoPago\SDK::setAccessToken(env(MP_ACCESS_TOKEN));
+		\MercadoPago\SDK::setAccessToken(env('MP_ACCESS_TOKEN'));
 
 		switch($_POST["type"]) {
 			case "payment":
