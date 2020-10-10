@@ -8,7 +8,9 @@
             <i class="fas fa-check d-inline-block text-success"></i>
             <p class="d-inline-block small py-4">Publicar hasta {{$plan->articles_limit}} clasificados</p>
         </div>
-        <p class="btn btn-outline-primary rounded-pill px-4 mb-4 focom-price-btn">Conseguir</p>
+        <p class="btn btn-outline-primary rounded-pill px-4 mb-4 focom-price-btn">
+            <a href="{{ route('subscribe', ['plan' => $plan->id]) }}"> Conseguir </a>
+        </p>
 
         
                     
