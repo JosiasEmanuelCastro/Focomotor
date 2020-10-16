@@ -1,11 +1,12 @@
 <?php
 
+use App\Services\ImageService;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UsersController;
-use App\Http\Controllers\PagesController;
-use App\Http\Controllers\ArticlesController;
 use App\Http\Controllers\PlanController;
+use App\Http\Controllers\PagesController;
+use App\Http\Controllers\UsersController;
 use App\Http\Controllers\Api\DataController;
+use App\Http\Controllers\ArticlesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,7 @@ use App\Http\Controllers\Api\DataController;
 /política-de-privacidad
 /términos-y-condiciones
 /contacto
+/{category}/{article-title}
 
 /usuario
 /usuario/configuraciones
@@ -34,21 +36,41 @@ use App\Http\Controllers\Api\DataController;
 */
 
 Route::get('/install', [DataController::class, 'saveData'])->name('install');
+Route::get('/install/trademarks', [DataController::class, 'saveMarks']);
+Route::get('/install/models', [DataController::class, 'saveModels']);
 
 Route::get('/usuario', [UsersController::class, 'dashboard'])->name('user.dashboard')->middleware('auth');
+Route::get('/configuracion', [UsersController::class, 'edit'])->name('user.config')->middleware('auth');
+//Route::post('/users/update', [UsersController::class, 'update'])->name('users.update')->middleware('auth');
 
 Route::get('/',  [PagesController::class, 'index'])->name('home');
 
 Route::get('/planes', [PagesController::class, 'plans'])->name('plans');
 
-Route::get('/publicar',  [ArticlesController::class, 'create'])->name('articles.create')->middleware(['auth', 'plan.limit']);
+Route::get('/publicar',  [ArticlesController::class, 'create'])->name('articles.create')->middleware(['auth']);
 
-Route::post('/articles',  [ArticlesController::class, 'store'])->name('articles.store')->middleware(['auth', 'plan.limit']);
+Route::post('/articles',  [ArticlesController::class, 'store'])->name('articles.store')->middleware(['auth']);
+
+Route::get('/listado', [ArticlesController::class, 'index'])->name('articles.list');
+
+Route::view('car/detalle', 'car-detail')->name('car.details');
 
 Route::get('/subscribe/{plan}',  [PlanController::class, 'subscribe'])->name('subscribe');
 
 
-Route::view('listado', 'list')->name('list');
+Route::get('/upload', function(){
+
+    return view('upload');
+});
+
+Route::post('/upload', function(){
+
+    $image = request()->file('photo');
+
+    $path = ImageService::saveImage($image, "images");
+
+    return view('upload', compact('path'));
+});
 
 Route::view('ayuda', 'info.help')->name('info.help');
 
@@ -58,17 +80,13 @@ Route::view('terminos-y-condiciones', 'info.terms')->name('info.terms');
 
 Route::view('contacto', 'info.contact')->name('contact');
 
-Route::view('car/detalle', 'car-detail')->name('car.details');
-
 Route::view('bienvenido', 'welcome')->name('welcome');
 
 
 /* ESTAS RUTAS SON DE PRUEBA PARA VER LOS DISEÑOS SIN REGISTRO */
 Route::view('guest', 'publish-guest')->name('publish.guest');
 
-Route::view('configuracion', 'newViews.config')->name('newViews.config');;
 Route::view('restablecer', 'newViews.restore')->name('newViews.restore');
-Route::view('usuario', 'newViews.user')->name('newViews.user');
 
 
 
