@@ -45,6 +45,35 @@ class DataController extends Controller
     	return Category::all();
 
 	}
+
+	public function saveMarks()
+    {
+    	
+    	$marks = Trademark::all();
+
+    	foreach ($marks as $mark) {
+
+			$category = Category::create([
+				'name' => $mark->name,
+				'parent' => $mark->category_id,
+				'type_id' => 2,
+			]);
+
+			$models = $mark->models;
+
+			foreach ($models as $model){
+				Category::create([
+					'name' => $model->name,
+					'parent' => $category->id,
+					'type_id' => 3,
+				]);
+			}
+
+    	}
+
+    	return "Data is updated";
+
+	}
 	
 	public function notifications()
 	{
