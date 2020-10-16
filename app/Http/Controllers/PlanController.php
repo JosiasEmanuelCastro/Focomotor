@@ -5,12 +5,39 @@ namespace App\Http\Controllers;
 use stdClass;
 use App\Models\Plan;
 use Illuminate\Http\Request;
-use App\Services\MercadoPago;
+use App\Services\MercadoPago\Plan as MPlan;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
 
 class PlanController extends Controller
 {
+
+    public function store(Request $request)
+    {
+        try{
+
+            $mp_plan = MPlan::create($request->name, $request->price, "1234C$request->limit");
+            
+            $plan = Plan::create([
+                "role_id" => 2,
+                "name" => $request->name,
+                "articles_limit" => $request->limit,
+                "price" => $request->price,
+                "external_reference" => "1234C$request->limit",
+                "external_id" => $mp_plan->id,
+            ]);
+
+            return $plan;
+
+        }catch(\Exception $e){
+
+            return $e->getMessage();
+
+        }
+        
+        
+    }
+
     public function getPlan()
     {
         // Agrega credenciales
@@ -42,51 +69,8 @@ class PlanController extends Controller
 
         $plan = Plan::find($plan);
 
-        //dd($plan);
+        $mp_plan = MPlan::subscribeToPlan($plan->external_id);
 
-        $access_token = env('MP_ACCESS_TOKEN');
-
-        $response = Http::post("https://api.mercadopago.com/preapproval?access_token=$access_token", [
-            "auto_recurring" => array(
-                "currency_id" => "ARS",
-                "transaction_amount" => $plan->price,
-                "notification_url" => "https://focomotor.herokuapp.com/notifications/webhook",
-                "frequency" => 1,
-                "frequency_type" => "months"
-               
-            ),
-              "back_url" => "https://focomotor.herokuapp.com/usuario",
-              "collector_id" => 496324,
-              //"collector_id" => 657122006,
-              "external_reference" => auth()->user()->email,
-              "payer_email" => auth()->user()->email,
-              "reason" => $plan->name,
-              "status" => "pending"
-        ]);
-
-        $data = $response->json();
-
-        $data = (object)($data);
-
-        //dd($data);
-
-        return Redirect::to($data->init_point);
-
-        /*{
-            "auto_recurring": {
-              "currency_id": "ARS",
-              "transaction_amount": 10,
-              "frequency": 1,
-              "frequency_type": "months"
-             
-            },
-            "back_url": "https://webxander.com",
-            "collector_id": 496324,
-            "external_reference": "1245AT234562",
-            "payer_email": "focomotor@hotmail.com",
-            "reason": "Suscripción particular",
-            "status": "pending"
-          }
-        */
+        return Redirect::to($mp_plan->init_point);
     }
 }
