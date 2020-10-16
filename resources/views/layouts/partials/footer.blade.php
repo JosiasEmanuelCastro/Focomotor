@@ -13,7 +13,7 @@
                 <u>Inicio</u>
             </a>
             <br>
-            <a href="{{ route('list') }}" class="small text-white">
+            <a href="{{ route('articles.list') }}" class="small text-white">
                 <u>Listado</u>
             </a>
             <br>

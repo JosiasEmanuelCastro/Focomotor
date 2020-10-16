@@ -4,7 +4,7 @@
             <i class="fas fa-home focom-mobile-nav-icon {{ request()->is('/') ? 'text-primary' : '' }}"></i>
             <p class="focom-mobile-nav-text {{ request()->is('/') ? 'text-primary' : '' }}">Inicio</p>
         </a>
-        <a href="{{ route('list') }}" class="m-auto text-decoration-none">
+        <a href="{{ route('articles.list') }}" class="m-auto text-decoration-none">
             <i class="fas fa-car focom-mobile-nav-icon {{ request()->is('listado') ? 'text-primary' : '' }}"></i>
             <p class="focom-mobile-nav-text {{ request()->is('listado') ? 'text-primary' : '' }}">Vehículos</p>
         </a>

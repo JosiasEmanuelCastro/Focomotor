@@ -52,9 +52,9 @@
                 </template>
             </v-select>
 
-            <!-- ¿¿QUE PASA CON EL INPUT DE ABAJO?? ¡ESTA OCULTO! (Mayús. para que veas) // Este input guarda el dato seleccionado para enviarlo luego al controller. Por el momento utilize esta solucion. Esta oculto simplemente porque cumple con ese proposito.  -->
+            
             <input type="hidden" name="location">
-            <!-- ACÁ TERMINA EL INPUT DEL QUE TE HABLO-->
+            
             <label for="telephone" class="pt-2">Teléfono</label>
             @error('telephone')
                 <div class="alert alert-danger" role="alert">

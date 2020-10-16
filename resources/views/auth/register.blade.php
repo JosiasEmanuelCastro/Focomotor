@@ -25,7 +25,7 @@ var app = new Vue({
     el: '#app',
     data: {
         message: 'Hello Vue!',
-        finder: { display_name: '', icon: '' },
+        finder: "",
         cities: []
 
     },

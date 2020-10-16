@@ -19,7 +19,7 @@
             </div>
             <div class="focom-nav-desktop">
                 <a href="{{ route('home')}}" class="{{ request()->is('/') ? 'text-primary' : 'text-black-50' }}">Inicio</a>
-                <a href="{{ route('list') }}" class="{{ request()->is('listado') ? 'text-primary' : 'text-black-50' }}">Listado</a>
+                <a href="{{ route('articles.list') }}" class="{{ request()->is('listado') ? 'text-primary' : 'text-black-50' }}">Listado</a>
                 <a href="{{ route('articles.create') }}" class="{{ (request()->is('publicar') || request()->is('guest')) ? 'text-primary' : 'text-black-50' }}">Publicar</a>
                 <a href="{{ route('plans') }}" class="{{ request()->is('planes') ? 'text-primary' : 'text-black-50' }}">Concesionarias</a>
                 <a href="{{ route('info.help') }}" class="{{ request()->is('ayuda') ? 'text-primary' : 'text-black-50' }}">Ayuda</a>
@@ -40,16 +40,16 @@
             {{-- expr --}}
         <div class="dropdown">
             <div class="d-flex align-items-center" type="button" id="focomUserDropDownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <a href="{{-- SITIO DEL USUARIO --}}">
+                <a href="/usuario">
                     <div class="focom-header-imageProfile mr-2">
-                        <img class="border" src="/img/default_profile.jpg">
+                        <img class="border" src="{{ auth()->user()->profile_photo_url}}">
                     </div>
                 </a>
-                <a href="{{-- SITIO DEL USUARIO --}}" class="text-secondary text-decoration-none">{{auth()->user()->name}}</a>
+                <a href="/usuario" class="text-secondary text-decoration-none">{{auth()->user()->name}}</a>
                 <i class="ml-2 fas fa-angle-down text-secondary focom-userArrow" style="padding-top: 3px;"></i>
             </div>
             <div class="dropdown-menu w-100 ml-1 mt-2" aria-labelledby="focomUserDropDownMenu">
-                <a class="dropdown-item" href="#">Mi cuenta</a>
+                <a class="dropdown-item" href="{{ route('user.dashboard') }}">Mi cuenta</a>
                 <div class="dropdown-divider"></div>
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf

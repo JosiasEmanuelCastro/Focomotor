@@ -23,17 +23,7 @@
         @csrf
         <div class="row pt-4">
 
-            <div class="container">
-                <div class="row">
-                    <span v-for="node in three" class="p-2 m-2"> @{{node.children_node}}: @{{ node.name }} / </span>
-
-                    <button v-if="three.length" @click.prevent="reset">Reestablecer</button>
-                </div>
-            </div>
-            
-            
-            @include('elements.forms.listCategory')
-
+            @include('elements.forms.categories')
 
             <div class="container">
                 <div class="row">
@@ -153,43 +143,87 @@ Vue.component('v-select', VueSelect.VueSelect);
     var app = new Vue({
         el: '#app',
         data: {
-            current: { 
-                lists: "",
-                children_node: ""
-            },
+            categories: [],
+            trademarks: [],
             three: [],
-            theList: "",
+            subtitle: "",
+            models: [],
+            children_node: "",
+            theCategory: "",
+            theMark: "",
+            theModel: "",
             images: [],
             finder: "",
             cities: [],
             otherLocation: false,
-            inputTitle: false,
+            listModels: false,
+            inputModel: false,
+            listSubitems: false,
         },
         async mounted() {
             //console.log(this.message);
             try {
                 let res = await fetch(`/api/categories/`);
                 res = await res.json();
-                this.current.lists = await res;
+                this.categories = await res;
             } catch (e) {
                 console.log("Error al cargar datos.");
             }
         },
         watch: {
-            theList: async function (val) {
-                if (this.theList && this.theList != -1) {
-                    let res = await fetch(`/api/categories/${this.theList.id}`);
-                    res = await res.json();
-                    this.current.lists = await res.items;
+            "theCategory.id": function(val){
+                console.log(val);
+                if (val != undefined){
+                    this.listSubitems = true;
+                    this.inputModel = false;
+                }
+                else {
+                    this.listSubitems = false;
+                    this.listModels = false;
+                    this.inputModel = true;
+                }
                     
-                    this.inputTitle = false;
-                    this.three.push({
-                        name: this.theList.name,
-                        id: this.theList.id,
-                        children_node: this.current.children_node
-                    });
-                    this.current.children_node = await res.children_node;
-                    this.theList = "";
+            },
+            "theMark.id": function(val){
+                console.log(val);
+                if (val == undefined){
+                    this.theModel = -1;
+                    this.listModels = false;
+
+                }
+                    
+            },
+            "theModel": function(val){
+                console.log(val);
+                if (val == -1){
+                    this.listModels = false;
+                    this.inputModel = true;
+
+                }
+                    
+            },
+            theCategory: async function (val) {
+                if (this.theCategory && this.theCategory != -1) {
+                    let res = await fetch(`/api/categories/${this.theCategory.id}`);
+                    res = await res.json();
+                    this.trademarks = await res.items;
+                    this.subtitle = await res.children_node;
+                    this.inputModel = false;
+                    this.theMark = "";
+                }
+            },
+            theMark: async function (val) {
+                if (this.theMark && this.theMark != -1) {
+                    let res = await fetch(`/api/categories/${this.theMark.id}`);
+                    res = await res.json();
+                    this.models = await res.items;
+                    this.children_node = await res.children_node;
+                    //console.log(this.models);
+                    this.listModels = (this.models.length != 0) ? true : false ;
+                    this.inputModel = false;
+                    this.theModel = "";
+                } else {
+                    this.models = [];
                 }
             }
         },
@@ -249,19 +283,6 @@ Vue.component('v-select', VueSelect.VueSelect);
                     loading(false);
                 });
                 }, 2000),
-
-            async reset(){
-                this.three = [];
-
-                try {
-                    let res = await fetch(`/api/categories/`);
-                    res = await res.json();
-                    this.current.lists = await res;
-                    this.current.children_node = "Categoria";
-                } catch (e) {
-                    console.log("Error al cargar datos.");
-                }
-            },
             submit() {
                 if(this.finder.display_name != ''){
                     $('input[name="location"]').val(this.finder.display_name);
