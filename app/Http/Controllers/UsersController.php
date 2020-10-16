@@ -50,9 +50,11 @@ class UsersController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit()
     {
-        //
+        $user = auth()->user();
+
+        return view('users.edit', compact('user'));
     }
 
     /**
