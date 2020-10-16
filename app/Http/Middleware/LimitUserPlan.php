@@ -16,8 +16,8 @@ class LimitUserPlan
      */
     public function handle(Request $request, Closure $next)
     {
-
-        if(auth()->user()->articles()->count() == auth()->user()->plan->articles_limit){
+        
+        if (auth()->user()->articles()->count() >= auth()->user()->plan->articles_limit) {
             return response()->view('users.dashboard', ['error' => 'Ya has alcanzado el limite de publicaciones'], 403);
         }
 
