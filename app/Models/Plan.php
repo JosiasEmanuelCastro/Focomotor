@@ -14,5 +14,7 @@ class Plan extends Model
         "name",
         "articles_limit",
         "price",
+        "external_reference",
+        "external_id",
     ];
 }
