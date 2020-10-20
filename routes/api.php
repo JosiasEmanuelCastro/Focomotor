@@ -25,13 +25,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/locations/{query}', [DataController::class, 'getLocations']);
 
-Route::get('/categories', [CategoryController::class, 'index']);
+Route::get('/categories/all', [CategoryController::class, 'index']);
 
 //Route::get('/categories/{category}/trademarks', [TrademarkController::class, 'index']);
 
 Route::get('/categories/{category}', [CategoryController::class, 'show']);
 
-Route::get('/trademarks/{trademark}/models', [ModelController::class, 'index']);
+//Route::get('/trademarks/{trademark}', [ModelController::class, 'index']);
 
 Route::post('/notifications/webhook', [DataController::class, 'notifications']);
 

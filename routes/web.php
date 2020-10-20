@@ -53,7 +53,7 @@ Route::post('/articles',  [ArticlesController::class, 'store'])->name('articles.
 
 Route::get('/listado', [ArticlesController::class, 'index'])->name('articles.list');
 
-Route::view('car/detalle', 'car-detail')->name('car.details');
+Route::get('/{category}/{slug}', [ArticlesController::class, 'show'])->name('articles.show');
 
 Route::get('/subscribe/{plan}',  [PlanController::class, 'subscribe'])->name('subscribe');
 
