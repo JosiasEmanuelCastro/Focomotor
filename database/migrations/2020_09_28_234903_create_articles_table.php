@@ -15,7 +15,6 @@ class CreateArticlesTable extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('model_id');
             $table->bigInteger('user_id');
             $table->integer('year');
             $table->string('fuel');

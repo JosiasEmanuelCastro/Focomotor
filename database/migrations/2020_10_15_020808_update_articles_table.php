@@ -16,7 +16,9 @@ class UpdateArticlesTable extends Migration
         Schema::table('articles', function (Blueprint $table) {
             $table->string('location')->nullable();
             $table->integer('views')->default(0);
-            $table->string('model_type');
+            $table->bigInteger('category_id')->default(0);
+            $table->string('title')->nullable();
+            $table->string('slug');
         });
     }
 
@@ -30,6 +32,9 @@ class UpdateArticlesTable extends Migration
         Schema::table('articles', function (Blueprint $table) {
             $table->dropColumn('location');
             $table->dropColumn('views');
+            $table->dropColumn('category_id');
+            $table->dropColumn('title');
+            $table->dropColumn('slug');
         });
     }
 }
