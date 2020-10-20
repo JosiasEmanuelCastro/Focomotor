@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Plan;
+use App\Models\Article;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -10,7 +11,11 @@ class PagesController extends Controller
     
     public function index()
     {
-        return view('index');
+
+        $articles = Article::orderBy('created_at', 'DESC')->limit(5)->get();
+
+        return view('index', compact('articles'));
+        
     }
 
     public function plans()

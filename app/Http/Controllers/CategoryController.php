@@ -10,7 +10,12 @@ class CategoryController extends Controller
 
     public function index()
     {
-    	return Category::where('parent', 0)->get();
+        $category = Category::where('parent_id', 0)->get();
+        
+        return [
+            'items' => $category,
+            'children_node' => "Categoria", 
+        ];
     }
 
     public function show($category)
@@ -19,7 +24,7 @@ class CategoryController extends Controller
 
        
         return [
-                'items' => $category->subCategories,
+                'items' => $category->childrens,
                 'children_node' => $category->type->name, 
             ];
 
