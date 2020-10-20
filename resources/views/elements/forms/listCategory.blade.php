@@ -10,7 +10,7 @@
 
 <div v-if="theList == -1" class="col-12 col-sm-6 col-md-4">
     <div class="input-group my-3 mr-sm-2">
-        <input type="text" name="manual_content" class="form-control"
+        <input type="text" name="title" class="form-control"
             placeholder="Complete su titulo.">
     </div>
     

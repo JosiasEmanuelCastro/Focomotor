@@ -27,7 +27,7 @@
                 <div class="row">
                     <span v-for="node in three" class="p-2 m-2"> @{{node.children_node}}: @{{ node.name }} / </span>
 
-                    <button v-if="three.length" @click.prevent="reset">Reestablecer</button>
+                    <button v-if="three.length" @click.prevent="reset">Atras</button>
                 </div>
             </div>
             
@@ -164,13 +164,15 @@ Vue.component('v-select', VueSelect.VueSelect);
             cities: [],
             otherLocation: false,
             inputTitle: false,
+            lastId: 0
         },
         async mounted() {
             //console.log(this.message);
             try {
-                let res = await fetch(`/api/categories/`);
+                let res = await fetch(`/api/categories/all`);
                 res = await res.json();
-                this.current.lists = await res;
+                this.current.lists = await res.items;
+                this.current.children_node = await res.children_node;
             } catch (e) {
                 console.log("Error al cargar datos.");
             }
@@ -251,13 +253,19 @@ Vue.component('v-select', VueSelect.VueSelect);
                 }, 2000),
 
             async reset(){
-                this.three = [];
+
+                //
+            
+                this.lastId = (this.three.length > 1) ? this.three[this.three.length -2].id : 'all';
+
+                this.three.pop();
+                this.theList = "";
 
                 try {
-                    let res = await fetch(`/api/categories/`);
+                    let res = await fetch(`/api/categories/${this.lastId}`);
                     res = await res.json();
-                    this.current.lists = await res;
-                    this.current.children_node = "Categoria";
+                    this.current.lists = await res.items;
+                    this.current.children_node = await res.children_node;
                 } catch (e) {
                     console.log("Error al cargar datos.");
                 }
@@ -267,15 +275,11 @@ Vue.component('v-select', VueSelect.VueSelect);
                     $('input[name="location"]').val(this.finder.display_name);
                 }
 
-                let input = $("<input>")
-                        .attr("type", "hidden")
-                        .attr("name", "subcategory").val(this.theMark.id);
-                $('#register').append(input);
-
                 input = $("<input>")
                         .attr("type", "hidden")
-                        .attr("name", "category").val(this.theCategory.id);
+                        .attr("name", "tree").val(JSON.stringify(this.three));
                 $('#register').append(input);
+
                 //console.log(input.val());
                 const form = document.getElementById('register');
                 form.submit();
