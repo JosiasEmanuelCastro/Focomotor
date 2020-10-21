@@ -19,6 +19,7 @@ class UpdateArticlesTable extends Migration
             $table->bigInteger('category_id')->default(0);
             $table->string('title')->nullable();
             $table->string('slug');
+            $table->integer('type_id')->unsigned();
         });
     }
 
