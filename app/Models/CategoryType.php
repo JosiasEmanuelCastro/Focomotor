@@ -10,4 +10,8 @@ class CategoryType extends Model
     use HasFactory;
 
     protected $table = 'type_categories';
+
+    protected $fillable = [
+        "name",
+    ];
 }
