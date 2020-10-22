@@ -51,7 +51,9 @@ Route::get('/publicar',  [ArticlesController::class, 'create'])->name('articles.
 
 Route::post('/articles',  [ArticlesController::class, 'store'])->name('articles.store')->middleware(['auth']);
 
-Route::get('/listado', [ArticlesController::class, 'index'])->name('articles.list');
+Route::get('/listado/{search?}', [ArticlesController::class, 'index'])->name('articles.list');
+
+//Route::get('/listado/{query?}', [ArticlesController::class, 'find'])->name('articles.find');
 
 Route::get('/{category}/{slug}', [ArticlesController::class, 'show'])->name('articles.show');
 
