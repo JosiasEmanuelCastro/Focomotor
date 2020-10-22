@@ -3,8 +3,9 @@
 
 @section('section')
     @include('elements.slider')
-    <div class="focom-section mx-3 mx-lg-5">
-        <h1 class="h4 mt-4">Ultimas publicaciones:</h1>
+    <div class="mx-3 mx-lg-5">
+        <h2 class="py-3 h3">Ultimas publicaciones:</h2>
+
         <div class="row mt-1">
 
             @foreach ($articles as $article)
@@ -13,18 +14,11 @@
             
         </div>
 
+        @include('elements.section-category')
+
+
 
         @include('elements.advertisement')
-
-        <h1 class="h4 mt-n2">Te puede interesar:</h1>
-        <div class="row">
-
-            @foreach ($articles as $article)
-                @include('elements.card-vehicle')    
-            @endforeach
-            
-        </div>
-
     </div>
 
     @include('elements.notification')

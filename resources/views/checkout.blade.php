@@ -12,7 +12,7 @@
   </head>
   <body>
     <main>
-      <!-- Shopping Cart -->
+      {{-- Shopping Cart --}}
       <section class="shopping-cart dark">
         <div class="container" id="container">
           <div class="block-heading">
@@ -60,7 +60,7 @@
           </div>
         </div>
       </section>
-      <!-- Payment -->
+      {{-- Payment --}}
       <section class="payment-form dark">
         <div class="container_payment">
           <div class="block-heading">
