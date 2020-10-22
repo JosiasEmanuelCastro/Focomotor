@@ -22,58 +22,58 @@
     <div class="row focom-section mt-1 mx-1 mx-md-3 mx-lg-5">
         <!-- BEGIN FILTERS --->
         <div id="focomFiltersCollapse" class="d-md-block col-12 col-md-3 collapse card card-body focom-filters-mobile focom-nav-transition mb-auto" style="">
-            <div class="d-none d-md-block">
-                <h1>Listado</h1>
-            </div>
-            <!-- BUSCAR --->
-            <!-- ORDENAR POR --->
-            <div class="pt-md-3 my-1">
-                <label>Ordenar por</label>
-                <select class="custom-select">
-                    <option selected>Mas relevantes</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                </select>
-            </div>
-            <!-- CATEGORIA --->
-            <div class="pt-2 my-1">
-                <label>Categoria</label>
-                <select class="custom-select">
-                    <option selected>Todas las Categorias</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                </select>
-            </div>
-            <!-- LOCALIDAD --->
-            <div class="pt-2 my-1">
-                <label>Localidad</label>
-                <select class="custom-select">
-                    <option selected>Todas las Localidades</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                </select>
-            </div>
-            <!-- PRECIO --->
-            <div class="pt-2 my-1">
-                <label>Precio</label>
-                <input type="range" class="form-control-range">
-            </div>
+            <form action="{{ route('articles.list') }}" method="GET">
+                <!-- FILTROS --->
+                <div class="pt-md-3 my-1">
+                    <label>Localidad</label>
+                    <input type="text" name="location" class="form-control">
+                </div>
+                
+                <!-- COMBUSTIBLE --->
+                @include('elements.forms.filters.fuel')
+
+                <!-- CONDICION --->
+                @include('elements.forms.filters.condition')
+
+                <!-- PRECIO --->
+                <div class="pt-2 my-1">
+                    <label>Precio</label>
+                    <input type="range" class="form-control-range">
+                </div>
+
+                <div class="pt-2 my-1">
+                    <button type="submit" class="btn btn-primary">Buscar</button>
+                </div>
+            </form>
         </div>
         <!-- END FILTERS --->
+       
         <!-- BEGIN LIST --->
         <div class="col-12 col-md-9 row focom-reset-padding focom-reset-margin focom-vehicles-list mt-md-n2">
+            
+            <ul class="nav justify-content-end">
+                
+                <li class="nav nav-link active"><a href="/listado?{{http_build_query(request()->except("order", "sort"))}}">Newest</a></li>
+                <li class="nav nav-link"><a href="/listado?{{http_build_query(array_merge(request()->all(), ['order' => 'price', 'sort' => 'ASC']))}}">Price (low)</a></li>
+                <li class="nav nav-link"><a href="/listado?{{http_build_query(array_merge(request()->all(), ['order' => 'price', 'sort' => 'DESC']))}}">Price (high)</a></li>
+              </ul>
+
+            <div class="container">
+                <div class="row">
+
             @foreach ($articles as $article)
                 @include('articles.list.card')
             @endforeach
+
+                </div>
+
+            </div>
 
             
 
         </div>
         <!-- END LIST --->
-        {{ $articles->links() }}    
+        {{ $articles->withQueryString()->links() }}    
         
     </div>
 
