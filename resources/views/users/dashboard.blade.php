@@ -18,7 +18,7 @@
         </div>
         <hr class="w-100">
 
-        <!-- BEGIN LIST --->
+        {{-- BEGIN LIST --}}
         <div class="col-12 row focom-reset-padding focom-reset-margin focom-vehicles-list mt-3">
             <h3 class="col-12 h4">Tus publicaciones ({{ auth()->user()->articles()->count() }}):</h3>
 

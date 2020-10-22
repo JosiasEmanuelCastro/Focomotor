@@ -24,6 +24,7 @@ class CreateArticlesTable extends Migration
             $table->string('feature_image');
             $table->integer('doors')->nullable()->default(0);
             $table->string('description')->nullable();
+            $table->integer('type_id')->unsigned();
             $table->timestamps();
         });
     }

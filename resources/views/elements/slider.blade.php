@@ -1,4 +1,4 @@
-<!-- BEGIN SLIDE -->
+{{-- BEGIN SLIDE --}}
     <div id="focomSlideHome" class="carousel slide mt-n4 mt-md-0" data-ride="carousel" data-pause="false" data-interval="4500" keyboard="false" data-touch="true">
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -29,4 +29,4 @@
             <span class="sr-only">Anterior</span>
         </a>
     </div>
-    <!-- END SLIDE -->
+    {{-- END SLIDE --}}

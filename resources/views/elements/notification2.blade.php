@@ -1,4 +1,4 @@
-<!-- BEGIN NOTIFICATION --->
+{{-- BEGIN NOTIFICATION --}}
     <div class="pb-5 pb-md-0">
         <div class="bg-primary mb-md-n5 mb-5 p-md-5 p-4 mt-n5 mt-md-5 text-white justify-content-center">
             <div class="row align-items-center">
@@ -17,4 +17,4 @@
             </div>
         </div>
     </div>
-<!-- END NOTIFICATION --->
+{{-- END NOTIFICATION --}}

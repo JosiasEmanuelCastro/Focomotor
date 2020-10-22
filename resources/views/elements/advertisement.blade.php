@@ -1,4 +1,4 @@
-<div class="py-3">
+<div class="py-3 pb-5 pb-md-0">
 	<hr>
 	<div class="text-center pt-3 pb-2">
 		<a href="{{ route('articles.create') }}">

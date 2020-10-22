@@ -1,6 +1,6 @@
 <div class="col-12 col-md-8">
     <div class="d-flex focom-vehicle-images-section">
-        <!-- MIN IMAGES DESKTOP -->
+        {{-- MIN IMAGES DESKTOP --}}
         <div class="d-none d-md-block focom-reset-padding pr-3">
             <div class="focom-vehicle-min-images mb-3 focom-mouse-hover-pointer">
                 <a id="image{{$article->id}}">
@@ -13,7 +13,7 @@
                 @endforeach
             </div>
         </div>
-        <!-- GALLERY PRINCIPAL -->
+        {{-- GALLERY PRINCIPAL --}}
         <div class="focom-reset-padding mt-n3 mx-n3 mt-md-0 mx-md-0">
             <span class="badge badge-dark font-weight-normal focom-gallery-indicator d-block d-md-none">5 Fotos</span>
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
@@ -38,7 +38,7 @@
     </div>
 </div>
 
- <!-- BEGIN GALLERY FULL WIDTH -->
+ {{-- BEGIN GALLERY FULL WIDTH --}}
  <div class="modal focom-full-gallery-backgroud focom-minwidth" id="focomImagesFullWidth" tabindex="-1" role="dialog" aria-labelledby="focomImagesFullWidth" aria-hidden="true">
     <i class="fas fa-times fa-2x text-white focom-full-gallery-close carousel-control-next focomjsClose" data-dismiss="modal" aria-label="Close"></i>
     <div id="focomImagesFullWidthGallery" class="carousel slide" data-ride="carousel" data-interval="false" data-touch="true" data-wrap="true">

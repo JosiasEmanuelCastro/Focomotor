@@ -83,14 +83,12 @@ Route::view('contacto', 'info.contact')->name('contact');
 Route::view('bienvenido', 'welcome')->name('welcome');
 
 
-/* ESTAS RUTAS SON DE PRUEBA PARA VER LOS DISEÑOS SIN REGISTRO */
 Route::view('guest', 'publish-guest')->name('publish.guest');
-
 Route::view('restablecer', 'newViews.restore')->name('newViews.restore');
-
-
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia\Inertia::render('Dashboard');
 })->name('dashboard');
+
+/* ESTAS RUTAS SON DE PRUEBA PARA VER LOS DISEÑOS SIN REGISTRO */
