@@ -31,9 +31,7 @@
                 </div>
             @enderror
             <input type="password" class="form-control" name="password" id="password" aria-describedby="passwordHelp">
-            <div class="form-group form-check pt-4">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label text-muted" for="exampleCheck1">Mantenerme conectado</label>
+            <div class="form-group form-check pt-2">
                 <div class="text-center">
                     <button class="btn btn-primary px-4 mt-4">Iniciar sesión</button>
                 </div>

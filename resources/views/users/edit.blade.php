@@ -9,7 +9,7 @@
                 @method("PUT")
                 <div class="row">
                     
-                        <!-- PROFILE IMAGE -->
+                        {{-- PROFILE IMAGE --}}
                         <div class="col-12 col-md-6 mt-3">
                             <label class="lead">Imagen de perfil:</label>
                             <div class="row">
@@ -25,7 +25,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- NAME -->
+                        {{-- NAME --}}
                         <div class="col-12 col-md-6 mt-3 ml-1">
                             @if($errors->updateProfileInformation->get("name"))   
                             {{$errors->updateProfileInformation->get("name")[0]}}    
@@ -36,14 +36,14 @@
                             </div>
                         </div>
                         
-                        <!-- EMAIL -->
+                        {{-- EMAIL --}}
                         <div class="col-12 col-md-6 mt-3 ml-1">
                             <label class="lead">Email:</label>
                             <div class="input-group mr-sm-2">
                                 <input type="text" class="form-control" name="email" aria-describedby="basic-addon3" placeholder="example@example.com" value="{{$user->email}}">
                             </div>
                         </div>
-                        <!-- RESTABLECER CONTRASEÑA -->
+                        {{-- RESTABLECER CONTRASEÑA --}}
                         <div class="col-12 col-md-6 mt-5 ml-1">
                             <label class="lead font-weight-normal">Cambiar contraseña:</label>
                             <p>

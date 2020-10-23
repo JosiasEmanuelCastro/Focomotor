@@ -8,12 +8,12 @@
     <div class="w-100">
         <div class="focom-section p-3 p-md-0 mt-n4 mt-md-0 px-0 px-md-4 px-lg-5">
             <div class="row">
-                <!-- BEGIN IMAGES -->
+                {{-- BEGIN IMAGES --}}
                 @include('articles.partials.images')
-                <!-- END IMAGES -->
+                {{-- END IMAGES --}}
                
                 
-                <!-- VEHICLE INFO -->
+                {{-- VEHICLE INFO --}}
                 <div class="col-12 col-md-4 focom-reset-padding pl-0 pl-md-3 focom-vehicle-info">
                     <div class="shadow-d-md border-d-md pt-3 pb-0 pb-md-5 px-3">
                         <h1 class="h3">{{$article->title}}</h1>
@@ -22,7 +22,7 @@
                             <i class="fas fa-map-marker-alt fa-lg"></i>
                             <p class="pl-1 lead d-inline-block font-weight-normal">{{ $article->place }}</p>
                             <hr>
-                            <!-- VENDEDOR INFO -->
+                            {{-- VENDEDOR INFO --}}
                             <div class="row text-center focom-reset-padding focom-reset-margin">
                                 <div class="col-5 col-md-12">
                                     <div class="pt-0 pt-md-2">
@@ -43,7 +43,7 @@
                     </div>
                 </div>
             </div>
-            <!-- VEHICLE DETAILS -->
+            {{-- VEHICLE DETAILS --}}
             <div class="row mx-0 mx-md-3">
                 <div class="col-12 col-md-8 shadow-d-md border-d-md rounded p-3 mt-n3 mt-md-3 ">
                     <div class="">
@@ -76,7 +76,7 @@
             <hr class="d-block d-md-none">
             
         </div>
-        <!-- BEGIN CONTACT NUMBER MODAL -->
+        {{-- BEGIN CONTACT NUMBER MODAL --}}
         <div class="modal focom-minwidth" id="focomContactNumberModal" tabindex="-1" role="dialog" aria-labelledby="focomContactNumberModal" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -96,8 +96,8 @@
                 </div>
             </div>
         </div>
-        <!-- END CONTACT NUMBER MODAL -->
-        <!-- END SECTION --->
+        {{-- END CONTACT NUMBER MODAL --}}
+        {{-- END SECTION --->
 
 @endsection
 

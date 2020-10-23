@@ -36,7 +36,7 @@
                     {{ $message }}
                 </div>
             @enderror
-            <v-select v-model="finder" :filterable="false" :options="cities" @search="find" label="display_name" aria-describedby="locationHelp">
+            <v-select v-model="finder" :filterable="false" :options="cities" @search="find" label="display_name" aria-describedby="locationHelp" autocomplete="nocomplete">
                 <template slot="no-options">
                     Ingrese una localidad...
                 </template>
