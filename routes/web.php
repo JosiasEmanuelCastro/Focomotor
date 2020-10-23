@@ -94,3 +94,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 /* ESTAS RUTAS SON DE PRUEBA PARA VER LOS DISEÑOS SIN REGISTRO */
+Route::view('dashboard', ('dashboard'));
+Route::view('404', ('404'));
