@@ -387,6 +387,12 @@ f/* ESTILOS GENERALES */
     font-size: 13px;
 }
 
+.focom-img-cover {
+    object-fit: cover;
+}
+
+
+
 /*      SOLO DESKTOP      */
 @media (min-width: 768px) {
     .focom-section-paddingx {
@@ -449,6 +455,19 @@ f/* ESTILOS GENERALES */
     .focom-list-titleFont {
         font-size: 23px;
     }
+    .focom-404-section{
+        margin-bottom: 400px;
+    }
+    .focom-404-icons {
+        height: 300px
+    }
+    .focom-404 {
+        font-size: 300px;
+        opacity: 0.5;
+    }
+    .focom-404-carcrash {
+        font-size: 200px;
+    }
 }
 
 /*      SOLO MOBILE      */
@@ -494,6 +513,20 @@ f/* ESTILOS GENERALES */
     .class {
         max-height: 75vh;
         overflow-y: scroll;
+    }
+
+    .focom-404-section{
+        margin-bottom: 150px;
+    }
+    .focom-404-icons {
+        height: 300px;
+    }
+    .focom-404 {
+        font-size: 200px;
+        opacity: 0.5;
+    }
+    .focom-404-carcrash {
+        font-size: 150px;
     }
 }
 
