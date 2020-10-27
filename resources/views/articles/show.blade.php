@@ -97,7 +97,7 @@
             </div>
         </div>
         {{-- END CONTACT NUMBER MODAL --}}
-        {{-- END SECTION --->
+        {{-- END SECTION --}}
 
 @endsection
 

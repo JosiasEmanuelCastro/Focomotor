@@ -21,7 +21,7 @@
     {{-- END MOBILE FILTERS SECTION --}}
     <div class="row focom-section mt-1 mx-1 mx-md-3 mx-lg-5">
         {{-- BEGIN FILTERS --}}
-        <div id="focomFiltersCollapse" class="d-md-block col-12 col-md-3 collapse card card-body focom-filters-mobile focom-nav-transition mb-auto class">
+        <div id="focomFiltersCollapse" class="d-md-block col-12 col-md-3 collapse card card-body focom-filters-mobile focom-nav-transition">
             <div>
                 <h1 class="h3 mb-1">Listado</h1>
                 <p class="small">15.024 resultados</p>
@@ -189,22 +189,17 @@
                 <a href="" class="d-block text-dark text-decoration-none pb-1 focom-filters-locationref">4 (10)</a>
                 <a href="" class="d-block text-dark text-decoration-none pb-1 focom-filters-locationref">5 (8)</a>
                 <a href="" class="d-block text-dark text-decoration-none pb-1 focom-filters-locationref">6 (4)</a>
-            </div>
-   
-
-
-
-
+            </div>  
         </div>
         {{-- END FILTERS --}}
         {{-- BEGIN LIST --}}
-        <div class="col-12 col-md-9 row focom-reset-padding focom-reset-margin focom-vehicles-list mt-md-n2">
+        <div class="col-12 col-md-9 row p-0 m-0 focom-vehicles-list mt-md-n2 align-self-start d-flex">
             @foreach ($articles as $article)
                 @include('articles.list.card')
+                @include('articles.list.card')
+                @include('articles.list.card')
+                @include('articles.list.card')
             @endforeach
-
-            
-
         </div>
         {{-- END LIST --}}
         {{ $articles->links() }}    
