@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use View;
+use Agent;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
@@ -30,5 +32,9 @@ class AppServiceProvider extends ServiceProvider
         }
 
         Paginator::useBootstrap();
+
+        $device = (Agent::isMobile() || Agent::isTablet()) ? 'mobile.' : '';
+
+        View::share('device', $device);
     }
 }
