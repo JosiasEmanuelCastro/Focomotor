@@ -3,7 +3,9 @@
 namespace App\Actions\Fortify;
 
 use App\Models\User;
+use App\Mail\WelcomeUser;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 
@@ -28,12 +30,18 @@ class CreateNewUser implements CreatesNewUsers
             'password' => 'required|string|min:6|confirmed',
         ])->validate();
 
-        return User::create([
+        $user = User::create([
             'name' => $input['name'],
             'email' => $input['email'],
             'location' => $input['location'],
             'telephone' => $input['telephone'],
             'password' => Hash::make($input['password']),
         ]);
+
+        Mail::to($user)->send(new WelcomeUser($user));
+
+        //event(new UserRegistered($user));
+
+        return $user;
     }
 }
