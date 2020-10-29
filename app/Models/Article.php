@@ -73,9 +73,8 @@ class Article extends Model
 
     public function getCityAttribute()
     {
-        $location = json_decode($this->location)->display_name;
-        $city = explode(", ", $location);
-        return $city[0];
+        $location = json_decode($this->location);
+        return (isset($location->address->city)) ? $location->address->city : $location->address->town;
     }
 
 }
