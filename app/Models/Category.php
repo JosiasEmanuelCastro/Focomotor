@@ -21,6 +21,11 @@ class Category extends Model
         return $this->belongsTo(CategoryType::class, 'type_id');
     }
 
+    public function articles()
+    {
+        return $this->hasMany(Article::class, 'type_id');
+    }
+
     public function getSlugAttribute()
     {
         $slug = Str::slug($this->name);

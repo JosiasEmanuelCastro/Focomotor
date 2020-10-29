@@ -30,7 +30,7 @@
                                             <img src="{{$article->user->profile_photo_url}}">
                                         </div>
                                         <p class="mb-n1">{{$article->user->name}}</p>
-                                        <p><a href="/usuario/{{$article->user->id}}" class="small"><u>Ver perfil</u></a></p>
+                                        <p><a href="/profile/{{$article->user->id}}" class="small"><u>Ver perfil</u></a></p>
                                     </div>
                                 </div>
                                 <div class="col-7 col-md-12 align-self-center">

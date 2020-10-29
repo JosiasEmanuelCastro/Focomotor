@@ -17,10 +17,12 @@ class DataController extends Controller
     {
     	// https://nominatim.openstreetmap.org/search?city=Santa%20fe&countrycodes=ar&format=json
 
-    	$response = Http::get("https://nominatim.openstreetmap.org/search?city=$finder&countrycodes=ar&format=json");
+    	$response = Http::get("https://nominatim.openstreetmap.org/search?city=$finder&countrycodes=ar&addressdetails=1&format=json");
 		$data = $response->json();
-		
-		return $data;
+
+		return array_filter($data, function($v, $k){
+			return ($k == 'town');
+		}, ARRAY_FILTER_USE_BOTH);
     }
 
     public function saveData()
@@ -89,6 +91,7 @@ class DataController extends Controller
 			case "payment":
 				//$payment = \MercadoPago\Payment::find_by_id($_POST["id"]);
 				Log::info('Mercado pago.', ['Res' => request()->input('data.id')]);
+				return;
 				break;
 			case "plan":
 				$plan = \MercadoPago\Plan::find_by_id($_POST["id"]);
@@ -103,6 +106,9 @@ class DataController extends Controller
 			case "test":
 				return "HI!!";
 				break;
+			default: return 0;
 		}
+
+		
 	}
 }

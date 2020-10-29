@@ -57,6 +57,11 @@ class UsersController extends Controller
         return view('users.edit', compact('user'));
     }
 
+    public function getLocation()
+    {
+        return auth()->user()->location;
+    }
+
     /**
      * Update the specified resource in storage.
      *

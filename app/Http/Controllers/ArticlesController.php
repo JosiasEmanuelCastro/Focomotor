@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Auth;
 use App\Models\Article;
+use App\Models\Category;
 use Illuminate\Support\Str;
 use App\Models\ArticleImage;
 use Illuminate\Http\Request;
@@ -19,11 +20,54 @@ class ArticlesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $articles = Article::orderBy('created_at', 'DESC')->paginate(3);
 
-        return view('list', compact('articles'));
+        //dd($request->condition);
+
+        $search = $request->q;
+        $location = $request->location;
+        $fuel = $request->fuel;
+        $kilometers = $request->kilometer ? explode(",",$request->kilometer) : null;
+        $price = $request->price ? explode(",",$request->price) : null;
+        $year = $request->year;
+        $condition = $request->condition;
+        $sort = $request->sort ? $request->sort : 'DESC';
+        $order = $request->order ? $request->order : 'created_at';
+
+        $articles = Article::
+                //where('title', '%LIKE%', $query)
+                when($location, function ($query, $location) {
+                    return $query->where('location->address->town', $location)
+                            ->orWhere('location->address->city', $location);
+                })
+                ->when($search, function ($query, $search) {
+                    return $query->where('title', 'like', "%$search%");
+                })
+                ->when($year, function ($query, $year) {
+                    return $query->where('year', '=', $year);
+                })
+                ->when($fuel, function ($query, $fuel) {
+                    return $query->where('fuel', 'like', "%$fuel%");
+                })
+                ->when($condition, function ($query, $condition) {
+                    return $query->where('condition', 'like', "$condition");
+                })
+                ->when($kilometers, function ($query, $kilometers) {
+                    return $query->whereBetween('kilometers', [$kilometers[0], $kilometers[1]]);
+                })
+                ->when($price, function ($query, $price) {
+                    return $query->whereBetween('price', [$price[0], $price[1]]);
+                })
+                ->orderBy($order, $sort);
+
+        $totalArticles = $articles->with('type')->get();
+        
+        $articles = $articles->paginate(3);
+
+        dump($totalArticles);
+
+        return view('list', compact('articles', 'totalArticles'));
     }
 
     /**
@@ -91,7 +135,7 @@ class ArticlesController extends Controller
         $article->feature_image = $path;
         $article->user_id = Auth::id();
 
-        $article->location = $request->location;
+        $article->location = $request->location ? $request->location : auth()->user()->location;
 
         $article->save();
 
@@ -110,7 +154,7 @@ class ArticlesController extends Controller
 
         }
 
-        return redirect('usuario', 201);
+        return redirect('dashboard', 201);
     }
 
     /**
@@ -123,6 +167,10 @@ class ArticlesController extends Controller
     {
 
         $article = Article::whereSlug($request->slug)->first();
+
+        $article->views++;
+
+        $article->save();
 
         return view('articles.show', compact('article'));
     }

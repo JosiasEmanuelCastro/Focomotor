@@ -17,23 +17,13 @@
     <title>Focomotor - Vehículos</title>
 </head>
 
-<body class="focom-minwidth" @if(Agent::isDesktop()) style="min-width: 770px;" @endif>
-    {{-- BEGIN HEADER --}}
+<body class="focom-minwidth">
 
-    @if(Agent::isMobile() || Agent::isTablet())
-        @include('layouts.partials.mobile.header')
-    @else
-        @include('layouts.partials.header')
-    @endif
+    {{-- BEGIN HEADER DESKTOP --}}
 
-    {{-- END HEADER --}}
-    
+    @include('layouts.partials.header')
 
-    {{-- BEGIN NAV MOBILE --}}
-    @if(Agent::isMobile() || Agent::isTablet())
-        @include('layouts.partials.mobile.nav')
-    @endif
-    {{-- END NAV MOBILE --}}
+    {{-- END HEADER DESKTOP --}}
 
 
     {{-- BEGIN SECTION --}}
@@ -42,9 +32,7 @@
 
 
     {{-- BEGIN FOOTER --}}
-    @if(Agent::isDesktop())
-        @include('layouts.partials.footer')
-    @endif
+    @include('layouts.partials.footer')
     {{-- END FOOTER --}}
 
     {{-- jQuery first, then Popper.js, then Bootstrap JS --}}
@@ -52,10 +40,8 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="/js/bootstrap.min.js" type="text/javascript"></script>
     {{-- Focom Scripts --}}
-    <script src="/js/focom-headerMobile.js" type="text/javascript"></script>
     {{-- More Scripts --}}
     @yield('scripts')
-    
 </body>
 
 </html>

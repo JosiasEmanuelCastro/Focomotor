@@ -18,7 +18,7 @@
         </a>
 
         {{--
-        <a href="{{ route('login') }}" class="m-auto text-decoration-none">
+        <a href="{{ route('login') }}" class="m-auto text-decoration-none">     
             <i class="fas fa-user focom-mobile-nav-icon {{ request()->is('usuario') ? 'text-primary' : '' }}"></i>
             <p class="focom-mobile-nav-text {{ request()->is('perfil') ? 'text-primary' : '' }}">Usuario</p>
         </a> 
