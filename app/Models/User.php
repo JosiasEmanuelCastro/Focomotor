@@ -74,9 +74,19 @@ class User extends Authenticatable
         return $this->belongsTo(Plan::class);
     }
 
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
     public function getProfilePhotoUrlAttribute()
     {
         return $this->profile_photo_path ? "/storage/$this->profile_photo_path" :  "/img/default_profile.jpg";
+    }
+
+    public function getPublicationsAvailableAttribute()
+    {
+        return $this->plan->articles_limit - $this->articles()->count();
     }
 
     public function getCityAttribute()
