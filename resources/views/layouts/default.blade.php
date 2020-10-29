@@ -17,20 +17,22 @@
     <title>Focomotor - Vehículos</title>
 </head>
 
-<body class="focom-minwidth">
+<body class="focom-minwidth" @if(Agent::isDesktop()) style="min-width: 770px;" @endif>
+    {{-- BEGIN HEADER --}}
 
-    {{-- BEGIN HEADER DESKTOP --}}
+    @if(Agent::isMobile() || Agent::isTablet())
+        @include('layouts.partials.mobile.header')
+    @else
+        @include('layouts.partials.header')
+    @endif
 
-    @include('layouts.partials.header')
-
-    {{-- END HEADER DESKTOP --}}
+    {{-- END HEADER --}}
     
-    {{-- BEGIN HEADER MOBILE --}}
-    @include('layouts.partials.mobile.header')
-    {{-- END HEADER MOBILE --}}
 
     {{-- BEGIN NAV MOBILE --}}
-    @include('layouts.partials.mobile.nav')
+    @if(Agent::isMobile() || Agent::isTablet())
+        @include('layouts.partials.mobile.nav')
+    @endif
     {{-- END NAV MOBILE --}}
 
 
@@ -40,7 +42,9 @@
 
 
     {{-- BEGIN FOOTER --}}
-    @include('layouts.partials.footer')
+    @if(Agent::isDesktop())
+        @include('layouts.partials.footer')
+    @endif
     {{-- END FOOTER --}}
 
     {{-- jQuery first, then Popper.js, then Bootstrap JS --}}

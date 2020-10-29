@@ -1,6 +1,6 @@
 {{-- BEGIN NOTIFICATION --}}
     <div class="pb-5 pb-md-0">
-        <div class="bg-primary mb-md-n5 mb-5 p-md-5 p-4 mt-n5 mt-md-5 text-white justify-content-center">
+        <div class="bg-primary @if(Agent::isMobile() || Agent::isTablet()) p-4 mb-5 mt-n5 @else mb-n5 p-5 mt-5 @endif text-white justify-content-center">
             <div class="row align-items-center">
                 <div class="col-md-8 col-12">
                     <h3>¡Focomotor esta hecho para tu concesionaria!</h3>

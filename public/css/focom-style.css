@@ -376,6 +376,33 @@ article .focom-lastHide:last-child{
     display: none;
 }
 
+.focom-nav-desktop a {
+    font-weight: 500;
+    font-size: 14px;
+    padding-right: 13px;
+}
+
+.focom-nav-desktop-buttons {
+    width: 250px;
+}
+
+.focom-nav-desktop-search {
+    margin-bottom: 10px;
+}
+
+.focom-nav-desktop-input {
+    height: 38px;
+    max-width: 500px;
+}
+
+.focom-nav-desktop-input::placeholder {
+    color: #bfbfbf;
+}
+
+.focom-nav-desktop-searchbutton {
+    font-size: 18px;
+}
+
 /*      SOLO DESKTOP      */
 @media (min-width: 768px) {
     .focom-section-paddingx {
@@ -406,33 +433,6 @@ article .focom-lastHide:last-child{
 
     .focom-search-input-mobile {
         margin-top: 50px;
-    }
-
-    .focom-nav-desktop a {
-        font-weight: 500;
-        font-size: 14px;
-        padding-right: 13px;
-    }
-
-    .focom-nav-desktop-buttons {
-        width: 250px;
-    }
-
-    .focom-nav-desktop-search {
-        margin-bottom: 10px;
-    }
-
-    .focom-nav-desktop-input {
-        height: 38px;
-        max-width: 500px;
-    }
-
-    .focom-nav-desktop-input::placeholder {
-        color: #bfbfbf;
-    }
-
-    .focom-nav-desktop-searchbutton {
-        font-size: 18px;
     }
 
     .focom-404-section{

@@ -1,4 +1,4 @@
-    <div id="focom-mobile-navbar" class="focom-nav-transition fixed-top d-flex d-md-none bg-primary text-white align-items-center justify-content-between shadow-sm focom-minwidth px-3 py-3">
+    <div id="focom-mobile-navbar" class="focom-nav-transition fixed-top d-flex bg-primary text-white align-items-center justify-content-between shadow-sm focom-minwidth px-3 py-3">
         <a id="focom-nav-mobile-logo-search" href="{{ route('home')}}">
             <img src="/img/focom-white.png" height="20px" class="mr-3">
         </a>

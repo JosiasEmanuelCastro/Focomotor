@@ -1,4 +1,4 @@
-<header class="d-none d-md-block my-3 mx-md-4 mx-lg-5">
+<header class="d-block my-3 mx-4 mx-lg-5">
     <div class="d-flex align-items-center">
         <div class="flex-grow-0">
             <div class="pt-1 mb-n1">
@@ -10,7 +10,7 @@
                 <span href="html/" class="text-decoration-none focom-header-desktop-ubication"></span>
             </div>
         </div>
-        <div class="flex-grow-1 mx-md-4 mx-lg-5">
+        <div class="flex-grow-1 mx-4 mx-lg-5">
             <div class="input-group focom-nav-desktop-search">
                 <input type="text" class="form-control focom-nav-desktop-input" placeholder="Buscar en Focomotor">
                 <div class="input-group-append">
