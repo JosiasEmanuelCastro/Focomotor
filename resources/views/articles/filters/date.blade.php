@@ -2,8 +2,8 @@
     <div class="pt-4 my-1">
         <label class="focom-label-filters">Año</label>
 
-        @foreach ($totalArticles->groupBy('year') as $item)
-            {!! Filter::getLinkWithCount('year', $item) !!}
+        @foreach ($totalArticles->groupBy('year') as $title => $items)
+            {!! Filter::getLinkWithCount('year', $items, $title) !!}
         @endforeach
         
         <select class="d-inline-block custom-select-sm pl-0 ml-n1 pr-2 border-0 focom-mouse-hover-pointer">

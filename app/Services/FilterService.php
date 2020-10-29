@@ -53,7 +53,8 @@ class FilterService {
 
     public static function getLinkWithCount($filter, $item, $value = null)
     {
-        $title = ($value) ? $value : $item[0]->$filter;
+        $title = ($value);
+
         $count = count($item);
 
         $params = http_build_query(array_merge(request()->all(), [$filter => $title]));
