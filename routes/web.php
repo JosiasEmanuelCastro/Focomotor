@@ -30,17 +30,22 @@ use App\Http\Controllers\ArticlesController;
 /contacto
 /{category}/{article-title}
 
-/usuario
-/usuario/configuraciones
+/dashboard
+/dashboard/configuraciones
 
 */
+
+Route::get('/test', function(){
+    return request()->except("order", "sort");
+});
 
 Route::get('/install', [DataController::class, 'saveData'])->name('install');
 Route::get('/install/trademarks', [DataController::class, 'saveMarks']);
 Route::get('/install/models', [DataController::class, 'saveModels']);
 
-Route::get('/usuario', [UsersController::class, 'dashboard'])->name('user.dashboard')->middleware('auth');
+Route::get('/dashboard', [UsersController::class, 'dashboard'])->name('user.dashboard')->middleware('auth');
 Route::get('/configuracion', [UsersController::class, 'edit'])->name('user.config')->middleware('auth');
+Route::get('/user/location', [UsersController::class, 'getLocation'])->name('user.location')->middleware('auth');
 //Route::post('/users/update', [UsersController::class, 'update'])->name('users.update')->middleware('auth');
 
 Route::get('/',  [PagesController::class, 'index'])->name('home');
@@ -54,8 +59,6 @@ Route::post('/articles',  [ArticlesController::class, 'store'])->name('articles.
 Route::get('/listado/{search?}', [ArticlesController::class, 'index'])->name('articles.list');
 
 //Route::get('/listado/{query?}', [ArticlesController::class, 'find'])->name('articles.find');
-
-Route::get('/{category}/{slug}', [ArticlesController::class, 'show'])->name('articles.show');
 
 Route::get('/subscribe/{plan}',  [PlanController::class, 'subscribe'])->name('subscribe');
 
@@ -84,15 +87,16 @@ Route::view('contacto', 'info.contact')->name('contact');
 
 Route::view('bienvenido', 'welcome')->name('welcome');
 
-
 Route::view('guest', 'publish-guest')->name('publish.guest');
 Route::view('restablecer', 'newViews.restore')->name('newViews.restore');
 
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return Inertia\Inertia::render('Dashboard');
-})->name('dashboard');
+//Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//    return Inertia\Inertia::render('Dashboard');
+//})->name('dashboard');
 
 /* ESTAS RUTAS SON DE PRUEBA PARA VER LOS DISEÑOS SIN REGISTRO */
-Route::view('dashboard', ('dashboard'));
+Route::view('usuario', ('dashboard'));
 Route::view('404', ('404'));
+
+Route::get('/_/{category}/{slug}', [ArticlesController::class, 'show'])->name('articles.show');
