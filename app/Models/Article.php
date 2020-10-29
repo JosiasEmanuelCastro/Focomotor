@@ -30,14 +30,6 @@ class Article extends Model
         return $this->belongsTo(Category::class, 'type_id');
     }
 
-    public function getTitleAttribute()
-    {
-        $trademark = $this->category->parent->name;
-        $model = $this->category->name;
-
-        return "$trademark $model $this->kilometers Km $this->year $this->fuel";
-    }
-
     public function getPlaceAttribute()
     {
         return $this->location ? $this->city : $this->user->city;
@@ -81,7 +73,7 @@ class Article extends Model
 
     public function getCityAttribute()
     {
-        $location = $this->location;
+        $location = json_decode($this->location)->display_name;
         $city = explode(", ", $location);
         return $city[0];
     }

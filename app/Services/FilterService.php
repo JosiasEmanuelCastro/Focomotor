@@ -48,41 +48,29 @@ class FilterService {
     {
         $request = request()->except("order", "sort", "page");
 
-        View::make('elements.filters.display', compact('request'));
-
-        $html = "";
-
-        foreach (request()->except("order", "sort", "page") as $key => $param) {
-            $html .= "<a class='badge badge-primary font-weight-bold m-1' href='/listado?";
-            $html .= http_build_query(request()->except($key));
-            $html .= "'>";
-            $html .= self::get($key, $param);
-            $html .= "<i class='fas fa-times pl-2'></i></a>";
-        }
-
-        return $html;
+        return View::make('elements.filters.display', compact('request'));
     }
 
     public static function getLinkWithCount($filter, $item, $value = null)
     {
-        $data = ($value) ? $value : $item[0]->$filter;
+        $title = ($value) ? $value : $item[0]->$filter;
+        $count = count($item);
 
-        $params = http_build_query(array_merge(request()->all(), [$filter => $data]));
-        return "<a href='/listado?$params' class='d-block text-dark text-decoration-none pb-1 focom-filters-locationref'>" . $data . " (" . count($item). ")</a>";
+        $params = http_build_query(array_merge(request()->all(), [$filter => $title]));
+
+        return View::make('elements.filters.item', compact('params', 'title', 'count'));
+
     }
 
     public static function getLinkBetweenWithCount($total, $filter, $from, $to, $message)
     {
+        
         $item = $total->whereBetween($filter, [$from, $to]);
         $count = count($item);
+        $request = http_build_query(array_merge(request()->all(), [$filter => "$from,$to"]));
 
-        $link = "<a href='/listado?";
-        $link .= http_build_query(array_merge(request()->all(), [$filter => "$from,$to"]));
-        $link .= "' class='d-block text-dark text-decoration-none pb-1 focom-filters-locationref'>";
-        $link .= $message;
-        $link .= " ($count)</a>";
+        return View::make('elements.filters.item-between', compact('request', 'item', 'count', 'message'));
 
-        return $link;
     }
 
     
