@@ -7,7 +7,6 @@
         <div class="row mt-1 d-flex">
 
             @foreach ($articles as $article)
-                @include('elements.card-vehicle')  
                 @include('elements.card-vehicle')    
              @endforeach
             
