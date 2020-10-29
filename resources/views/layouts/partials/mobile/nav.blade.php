@@ -17,7 +17,7 @@
             <p class="focom-mobile-nav-text {{ request()->is('planes') ? 'text-primary' : '' }}">Planes</p>
         </a>
         <a href="{{ route('login') }}" class="m-auto text-decoration-none">
-            <i class="fas fa-user fa-2x focom-mobile-nav-icon {{ request()->is('usuario') ? 'text-primary' : '' }}"></i>
+            <i class="fas fa-user fa-2x focom-mobile-nav-icon {{ request()->is('dashboard') ? 'text-primary' : '' }}"></i>
             <p class="focom-mobile-nav-text {{ request()->is('perfil') ? 'text-primary' : '' }}">Usuario</p>
         </a>
     </div>

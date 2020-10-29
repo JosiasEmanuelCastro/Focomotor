@@ -11,12 +11,15 @@
             </div>
         </div>
         <div class="flex-grow-1 mx-md-4 mx-lg-5">
-            <div class="input-group focom-nav-desktop-search">
-                <input type="text" class="form-control focom-nav-desktop-input" placeholder="Buscar en Focomotor">
-                <div class="input-group-append">
-                    <button class="focom-nav-desktop-searchbutton bg-primary input-group-text fas fa-search fa-lg text-white" id=""></button>
+            <form action="{{ route('articles.list') }}" method="GET">
+                <div class="input-group focom-nav-desktop-search">
+                    <input type="text" name="q" class="form-control focom-nav-desktop-input" placeholder="Buscar en Focomotor">
+                    <div class="input-group-append">
+                        <button class="focom-nav-desktop-searchbutton bg-primary input-group-text fas fa-search fa-lg text-white" id=""></button>
+                    </div>
                 </div>
-            </div>
+            </form>
+
             <div class="focom-nav-desktop">
                 <a href="{{ route('home')}}" class="{{ request()->is('/') ? 'text-primary' : 'text-black-50' }}">Inicio</a>
                 <a href="{{ route('articles.list') }}" class="{{ request()->is('listado') ? 'text-primary' : 'text-black-50' }}">Listado</a>
@@ -40,12 +43,12 @@
             {{-- expr --}}
         <div class="dropdown">
             <div class="d-flex align-items-center" type="button" id="focomUserDropDownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <a href="/usuario">
+                <a href="/dashboard">
                     <div class="focom-header-imageProfile mr-2">
                         <img class="border" src="{{ auth()->user()->profile_photo_url}}">
                     </div>
                 </a>
-                <a href="/usuario" class="text-secondary text-decoration-none">{{auth()->user()->name}}</a>
+                <a href="/dashboard" class="text-secondary text-decoration-none">{{auth()->user()->name}}</a>
                 <i class="ml-2 fas fa-angle-down text-secondary focom-userArrow" style="padding-top: 3px;"></i>
             </div>
             <div class="dropdown-menu w-100 ml-1 mt-2" aria-labelledby="focomUserDropDownMenu">
