@@ -1,6 +1,5 @@
 @extends('layouts.default')
 
-
 @section('section')
     @include('elements.slider')
     <div class="mx-3 mx-lg-5">
