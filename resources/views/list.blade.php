@@ -27,7 +27,7 @@
     <!-- BEGIN LIST --->
 
     {{-- BEGIN FILTERS --}}
-    @include('articles.filters')
+    @include($device . 'articles.filters')
     {{-- END FILTERS --}}
     {{-- BEGIN LIST --}}
 

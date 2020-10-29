@@ -1,6 +1,7 @@
 <?php
 namespace App\Services;
 
+use View;
 use App\Models\Category;
 
 class FilterService {
@@ -45,6 +46,9 @@ class FilterService {
 
     public static function display()
     {
+        $request = request()->except("order", "sort", "page");
+
+        View::make('elements.filters.display', compact('request'));
 
         $html = "";
 
@@ -62,7 +66,9 @@ class FilterService {
     public static function getLinkWithCount($filter, $item, $value = null)
     {
         $data = ($value) ? $value : $item[0]->$filter;
-        return "<a href='/listado?'". http_build_query(array_merge(request()->all(), [$filter => $data])) . " class='d-block text-dark text-decoration-none pb-1 focom-filters-locationref'>" . $data . " (" . count($item). ")</a>";
+
+        $params = http_build_query(array_merge(request()->all(), [$filter => $data]));
+        return "<a href='/listado?$params' class='d-block text-dark text-decoration-none pb-1 focom-filters-locationref'>" . $data . " (" . count($item). ")</a>";
     }
 
     public static function getLinkBetweenWithCount($total, $filter, $from, $to, $message)
