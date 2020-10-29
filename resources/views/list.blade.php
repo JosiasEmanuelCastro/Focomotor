@@ -13,6 +13,7 @@
             <p class="pt-3 mx-1">Olavarria</p>
         </span>
         --}}
+
     <a data-toggle="collapse" href="#focomFiltersCollapse" aria-expanded="true" aria-controls="focomFiltersCollapse"
         class="d-flex align-items-center text-decoration-none">
         <i class="fas fa-filter fa-lg"></i>
@@ -55,6 +56,7 @@
                 @endforeach
 
             </div>
+
 
         </div>
 

@@ -1,4 +1,4 @@
-<footer class="mt-5 bg-dark text-white p-5 d-none d-md-block">
+<footer class="mt-5 bg-dark text-white p-5 d-block">
     <div class="row">
         <div class="col-3">
             <img src="/img/focom-white.png" height="20px">

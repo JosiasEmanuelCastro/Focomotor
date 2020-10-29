@@ -95,8 +95,11 @@ Route::view('restablecer', 'newViews.restore')->name('newViews.restore');
 //    return Inertia\Inertia::render('Dashboard');
 //})->name('dashboard');
 
-/* ESTAS RUTAS SON DE PRUEBA PARA VER LOS DISEÑOS SIN REGISTRO */
+
+/* ESTAS RUTAS SON DE PRUEBA PARA VER LOS DISEÑOS SIN FUNCIONES */
 Route::view('usuario', ('dashboard'));
 Route::view('404', ('404'));
+Route::view('stepform', ('stepform'));
 
 Route::get('/_/{category}/{slug}', [ArticlesController::class, 'show'])->name('articles.show');
+

@@ -21,23 +21,7 @@
     
     
     {{-- BEGIN HEADER MOBILE --}}
-    <div id="focom-mobile-navbar" class="focom-nav-transition fixed-top d-flex d-md-none bg-primary text-white align-items-center justify-content-between shadow-sm focom-minwidth px-3 py-3">
-        <a id="focom-nav-mobile-logo-search" href="{{ route('home')}}">
-            <img src="/img/focom-white.png" height="20px" class="mr-3">
-        </a>
-        {{-- BEGIN SEARCH --}}
-        <a id="focom-nav-arrowback" class="text-decoration-none focom-mouse-hover-pointer" style="display: none">
-            <i class="fas fa-arrow-left fa-lg text-white pr-3"></i>
-        </a>
-        <form class="w-100 d-flex justify-content-end">
-            <input id="focom-nav-mobile-input-search" type="search" class="form-control focom-nav-mobile-input" style="display: none" name="" placeholder="Busca en Focomotor">
-            <a id="focom-nav-mobile-icon-search" class="focom-mouse-hover-pointer">
-                <i class="fas fa-search fa-lg text-white"></i>
-            </a>
-        </form>
-        {{-- END SEARCH --}}
-    </div>
-    <div class="d-block d-md-none focom-mobile-nav-padding w-100"></div>
+    @include('layouts.partials.mobile.header')
     {{-- END HEADER MOBILE --}}
 
     {{-- BEGIN NAV MOBILE --}}

@@ -1,7 +1,7 @@
-// El navbar mobile desaparece al scrollear la pagina hacia abajo y aparce
-// al subir (la variable filter se usa en la pagina de listado.html)
-
 if ( /* Si se coloca en false se desactiva el script*/ true) {
+
+    // El navbar mobile desaparece al scrollear la pagina hacia abajo y aparce
+    // al subir (la variable filter se usa en la pagina de listado.html)
 
     // BEGIN 
     var filters = document.getElementById('focom-mobile-navbar-filters');
@@ -27,7 +27,7 @@ if ( /* Si se coloca en false se desactiva el script*/ true) {
     }
     // END
 
-    //BEGIN
+    // BEGIN
     // Al presionar el icono de buscar en mobile el header
     // cambia a un input y se selecciona para escribir alli
     var iconSearch = document.getElementById('focom-nav-mobile-icon-search');
@@ -44,6 +44,7 @@ if ( /* Si se coloca en false se desactiva el script*/ true) {
         document.getElementById('focom-nav-mobile-logo-search').style.display = 'none';
         document.getElementById('focom-nav-mobile-icon-search').style.display = 'none';
         document.getElementById('focom-nav-mobile').style.display = 'none';
+        document.getElementById('hide-in-search').style.display = 'none';
 
         document.getElementById('focom-nav-arrowback').style.display = 'block';
         document.getElementById('focom-nav-mobile-input-search').style.display = 'block';
@@ -58,6 +59,7 @@ if ( /* Si se coloca en false se desactiva el script*/ true) {
         document.getElementById('focom-nav-mobile-logo-search').style.display = 'block';
         document.getElementById('focom-nav-mobile-icon-search').style.display = 'block';
         document.getElementById('focom-nav-mobile').style.display = 'block';
+        document.getElementById('hide-in-search').style.display = 'block';
 
         document.getElementById('focom-nav-arrowback').style.display = 'none';
         document.getElementById('focom-nav-mobile-input-search').style.display = 'none';

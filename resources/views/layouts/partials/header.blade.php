@@ -1,4 +1,4 @@
-<header class="d-none d-md-block my-3 mx-md-4 mx-lg-5">
+<header class="d-block my-3 mx-4 mx-lg-5">
     <div class="d-flex align-items-center">
         <div class="flex-grow-0">
             <div class="pt-1 mb-n1">
@@ -10,16 +10,14 @@
                 <span href="html/" class="text-decoration-none focom-header-desktop-ubication"></span>
             </div>
         </div>
-        <div class="flex-grow-1 mx-md-4 mx-lg-5">
-            <form action="{{ route('articles.list') }}" method="GET">
-                <div class="input-group focom-nav-desktop-search">
-                    <input type="text" name="q" class="form-control focom-nav-desktop-input" placeholder="Buscar en Focomotor">
-                    <div class="input-group-append">
-                        <button class="focom-nav-desktop-searchbutton bg-primary input-group-text fas fa-search fa-lg text-white" id=""></button>
-                    </div>
+        <div class="flex-grow-1 mx-4 mx-lg-5">
+            <div class="input-group focom-nav-desktop-search">
+                <input type="text" class="form-control focom-nav-desktop-input" placeholder="Buscar en Focomotor">
+                <div class="input-group-append">
+                    <button class="focom-nav-desktop-searchbutton bg-primary input-group-text fas fa-search fa-lg text-white" id=""></button>
                 </div>
             </form>
-
+            
             <div class="focom-nav-desktop">
                 <a href="{{ route('home')}}" class="{{ request()->is('/') ? 'text-primary' : 'text-black-50' }}">Inicio</a>
                 <a href="{{ route('articles.list') }}" class="{{ request()->is('listado') ? 'text-primary' : 'text-black-50' }}">Listado</a>

@@ -46,25 +46,10 @@ f/* ESTILOS GENERALES */
     font-weight: 400;
 }
 
-.focom-list a:hover {
-    text-decoration: none;
+.focom-hover:hover {
+    opacity: 0.7;
 }
 
-.focom-list img {
-    width: 100%;
-}
-
-.focom-list:hover {
-    opacity: 0.8;
-}
-
-.focom-list-price {
-    font-size: 30px;
-}
-
-.focom-vehicle-price {
-    font-size: 45px;
-}
 
 .focom-vehicle-details {
     font-size: 20px;
@@ -107,16 +92,6 @@ f/* ESTILOS GENERALES */
 .focom-list-padding {
     padding-left: 5px;
     padding-right: 5px;
-}
-
-.focom-reset-margin {
-    margin-right: 0px !important;
-    margin-left: 0px !important;
-}
-
-.focom-reset-padding {
-    padding-right: 0px;
-    padding-left: 0px;
 }
 
 .focom-notification-bottom-width {
@@ -173,18 +148,12 @@ f/* ESTILOS GENERALES */
 }
 
 .focom-image-icon-delete {
+    position: absolute;
     font-size: 30px;
     background-color: #fffc;
     padding: 2px;
     border-radius: 50%;
-    margin-left: -40px;
-    margin-top: 5px;
-    position: absolute;
     text-decoration: none !important;
-}
-
-.focom-image-icon-delete {
-    cursor: pointer;
 }
 
 .focom-index {
@@ -391,7 +360,48 @@ f/* ESTILOS GENERALES */
     object-fit: cover;
 }
 
+.focom-404-icons {
+    overflow: hidden;
+}
 
+#focom-mobile-navbar {
+    z-index: 5000;
+}
+
+.focom-editCarOpen{
+    display: flex !important;
+}
+
+article .focom-lastHide:last-child{
+    display: none;
+}
+
+.focom-nav-desktop a {
+    font-weight: 500;
+    font-size: 14px;
+    padding-right: 13px;
+}
+
+.focom-nav-desktop-buttons {
+    width: 250px;
+}
+
+.focom-nav-desktop-search {
+    margin-bottom: 10px;
+}
+
+.focom-nav-desktop-input {
+    height: 38px;
+    max-width: 500px;
+}
+
+.focom-nav-desktop-input::placeholder {
+    color: #bfbfbf;
+}
+
+.focom-nav-desktop-searchbutton {
+    font-size: 18px;
+}
 
 /*      SOLO DESKTOP      */
 @media (min-width: 768px) {
@@ -425,36 +435,6 @@ f/* ESTILOS GENERALES */
         margin-top: 50px;
     }
 
-    .focom-nav-desktop a {
-        font-weight: 500;
-        font-size: 14px;
-        padding-right: 13px;
-    }
-
-    .focom-nav-desktop-buttons {
-        width: 250px;
-    }
-
-    .focom-nav-desktop-search {
-        margin-bottom: 10px;
-    }
-
-    .focom-nav-desktop-input {
-        height: 38px;
-        max-width: 500px;
-    }
-
-    .focom-nav-desktop-input::placeholder {
-        color: #bfbfbf;
-    }
-
-    .focom-nav-desktop-searchbutton {
-        font-size: 18px;
-    }
-
-    .focom-list-titleFont {
-        font-size: 23px;
-    }
     .focom-404-section{
         margin-bottom: 400px;
     }
@@ -471,7 +451,7 @@ f/* ESTILOS GENERALES */
 }
 
 /*      SOLO MOBILE      */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     .focom-vehicles-list {
         margin-top: 30px;
     }
@@ -510,7 +490,7 @@ f/* ESTILOS GENERALES */
          height: 100px !important;
     }
 
-    .class {
+    .focom-filters-mobile {
         max-height: 75vh;
         overflow-y: scroll;
     }
@@ -527,6 +507,32 @@ f/* ESTILOS GENERALES */
     }
     .focom-404-carcrash {
         font-size: 150px;
+    }
+    .focom-btn-sm {
+    padding:.25rem .5rem;
+    font-size:.875rem;
+    line-height:1.5;
+    border-radius:.2rem
+    }
+    .focom-collapseEditCar {
+        position: absolute;
+        width: 150px;
+        top: 0px;
+        right: 30px;
+        background: #fff;
+        border:1px solid #dee2e6!important;
+        padding-bottom: 15px;
+        padding-top: 15px;
+        z-index: 150px;
+    }
+    .focom-vehicle-title{
+        font-size: 16px;
+    }
+    .focom-vehicle-price {
+        font-size: 22px;
+    }
+    .focom-vehicle-place{
+        font-size: 16px;
     }
 }
 
@@ -555,12 +561,8 @@ f/* ESTILOS GENERALES */
         transition: transform 0.3s, -webkit-transform 0.3s !important;
     }
 
-    .focom-list-titleFont {
-        font-size: 18px;
-    }
-
-    .focom-list-price {
-        font-size: 26px;
+    .focom-img-maxheight{
+        max-height: 100px;
     }
 }
 

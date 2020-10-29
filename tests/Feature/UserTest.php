@@ -28,7 +28,7 @@ class UserTest extends TestCase
 
         //$response->dump();
 
-        $response->assertRedirect("/profile");
+        $response->assertRedirect("/dashboard");
         $response->assertStatus(302);
 
         $this->assertDatabaseHas('users', [

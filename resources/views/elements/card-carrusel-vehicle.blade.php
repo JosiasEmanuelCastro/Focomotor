@@ -1,7 +1,7 @@
-<article class="col-6 col-sm-4 col-md-3 col-xl-2 p-0 p-1 p-sm-2 p-md-2 align-self-stretch">
+<article class="p-1 p-sm-2 p-md-2">
     <a href="{{ route('articles.show', ['category' => $article->type->slug, 'slug' => $article->slug]) }}" class="text-dark text-decoration-none" >
-        <div class="border rounded shadow bg-white rounded focom-hover h-100" style="max-width: 250px;">
-            <img src="/storage/images/thumbnails/{{$article->feature_image}}" width="100%" style="max-height: 200px; object-fit: cover;">
+        <div class="border rounded shadow bg-white rounded focom-hover h-100" style="max-width: 220px;">
+            <img src="/storage/images/thumbnails/{{$article->feature_image}}" width="100%" style="max-height: 150px; object-fit: cover;">
             <div class="px-1 px-md-2">
                 <h4 class="m-1 h5 focom-vehicle-title">{{$article->title}}</h4>
                 <p class="m-1 font-weight-normal h3 focom-vehicle-price" style="overflow: hidden;">${{$article->price}}</p>
