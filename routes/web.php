@@ -91,6 +91,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia\Inertia::render('Dashboard');
 })->name('dashboard');
 
-/* ESTAS RUTAS SON DE PRUEBA PARA VER LOS DISEÑOS SIN REGISTRO */
+/* ESTAS RUTAS SON DE PRUEBA PARA VER LOS DISEÑOS SIN FUNCIONES */
 Route::view('dashboard', ('dashboard'));
 Route::view('404', ('404'));
+Route::view('stepform', ('stepform'));
