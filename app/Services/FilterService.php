@@ -3,6 +3,7 @@ namespace App\Services;
 
 use View;
 use App\Models\Category;
+use Illuminate\Support\Facades\DB;
 
 class FilterService {
 
@@ -15,7 +16,7 @@ class FilterService {
             case 'price':
                 self::$message = self::betweenPrice($value);
                 break;
-            case 'kilometer':
+            case 'kilometers':
                 self::$message = self::betweenKilometer($value);
                 break;
 
@@ -53,9 +54,9 @@ class FilterService {
 
     public static function getLinkWithCount($filter, $item, $value = null)
     {
-        $title = ($value);
-
-        $count = count($item);
+        $title = $item->$filter;
+    
+        $count = $item->total;
 
         $params = http_build_query(array_merge(request()->all(), [$filter => $title]));
 
@@ -63,14 +64,16 @@ class FilterService {
 
     }
 
-    public static function getLinkBetweenWithCount($total, $filter, $from, $to, $message)
+    public static function getLinkBetweenWithCount($query, $filter, $from, $to, $message)
     {
-        
-        $item = $total->whereBetween($filter, [$from, $to]);
-        $count = count($item);
+
+        $count = $query->whereBetween($filter, [$from, $to])->select( DB::raw('count(*) as total'))->get();
+
+        $count = $count->first()->total;
+    
         $request = http_build_query(array_merge(request()->all(), [$filter => "$from,$to"]));
 
-        return View::make('elements.filters.item-between', compact('request', 'item', 'count', 'message'));
+        return View::make('elements.filters.item-between', compact('request', 'count', 'message'));
 
     }
 

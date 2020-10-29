@@ -2,9 +2,17 @@
     <div class="pt-4 my-1">
         <label class="focom-label-filters">Categorías</label>
 
-        @foreach ($totalArticles->groupBy('type_id') as $item)
-            <a href='/listado?{{http_build_query(array_merge(request()->all(), ['type' => $item[0]->type->id]))}}' 
-            class='d-block text-dark text-decoration-none pb-1 focom-filters-locationref'>{{$item[0]->type->name}}({{count($item)}})</a>
+        @php
+        $queryCategories = clone $queryCount;
+
+        $countCategories = $queryCategories->groupBy('type_id')->select(DB::raw('count(*) as total_category, articles.type_id, categories.name'))
+        ->get();
+
+        @endphp
+
+        @foreach ($countCategories as $item)
+            <a href='/listado?{{http_build_query(array_merge(request()->all(), ['type' => $item->type_id]))}}' 
+            class='d-block text-dark text-decoration-none pb-1 focom-filters-locationref'>{{$item->name}}({{$item->total_category}})</a>
         @endforeach
 
     </div>

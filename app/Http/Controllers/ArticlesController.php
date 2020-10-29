@@ -10,6 +10,7 @@ use App\Models\ArticleImage;
 use Illuminate\Http\Request;
 use App\Models\ManualArticle;
 use App\Services\ImageService;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
@@ -28,16 +29,16 @@ class ArticlesController extends Controller
         $search = $request->q;
         $location = $request->location;
         $fuel = $request->fuel;
-        $kilometers = $request->kilometer ? explode(",",$request->kilometer) : null;
+        $kilometers = $request->kilometers ? explode(",",$request->kilometers) : null;
         $price = $request->price ? explode(",",$request->price) : null;
         $year = $request->year;
         $condition = $request->condition;
         $sort = $request->sort ? $request->sort : 'DESC';
         $order = $request->order ? $request->order : 'created_at';
 
-        $articles = Article::
+        $articles = DB::table('articles')
                 //where('title', '%LIKE%', $query)
-                when($location, function ($query, $location) {
+                ->when($location, function ($query, $location) {
                     return $query->where('location->address->town', $location)
                             ->orWhere('location->address->city', $location);
                 })
@@ -58,16 +59,37 @@ class ArticlesController extends Controller
                 })
                 ->when($price, function ($query, $price) {
                     return $query->whereBetween('price', [$price[0], $price[1]]);
-                })
-                ->orderBy($order, $sort);
+                });
 
-        $totalArticles = $articles->with('type')->get();
+        $query = $articles->join('categories', 'categories.id', '=', 'articles.type_id');
         
-        $articles = $articles->paginate(3);
+        $queryPaginate = clone $query;
+        
+        $articles = $queryPaginate->orderBy('articles.' . $order, $sort)->paginate(3);
 
-        dump($totalArticles);
+        $queryLocation = clone $query;
 
-        return view('list', compact('articles', 'totalArticles'));
+        $countLocations = $queryLocation->groupBy('location')->select(DB::raw('count(*) as total, location'))
+        ->get();
+
+        $queryFuel = clone $query;
+
+        $countFuel = $queryFuel->groupBy('fuel')->select(DB::raw('count(*) as total, fuel'))
+        ->get();
+
+        $queryCondition = clone $query;
+
+        $countCondition = $queryCondition->groupBy('condition')->select(DB::raw('count(*) as total, articles.condition'))
+        ->get();
+
+        $queryDate = clone $query;
+
+        $countDate = $queryDate->groupBy('year')->select(DB::raw('count(*) as total, articles.year'))
+        ->get();
+
+        $queryCount = clone $query;
+
+        return view('list', compact('articles', 'countLocations', 'countFuel', 'countCondition', 'countDate', 'queryCount'));
     }
 
     /**

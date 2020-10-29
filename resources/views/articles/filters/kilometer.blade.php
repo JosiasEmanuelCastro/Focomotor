@@ -1,10 +1,10 @@
-@if(!request()->kilometer)
+@if(!request()->kilometers)
     <div class="pt-4 my-1">
         <label class="focom-label-filters">Kilometraje</label>
 
-        {!! Filter::getLinkBetweenWithCount($totalArticles, 'kilometer', 0, 35000, "Hasta 35.000km") !!}
-        {!! Filter::getLinkBetweenWithCount($totalArticles, 'kilometer', 35000, 75000, "Desde 35.000km Hasta 75.000km") !!}
-        {!! Filter::getLinkBetweenWithCount($totalArticles, 'kilometer', 75000, 100000, "Desde 75.000km Hasta 100.000km") !!}
+        {!! Filter::getLinkBetweenWithCount(clone $queryCount, 'kilometers', 0, 35000, "Hasta 35.000km") !!}
+        {!! Filter::getLinkBetweenWithCount(clone $queryCount, 'kilometers', 35000, 75000, "Desde 35.000km Hasta 75.000km") !!}
+        {!! Filter::getLinkBetweenWithCount(clone $queryCount, 'kilometers', 75000, 100000, "Desde 75.000km Hasta 100.000km") !!}
 
 
         <select class="d-inline-block custom-select-sm pl-0 ml-n1 pr-2 border-0 focom-mouse-hover-pointer">

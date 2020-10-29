@@ -1,22 +1,23 @@
 @if(!request()->location)
     <div class="pt-4 my-1">
         <label class="focom-label-filters">Ubicación</label>
-
-        @foreach($totalArticles->groupBy('location') as $item)
-            @if(isset(json_decode($item[0]->location)->address->city))
+        
+        @foreach($countLocations as $item)
+            
+            @if(isset(json_decode($item->location)->address->city))
                 @php
-                    $location = json_decode($item[0]->location)->address->city;
+                    $location = json_decode($item->location)->address->city;
                 @endphp
 
             @else
                 @php
-                    $location = json_decode($item[0]->location)->address->town;
+                    $location = json_decode($item->location)->address->town;
                 @endphp
             @endif
 
             <a href="/listado?{{ http_build_query(array_merge(request()->all(), ['location' => $location])) }}"
                 class="d-block text-dark text-decoration-none pb-1 focom-filters-locationref">{{ $location }}
-                ({{ count($item) }})</a>
+                ({{ $item->total }})</a>
         @endforeach
 
 
