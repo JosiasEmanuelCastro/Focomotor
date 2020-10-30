@@ -16,7 +16,7 @@
                 <div class="input-group-append">
                     <button class="focom-nav-desktop-searchbutton bg-primary input-group-text fas fa-search fa-lg text-white" id=""></button>
                 </div>
-            </form>
+            </div>
             
             <div class="focom-nav-desktop">
                 <a href="{{ route('home')}}" class="{{ request()->is('/') ? 'text-primary' : 'text-black-50' }}">Inicio</a>
@@ -59,4 +59,5 @@
             </div> 
         </div>
         @endauth
+    </div>
 </header>

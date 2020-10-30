@@ -12,8 +12,9 @@
                 <i class="fas fa-search fa-lg text-white"></i>
             </a>
         </form>
-        {{-- END SEARCH --}}  
-        <div id="hide-in-search" class="dropdown ml-3 my-n3" >
+        {{-- END SEARCH --}} 
+        <div id="hide-in-search" class="dropdown ml-3 my-n3">
+            @auth('web')
             <div type="button" id="focomUserDropDownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 	            <div class="">
 	                <img class="rounded-circle" height="38px" src="{{ auth()->user()->profile_photo_url}}">
@@ -26,7 +27,22 @@
                     @csrf
                     <button class="dropdown-item">Salir</button>
                 </form>
+                <a class="dropdown-item" href="{{ route('info.help') }}">Ayuda</a>
             </div> 
+            @endauth
+            @guest('web')
+            <div type="button" id="focomUserDropDownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="">
+                    <img class="rounded-circle" height="38px" src="/img/default_profile.jpg">
+                </div>
+            </div>
+            <div class="dropdown-menu w-100 ml-1 mt-2" aria-labelledby="focomUserDropDownMenu">
+                <a class="dropdown-item" href="{{ route('user.login') }}">Ingresar</a>
+                <a class="dropdown-item" href="{{ route('user.register') }}">Registrarse</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{{toure.('info.help')}}">Ayuda</a>
+            </div> 
+            @endguest
         </div>
 
            
