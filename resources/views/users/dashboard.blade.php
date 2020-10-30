@@ -7,12 +7,12 @@
     <div class="d-flex"> 
         <img class="rounded-circle mr-3" height="60px" src="{{ auth()->user()->profile_photo_url}}">    
         <h1 class="h4 my-auto font-weight-normal mr-2">{{auth()->user()->name}}</h1>
-        <a class="fas fa-cog my-auto pt-1 h5 text-decoration-none focom-mouse-hover-pointer"></a>
+        <a href="{{ route('user.config') }}" class="fas fa-cog my-auto pt-1 h5 text-decoration-none focom-mouse-hover-pointer"></a>
     </div>
 
     <div class="my-auto d-md-flex d-none justify-content-end" style="min-width: 350px">
-        <button class="btn btn-outline-primary focom-btn-sm mr-2">Publicar<i class="fas fa-plus fa-sm pl-2"></i></button>
-        <button class="btn btn-secondary focom-btn-sm">Configuraciones<i class="fas fa-cog fa-sm pl-2"></i></button>
+        <a href="{{route('articles.create')}}"><button class="btn btn-outline-primary focom-btn-sm mr-2">Publicar<i class="fas fa-plus fa-sm pl-2"></i></button></a>
+        <a href="{{ route('user.config') }}"><button class="btn btn-secondary focom-btn-sm">Configuraciones<i class="fas fa-cog fa-sm pl-2"></i></button></a>
     </div>
 </div>
 {{-- BEGIN Si es particular no mostrar --}}
@@ -73,11 +73,11 @@
             </div>
 
             <div id="focom-editCarCard-{{$article->id}}" class="col-12 col-md-4 my-md-auto focom-collapseEditCar flex-column justify-content-end d-md-flex d-none">
-                <button class="btn btn-secondary mb-n3">Editar
-                    <i class="fas fa-pencil-alt pl-2"></i>
+                <button class="btn btn-secondary mb-2">Editar<i class="fas fa-pencil-alt pl-2"></i>
                 </button>
-                <br>
-                <button class="btn btn-danger">Desactivar</button>
+                <button class="btn btn-danger btn-sm mb-2">Desactivar</button>
+                <button class="btn btn-danger btn-sm">Eliminar<i class="fas fa-trash pl-2"></i>
+                </button>
             </div>
 
             <div class="">

@@ -4,6 +4,7 @@
     $place = (isset($location->address->city)) ? $location->address->city : $location->address->town;
     
 @endphp
+
 <article class="col-6 col-sm-4  p-0 p-1 p-sm-2 align-self-stretch">
     <a href="{{ route('articles.show', ['category' => Str::slug($article->name), 'slug' => $article->slug]) }}" class="text-dark text-decoration-none" >
         <div class="border rounded shadow bg-white rounded focom-hover h-100" style="max-width: 250px;">
@@ -15,7 +16,9 @@
                     <i class="fas fa-map-marker-alt fa-lg align-self-center mb-2"></i>
                     <p class="pl-1 h5 font-weight-normal pr-1 focom-vehicle-place">{{ $place }}</p>
                 </div>
-                
+                <div class="">
+                    
+                </div>
             </div>
         </div>
     </a>

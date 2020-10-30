@@ -11,8 +11,9 @@
         </div>
         {{-- BUSCAR --}}
         
-        {{-- UBICACION --}}
-        
+        {{-- SHORT BY --}}
+        @include('articles.filters.shortby')
+
         @include('articles.filters.location')
 
         {{-- CATEGORIA --}}

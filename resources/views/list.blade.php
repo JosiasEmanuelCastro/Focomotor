@@ -4,8 +4,8 @@
 @section('section')
 
 <hr class=" d-none d-md-block mt-n1">
-{{-- BEGIN MOBILE FILTERS SECTION --}}
-<div id="focom-mobile-navbar-filters"
+{{-- BEGIN MOBILE FILTERS --}}
+<!-- <div id="focom-mobile-navbar-filters"
     class="d-flex d-md-none bg-white shadow-sm text-dark justify-content-end px-2 fixed-top focom-mobile-list-filter focom-nav-transition">
     {{--  NO DELETE
         <span class="d-flex align-items-center text-decoration-none">
@@ -20,8 +20,8 @@
         <p class="pt-3 mx-1">Filtros</p>
         <i class="fas fa-chevron-down fa-sm pt-1"></i>
     </a>
-</div>
-{{-- END MOBILE FILTERS SECTION --}}
+</div> -->
+{{-- END MOBILE FILTERS --}}
 <div class="row focom-section mt-1 mx-1 mx-md-3 mx-lg-5">
 
 
@@ -32,34 +32,12 @@
     {{-- END FILTERS --}}
     {{-- BEGIN LIST --}}
 
-    <div class="col-12 col-md-9 row focom-reset-padding focom-reset-margin focom-vehicles-list mt-md-n2">
-
-        
-        <ul class="nav justify-content-end">
-
-            <li class="nav nav-link active"><a
-                    href="/listado?{{ http_build_query(request()->except("order", "sort")) }}">Newest</a>
-            </li>
-            <li class="nav nav-link"><a
-                    href="/listado?{{ http_build_query(array_merge(request()->all(), ['order' => 'price', 'sort' => 'ASC'])) }}">Price
-                    (low)</a></li>
-            <li class="nav nav-link"><a
-                    href="/listado?{{ http_build_query(array_merge(request()->all(), ['order' => 'price', 'sort' => 'DESC'])) }}">Price
-                    (high)</a></li>
-        </ul>
-
-        <div class="container">
-            <div class="row">
-
-                @foreach($articles as $article)
-                    @include('articles.list.card')
-                @endforeach
-
-            </div>
-        </div>
+    <div class="col-12 col-md-9 row p-0 m-0 focom-vehicles-list mt-md-n2 align-self-start d-flex">
 
 
-
+        @foreach($articles as $article)
+            @include('articles.list.card')
+        @endforeach
     </div>
 
     <!-- END LIST --->
