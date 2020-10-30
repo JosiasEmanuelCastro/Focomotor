@@ -25,7 +25,7 @@ class CreateArticlesTable extends Migration
             $table->integer('doors')->nullable()->default(0);
             $table->string('description')->nullable();
             $table->integer('type_id')->unsigned();
-            $table->string('location')->nullable();
+            $table->json('location')->nullable();
             $table->integer('views')->default(0);
             $table->bigInteger('category_id')->default(0);
             $table->string('title')->nullable();
