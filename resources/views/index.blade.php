@@ -2,12 +2,12 @@
 @section('section')
     @include('elements.slider')
     <div class="mx-3 mx-md-5 mx-lg-5">
-        <h2 class="py-3 h3">Ultimas publicaciones:</h2>
+        <h2 class="py-3 h4">Ultimas publicaciones:</h2>
 
         <div class="row mt-1 d-flex">
 
             @foreach ($articles as $article)
-                @include('elements.card-vehicle')    
+                @include($device . 'elements.card-vehicle')    
              @endforeach
             
         </div>

@@ -100,6 +100,7 @@ Route::view('restablecer', 'newViews.restore')->name('newViews.restore');
 Route::view('usuario', ('dashboard'));
 Route::view('404', ('404'));
 Route::view('stepform', ('stepform'));
+Route::view('profile', ('users.profile'));
 
 Route::get('/_/{category}/{slug}', [ArticlesController::class, 'show'])->name('articles.show');
 

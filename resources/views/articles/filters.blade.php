@@ -1,5 +1,4 @@
-<div id="focomFiltersCollapse"
-        class="d-md-block col-12 col-md-3 collapse card card-body focom-filters-mobile focom-nav-transition mb-auto">
+<div class="col-3 card card-body">
         <div>
             <h1 class="h3 mb-1">Listado</h1>
             <p class="small">{{$articles->total()}} resultados</p>

@@ -24,7 +24,7 @@
     <div class="d-block">  
         <span>Publicaciones disponibles: <span class="h5">15</span><a href=""><sup class="fas fa-question-circle text-black-50 pb-2"></sup></a></span>
         <br class="">
-        <a href="" class="small d-flex mt-n2">coseguir más</a>
+        <a href="{{route('plans')}}" class="small d-flex mt-n2">coseguir más</a>
     </div>
 </div>
 <article class="border rounded my-3 p-2 p-md-4 focom-articles">
