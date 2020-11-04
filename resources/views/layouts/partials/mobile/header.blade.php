@@ -1,4 +1,4 @@
-    <div id="focom-mobile-navbar" class="focom-nav-transition fixed-top d-flex bg-primary text-white align-items-center justify-content-between shadow-sm focom-minwidth px-3 py-3">
+    <div id="focom-mobile-navbar" class="focom-nav-transition fixed-top d-flex bg-primary text-white align-items-center justify-content-between shadow-sm px-3 py-3" style="z-index: 250">
         <a id="focom-nav-mobile-logo-search" href="{{ route('home')}}">
             <img src="/img/focom-white.png" height="20px" class="mr-3">
         </a>
@@ -22,12 +22,12 @@
             </div>
             <div class="dropdown-menu w-100 ml-1 mt-2" aria-labelledby="focomUserDropDownMenu">
                 <a class="dropdown-item" href="{{ route('user.dashboard') }}">Mi cuenta</a>
+                <a class="dropdown-item" href="{{ route('info.help') }}">Ayuda</a>
                 <div class="dropdown-divider"></div>
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <button class="dropdown-item">Salir</button>
                 </form>
-                <a class="dropdown-item" href="{{ route('info.help') }}">Ayuda</a>
             </div> 
             @endauth
             @guest('web')
@@ -36,15 +36,15 @@
                     <img class="rounded-circle" height="38px" src="/img/default_profile.jpg">
                 </div>
             </div>
-            <div class="dropdown-menu w-100 ml-1 mt-2" aria-labelledby="focomUserDropDownMenu">
-                <a class="dropdown-item" href="{{ route('user.login') }}">Ingresar</a>
-                <a class="dropdown-item" href="{{ route('user.register') }}">Registrarse</a>
+            <div class="dropdown-menu w-100 ml-1 mt-2" aria-labelledby="focomUserDropDownMenu" style="z-index: 5000">
+                <a class="dropdown-item" href="{{ route('login') }}">Ingresar</a>
+                <a class="dropdown-item" href="{{ route('register') }}">Registrarse</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="{{toure.('info.help')}}">Ayuda</a>
+                <a class="dropdown-item" href="{{ route('info.help')}}">Ayuda</a>
             </div> 
             @endguest
         </div>
 
            
     </div>
-    <div class="d-block d-md-none focom-mobile-nav-padding"></div>
+    <div class="pb-5 pt-4"></div>

@@ -17,6 +17,7 @@
                 <u>Listado</u>
             </a>
             <br>
+            @guest('web')
             <a href="{{ route('login') }}" class="small text-white">
                 <u>Iniciar sesión</u>
             </a>
@@ -25,6 +26,7 @@
                 <u>Registrarse</u>
             </a>
             <br>
+            @endguest
             <a href="{{ route('articles.create') }}" class="small text-white">
                 <u>Publicar</u>
             </a>

@@ -92,7 +92,6 @@
             function scrollTop(){
                 window.scrollTo(0, 0)
             }
-
 </script>
 <script type="text/javascript">
     document.getElementById('buttonImage#1').addEventListener('click', function(){
@@ -121,6 +120,11 @@
     document.getElementById('deleteImage#1').addEventListener('click', function(){
         deleteImage1();
     });
+</script>
+<script type="text/javascript">
+window.onbeforeunload = function () {
+    return "¿Estás seguro de que quieres salir de esta página?";
+}
 </script>
 @endsection
 

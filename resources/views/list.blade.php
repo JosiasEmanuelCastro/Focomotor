@@ -3,28 +3,30 @@
 @section('section')
 
 <hr class=" d-none d-md-block mt-n1">
-{{-- BEGIN MOBILE FILTERS --}}
 
-{{-- END MOBILE FILTERS --}}
 <div class="row focom-section mt-1 mx-1 mx-md-3 mx-lg-5">
 
 
-    <!-- BEGIN LIST --->
 
     {{-- BEGIN FILTERS --}}
     @include($device . 'articles.filters')
     {{-- END FILTERS --}}
     {{-- BEGIN LIST --}}
 
-    <div class="col-12 col-md-9 row p-0 m-0 focom-vehicles-list mt-md-n2 align-self-start d-flex">
 
-
+    @if(Agent::isMobile() || Agent::isTable())
+    <div class="col-12 mt-3 row p-0 m-0 focom-vehicles-list align-self-start d-flex">
         @foreach($articles as $article)
-            @include('articles.list.card')
+            @include($device . 'articles.list.card')
         @endforeach
     </div>
+    @else
+    <div class="col-9 row p-0 m-0 mt-n2 align-self-start d-flex">
+        @foreach($articles as $article)
+            @include($device . 'articles.list.card')
+        @endforeach
+    </div>    @endif
 
-    <!-- END LIST --->
     {{ $articles->withQueryString()->links() }}
 
 </div>
@@ -34,8 +36,8 @@
 {{-- MODALS --}}
 
 {{-- MODAL UBICATION --}}
-<div class="modal bd-example-modal-lg" id="focom-modal-filters-location" tabindex="-1" role="dialog"
-    aria-labelledby="focom-modal-filters-location" aria-hidden="true">
+<div class="modal bd-example-modal-lg" id="focom-modal-filters-location" tabindex="20" role="dialog"
+    aria-labelledby="focom-modal-filters-location" aria-hidden="true" style="z-index: 5000">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">

@@ -5,7 +5,7 @@
     
 @endphp
 
-<article class="col-6 col-sm-4  p-0 p-1 p-sm-2 align-self-stretch">
+<article class="col-4 col-xl-3 p-2 align-self-stretch">
     <a href="{{ route('articles.show', ['category' => Str::slug($article->name), 'slug' => $article->slug]) }}" class="text-dark text-decoration-none" >
         <div class="border rounded shadow bg-white rounded focom-hover h-100" style="max-width: 250px;">
             <img src="/storage/images/thumbnails/{{$article->feature_image}}" width="100%" style="max-height: 200px; object-fit: cover;">

@@ -18,7 +18,7 @@
     <title>Focomotor - Vehículos</title>
 </head>
 
-<body class="focom-minwidth">
+<body style="min-width: 265px">
     
     
     {{-- BEGIN HEADER MOBILE --}}
