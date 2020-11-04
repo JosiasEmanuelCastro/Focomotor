@@ -11,6 +11,7 @@
     <script src="https://kit.fontawesome.com/252250494d.js" crossorigin="anonymous"></script>
     {{-- Focom styles --}}
     <link rel="stylesheet" type="text/css" href="/css/focom-style.css">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     @yield('css')
 
