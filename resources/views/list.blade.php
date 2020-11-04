@@ -1,26 +1,10 @@
 @extends('layouts.default')
 
-
 @section('section')
 
 <hr class=" d-none d-md-block mt-n1">
 {{-- BEGIN MOBILE FILTERS --}}
-<!-- <div id="focom-mobile-navbar-filters"
-    class="d-flex d-md-none bg-white shadow-sm text-dark justify-content-end px-2 fixed-top focom-mobile-list-filter focom-nav-transition">
-    {{--  NO DELETE
-        <span class="d-flex align-items-center text-decoration-none">
-            <i class="fas fa-map-marker-alt fa-lg"></i>
-            <p class="pt-3 mx-1">Olavarria</p>
-        </span>
-        --}}
 
-    <a data-toggle="collapse" href="#focomFiltersCollapse" aria-expanded="true" aria-controls="focomFiltersCollapse"
-        class="d-flex align-items-center text-decoration-none">
-        <i class="fas fa-filter fa-lg"></i>
-        <p class="pt-3 mx-1">Filtros</p>
-        <i class="fas fa-chevron-down fa-sm pt-1"></i>
-    </a>
-</div> -->
 {{-- END MOBILE FILTERS --}}
 <div class="row focom-section mt-1 mx-1 mx-md-3 mx-lg-5">
 
@@ -61,22 +45,25 @@
                 </button>
             </div>
             <div class="modal-body">
-                <input type="name" class="form-control" name="" placeholder="Buscar...">
+                <input type="name" class="form-control" name="find" placeholder="Buscar...">
                 <div class="pt-4 pl-1">
-                    <a href="" class="d-block text-dark text-decoration-none pb-2">Olavarría (18)</a>
-                    <hr>
-                    <a href="" class="d-block text-dark text-decoration-none pb-2">Azul (12)</a>
-                    <hr>
-                    <a href="" class="d-block text-dark text-decoration-none pb-2">Tandil (11)</a>
-                    <hr>
-                    <a href="" class="d-block text-dark text-decoration-none pb-2">Mar del Plata (10)</a>
-                    <hr>
-                    <a href="" class="d-block text-dark text-decoration-none pb-2">Bs.As. (4)</a>
-                    <hr>
-                    <a href="" class="d-block text-dark text-decoration-none pb-2">Sierras Bayas (4)</a>
-                    <hr>
-                    <a href="" class="d-block text-dark text-decoration-none pb-2">Santiago (2)</a>
-                    <hr>
+                    
+                    @foreach ($countLocations as $item)
+                        @if(isset(json_decode($item->location)->address->state))
+                            @php
+                                $state = json_decode($item->location)->address->state;
+                            @endphp
+    
+                        @else
+                            @php
+                                $state = "Ciudad de " . json_decode($item->location)->address->city;
+                            @endphp
+                        @endif
+
+                        <a href="/listado?{{ http_build_query(array_merge(request()->all(), ['state' => $state])) }}" class="d-block text-dark text-decoration-none pb-2">{{ $state }} ({{ $item->total }})</a>
+                        <hr>
+                         
+                    @endforeach
                 </div>
             </div>
         </div>
