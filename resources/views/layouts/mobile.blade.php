@@ -30,7 +30,11 @@
     {{-- END NAV MOBILE --}}
 
     {{-- BEGIN SECTION --}}
-    @yield('section')
+    <div id="app">
+
+        @yield('section')
+
+    </div>
     {{-- END SECTION --}}
 
     {{-- jQuery first, then Popper.js, then Bootstrap JS --}}
@@ -40,6 +44,7 @@
     {{-- Focom Scripts --}}
     <script src="/js/focom-headerMobile.js" type="text/javascript"></script>
     {{-- More Scripts --}}
+    <script src="/js/app.js" type="text/javascript"></script>
     @yield('scripts')
 </body>
 
