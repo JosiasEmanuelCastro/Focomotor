@@ -7,6 +7,7 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\Api\DataController;
 use App\Http\Controllers\ArticlesController;
+use App\Http\Controllers\Api\ArticlesController as ApiArticlesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,7 +55,7 @@ Route::get('/planes', [PagesController::class, 'plans'])->name('plans');
 
 Route::get('/publicar',  [ArticlesController::class, 'create'])->name('articles.create')->middleware(['auth']);
 
-Route::post('/articles',  [ArticlesController::class, 'store'])->name('articles.store')->middleware(['auth']);
+Route::post('/articles',  [ApiArticlesController::class, 'store'])->name('articles.store')->middleware(['auth']);
 
 Route::get('/listado/{search?}', [ArticlesController::class, 'index'])->name('articles.list');
 
