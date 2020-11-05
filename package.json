@@ -26,6 +26,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "vee-validate": "^3.4.3",
         "vue-select": "^3.10.8"
     }
 }
