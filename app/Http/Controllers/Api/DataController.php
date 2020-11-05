@@ -23,7 +23,25 @@ class DataController extends Controller
 		return array_filter($data, function($v, $k){
 			return ($k == 'town');
 		}, ARRAY_FILTER_USE_BOTH);
-    }
+	}
+	
+	public function findArticlesByLocation($finder)
+	{
+		$articles = DB::table('articles')
+				->whereJsonContains('location->address->city', $finder)
+				->orWhereJsonContains('location->address->town', $finder)
+				->get();
+
+		return $articles;
+	}
+
+	public function findArticlesByState()
+	{
+		$articles = Article::select('location->address->state as state')
+				->groupBy('state');
+				
+		return $articles;
+	}
 
     public function saveData()
     {
