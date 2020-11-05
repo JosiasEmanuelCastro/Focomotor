@@ -89,6 +89,16 @@ class User extends Authenticatable
         return $this->plan->articles_limit - $this->articles()->count();
     }
 
+    public function getPublicationsActiveAttribute()
+    {
+        return $this->articles()->whereNotNull('published_at')->count();
+    }
+
+    public function getPublicationsInactiveAttribute()
+    {
+        return $this->articles()->whereNull('published_at')->count();
+    }
+
     public function getCityAttribute()
     {
         $location = json_decode($this->location);
