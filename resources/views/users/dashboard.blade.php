@@ -16,13 +16,13 @@
     </div>
 </div>
 {{-- BEGIN Si es particular no mostrar --}}
-<div class="lead mx-2">Concesionaria - Plan x10 Clasificados</div> 
+<div class="lead mx-2">{{auth()->user()->role->name}} - {{auth()->user()->plan->name}}</div> 
 {{-- END Si es particular no mostrar --}}
 <div class="border rounded px-md-4 px-3 py-md-4 py-3 pt-0 mt-md-0 mt-3 d-md-flex d-block justify-content-between">
-    <div class="pt-md-1 mb-n4"><span class="h5">2</span> Publicaciones activas</div><br>
-    <div class="pt-md-1"><span class="h5">0</span> Publicaciones inactivas</div><br>
+    <div class="pt-md-1 mb-n4"><span class="h5">{{auth()->user()->publicationsActive}}</span> Publicaciones activas</div><br>
+    <div class="pt-md-1"><span class="h5">{{auth()->user()->publicationsInactive}}</span> Publicaciones inactivas</div><br>
     <div class="d-block">  
-        <span>Publicaciones disponibles: <span class="h5">15</span><a href=""><sup class="fas fa-question-circle text-black-50 pb-2"></sup></a></span>
+        <span>Publicaciones disponibles: <span class="h5">{{auth()->user()->publicationsAvailable}}</span><a href=""><sup class="fas fa-question-circle text-black-50 pb-2"></sup></a></span>
         <br class="">
         <a href="{{route('plans')}}" class="small d-flex mt-n2">coseguir más</a>
     </div>
@@ -62,7 +62,7 @@
                     </div>
 
                     <div class="">
-                        <span class="h5 text-success">Activa</span>
+                        <span class="h5 text-success">{{ $article->published_at ? 'Activa' : 'Inactiva' }}</span>
                     </div>
                 </div>
 

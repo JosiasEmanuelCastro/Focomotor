@@ -1,4 +1,5 @@
 @if(!request()->location)
+    @if($countLocations->count())
     <div class="pt-4 my-1">
         <label class="focom-label-filters">Ubicación</label>
         
@@ -24,4 +25,5 @@
         <a href="" class="focom-filters-locationref fa-sm" data-toggle="modal"
             data-target="#focom-modal-filters-location"><i class="fas fa-search fa-sm pr-1 "></i>Buscar ciudad</a>
     </div>
+    @endif
 @endif

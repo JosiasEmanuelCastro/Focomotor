@@ -1,6 +1,6 @@
 @if(!request()->condition)
 
-    @if($countCondition)
+    @if($countCondition->count())
     <div class="pt-4 my-1">
         <label class="focom-label-filters">Condición</label>
 

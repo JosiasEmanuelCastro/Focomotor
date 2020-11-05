@@ -1,4 +1,5 @@
 @if(!request()->year)
+    @if($countDate->count())
     <div class="pt-4 my-1">
         <label class="focom-label-filters">Año</label>
 
@@ -18,4 +19,5 @@
         <input type="number" name="" placeholder="Hasta" class="d-inline-block small focom-mouse-hover-pointer" style="width: 80px">
         <a class="pl-2 fas fa-search text-primary text-decoration-none focom-mouse-hover-pointer"></a>
     </div>
+    @endif
 @endif

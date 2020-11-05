@@ -13,7 +13,7 @@
 
             <div id="app">
 
-        	   @include('elements.forms.register')
+                <form-register />
 
             </div>
 
@@ -26,54 +26,4 @@
 @endsection
 @section('scripts')
 <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="https://unpkg.com/vue-select@latest"></script>
-<script>
-Vue.component('v-select', VueSelect.VueSelect);
-
-var app = new Vue({
-    el: '#app',
-    data: {
-        message: 'Hello Vue!',
-        finder: { display_name: '', icon: '' },
-        cities: []
-
-    },
-    mounted() {
-        console.log(this.message);
-    },
-    methods: {
-        async find(search, loading) {
-
-            if (search != '') {
-                loading(true);
-                this.search(loading, search, this);
-            }
-
-            //const searchWeather = await fetch(`/api/weather/findByLocation/${search}`);
-            //this.cities = await searchWeather.json()
-        },
-        search: _.debounce((loading, search, vm) => {
-            fetch(
-                `/api/locations/${escape(search)}`
-            ).then(res => {
-                res.json().then(json => (vm.cities = json));
-                loading(false);
-            });
-        }, 2000),
-        submit() {
-
-            if(this.finder.display_name != ''){
-                $('input[name="location"]').val(JSON.stringify(this.finder));
-            }
-
-            //console.log(document.getElementsByName('location')[0].value);
-            const form = document.getElementById('register');
-            form.submit();
-
-        }
-    }
-})
-
-</script>
 @endsection

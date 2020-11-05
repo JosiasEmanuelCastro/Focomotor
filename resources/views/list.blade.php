@@ -49,20 +49,22 @@
             <div class="modal-body">
                 <input type="name" class="form-control" name="find" placeholder="Buscar...">
                 <div class="pt-4 pl-1">
+
+                    
                     
                     @foreach ($countLocations as $item)
-                        @if(isset(json_decode($item->location)->address->state))
+                        @if(isset(json_decode($item->location)->address->city))
                             @php
-                                $state = json_decode($item->location)->address->state;
+                                $location = json_decode($item->location)->address->city;
                             @endphp
     
                         @else
                             @php
-                                $state = "Ciudad de " . json_decode($item->location)->address->city;
+                                $location = json_decode($item->location)->address->town;
                             @endphp
                         @endif
 
-                        <a href="/listado?{{ http_build_query(array_merge(request()->all(), ['state' => $state])) }}" class="d-block text-dark text-decoration-none pb-2">{{ $state }} ({{ $item->total }})</a>
+                        <a href="/listado?{{ http_build_query(array_merge(request()->all(), ['location' => $location])) }}" class="d-block text-dark text-decoration-none pb-2">{{ $location }} ({{ $item->total }})</a>
                         <hr>
                          
                     @endforeach
