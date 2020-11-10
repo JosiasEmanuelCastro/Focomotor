@@ -16,10 +16,6 @@
 </div>
 @endsection
 @section('css')
-<link rel="stylesheet" href="https://unpkg.com/vue-select@latest/dist/vue-select.css">
+    <link rel="stylesheet" href="https://unpkg.com/vue-select@latest/dist/vue-select.css">
 @endsection
-@section('js')
-<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-@endsection

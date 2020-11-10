@@ -29,13 +29,14 @@
 </div>
 <article class="border rounded my-3 p-2 p-md-4 focom-articles">
 
-    {{-- BEGIN NO HAVE VEHICLES 
+    @if(auth()->user()->articles->count() == 0)
      <div class="text-center">  
         <i class="fas fa-car-crash fa-9x text-secondary"></i>
         <p class="lead">Aún no publicaste ningun vehículo</p>
         <button class="btn btn-outline-primary">Publicá ahora <i class="pl-1 fas fa-chevron-right fa-sm"></i></button>
     </div> 
-    END NO HAVE VEHICLES --}}
+    @else
+   
 
     @foreach (auth()->user()->articles as $article)
      <div class="row py-3">
@@ -84,17 +85,14 @@
                 <i id="focom-editCarButton-{{$article->id}}" class="fas fa-ellipsis-v focom-mouse-hover-pointer d-md-none d-block position-absolute"
                 style="top: 2px; right: 15px;"></i>
             </div>
-            <script type="text/javascript">
-            document.getElementById('focom-editCarButton-{{$article->id}}').addEventListener('click', function(){
-                 document.getElementById('focom-editCarCard-{{$article->id}}').classList.toggle('focom-editCarOpen');
-            });
-            </script>
+            
 
         </div> 
 
     </div>
     <hr class="focom-lastHide">
-    @endforeach  
+    @endforeach
+    @endif  
 </article>
 
 </div>

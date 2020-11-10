@@ -1,7 +1,7 @@
-{{-- BEGIN SLIDE --}}
-    <div id="focomSlideHome" class="carousel slide @if(Agent::isMobile() || Agent::isTablet()) mt-n4 @else mt-0 @endif" data-ride="carousel" data-pause="false" data-interval="4500" keyboard="false" data-touch="true">
-        <div class="carousel-inner">
-            @if(Agent::isMobile() || Agent::isTablet())
+<div id="focomSlideHome" class="carousel slide @if(Agent::isMobile() || Agent::isTablet()) mt-n4 @else mt-0 @endif"
+    data-ride="carousel" data-pause="false" data-interval="4500" keyboard="false" data-touch="true">
+    <div class="carousel-inner">
+        @if(Agent::isMobile() || Agent::isTablet())
             <div class="carousel-item active">
                 <a href="{{ route('articles.create') }}">
                     <img src="/img/BannerMobile1.jpg" class="w-100" alt="Publish">
@@ -16,7 +16,8 @@
                 <a href="{{ route('articles.create') }}">
                     <img src="/img/BannerMobile3.jpg" class="w-100" alt="Publish">
                 </a>
-            @else
+            </div>
+        @else
             <div class="carousel-item active">
                 <a href="{{ route('articles.create') }}">
                     <img src="/img/Banner1.jpg" class="w-100" alt="Publish">
@@ -31,15 +32,16 @@
                 <a href="{{ route('articles.create') }}">
                     <img src="/img/Banner3.jpg" class="w-100" alt="Publish">
                 </a>
-            @endif
-        </div>
-        <a class="carousel-control-prev focom-opacity-mobile-none" href="#focomSlideHome" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Siguiente</span>
-        </a>
-        <a class="carousel-control-next focom-opacity-mobile-none" href="#focomSlideHome" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Anterior</span>
-        </a>
+            </div>
+        @endif
     </div>
-    {{-- END SLIDE --}}
+    
+    <a class="carousel-control-prev focom-opacity-mobile-none" href="#focomSlideHome" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Siguiente</span>
+    </a>
+    <a class="carousel-control-next focom-opacity-mobile-none" href="#focomSlideHome" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Anterior</span>
+    </a>
+</div>

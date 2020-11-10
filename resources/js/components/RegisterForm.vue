@@ -255,13 +255,10 @@ export default {
 
             let formData = new FormData(form)
 
-            axios({
-                method: 'post',
-                url: '/register',
+            this.$http.post("/register", formData, {
                 headers: {
                     'X-CSRF-TOKEN': token.content,
-                },
-                data: formData
+                }
                 }).then((response) => {
                     console.log(response);
                     console.log("hi");

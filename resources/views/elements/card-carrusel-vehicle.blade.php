@@ -9,9 +9,7 @@
                     <i class="fas fa-map-marker-alt fa-lg align-self-center mb-2"></i>
                     <p class="pl-1 h5 font-weight-normal pr-1 focom-vehicle-place">{{$article->place}}</p>
                 </div>
-                <div class="">
-                    
-                </div>
+                
             </div>
         </div>
     </a>

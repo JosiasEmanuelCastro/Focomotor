@@ -38,6 +38,8 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 'email' => $input['email'],
                 'location' => $input['location'],
             ])->save();
+
+            return $user;
         }
     }
 

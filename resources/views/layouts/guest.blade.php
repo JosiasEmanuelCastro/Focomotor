@@ -13,8 +13,6 @@
         {{-- Styles --}}
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
-        {{-- Scripts --}}
-        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.2.1/dist/alpine.js" defer></script>
     </head>
     <body>
         <div id="app" class="font-sans text-gray-900 antialiased">

@@ -1,6 +1,5 @@
 @section('js')
 <script type="text/javascript">
-    //SHOW STEP
     
     //step 2
     document.getElementById('nextstep1').addEventListener('click', showstep2)
