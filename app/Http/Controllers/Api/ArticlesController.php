@@ -18,6 +18,42 @@ use Illuminate\Support\Facades\Validator;
 class ArticlesController extends Controller
 {
 
+    public function activate(Article $article)
+    {
+        $activate = (int) request()->activate;
+        
+        if ($activate){
+            $article->published_at = now(); 
+        } else {
+            $article->published_at = NULL; 
+        }
+        
+        $article->save();
+
+        return view('users.dashboard');
+        
+
+        //$article
+    }
+
+    public function getLocations($query)
+    {
+
+
+        $articles = DB::table('articles')
+                ->where('location->address->town', 'like', "%$query%")
+                ->orWhere('location->address->city', 'like', "%$query%")
+                ->groupBy('location')->select(DB::raw('count(*) as total, location'))
+                ->get();
+
+
+        //$articles = Article::where('', 'like', "%$query%")
+         //                   ->groupBy('location')->select(DB::raw('count(*) as total, location'))
+                            //->get();
+
+        return $articles;
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -129,6 +165,9 @@ class ArticlesController extends Controller
      */
     public function destroy(Article $article)
     {
-        //
+        $article->delete();
+
+        return back();
     }
 }
+

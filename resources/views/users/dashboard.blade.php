@@ -15,9 +15,9 @@
         <a href="{{ route('user.config') }}"><button class="btn btn-secondary focom-btn-sm">Configuraciones<i class="fas fa-cog fa-sm pl-2"></i></button></a>
     </div>
 </div>
-{{-- BEGIN Si es particular no mostrar --}}
-<div class="lead mx-2">{{auth()->user()->role->name}} - {{auth()->user()->plan->name}}</div> 
-{{-- END Si es particular no mostrar --}}
+@if(auth()->user()->role->name == 'Concesionaria')
+    <div class="lead mx-2">{{auth()->user()->role->name}} - {{auth()->user()->plan->name}}</div> 
+@endif
 <div class="border rounded px-md-4 px-3 py-md-4 py-3 pt-0 mt-md-0 mt-3 d-md-flex d-block justify-content-between">
     <div class="pt-md-1 mb-n4"><span class="h5">{{auth()->user()->publicationsActive}}</span> Publicaciones activas</div><br>
     <div class="pt-md-1"><span class="h5">{{auth()->user()->publicationsInactive}}</span> Publicaciones inactivas</div><br>
@@ -73,16 +73,20 @@
                 </div>
             </div>
 
-            <div id="focom-editCarCard-{{$article->id}}" class="col-12 col-md-4 my-md-auto focom-collapseEditCar flex-column justify-content-end d-md-flex d-none">
+            <div class="col-12 col-md-4 my-md-auto focom-collapseEditCar flex-column justify-content-end d-md-flex d-none">
                 <button class="btn btn-secondary mb-2">Editar<i class="fas fa-pencil-alt pl-2"></i>
                 </button>
-                <button class="btn btn-danger btn-sm mb-2">Desactivar</button>
-                <button class="btn btn-danger btn-sm">Eliminar<i class="fas fa-trash pl-2"></i>
+                <form action="{{route('articles.activate', ['article' => $article, 'activate' => $article->published_at ? false : true])}}" method="POST">
+                    @csrf
+                    @method('patch')
+                    <button type="submit" class="btn btn-danger btn-sm mb-2">{{ $article->published_at ? 'Desactivar' : 'Activar' }}</button>
+                </form>
+                <button  data-title="{{$article->title}}" data-href="/articles/{{ $article->id }}" data-toggle="modal" data-target="#confirm-delete" class="btn btn-danger btn-sm">Eliminar<i class="fas fa-trash pl-2"></i>
                 </button>
             </div>
 
-            <div class="">
-                <i id="focom-editCarButton-{{$article->id}}" class="fas fa-ellipsis-v focom-mouse-hover-pointer d-md-none d-block position-absolute"
+            <div>
+                <i class="fas fa-ellipsis-v focom-mouse-hover-pointer d-md-none d-block position-absolute"
                 style="top: 2px; right: 15px;"></i>
             </div>
             
@@ -91,6 +95,33 @@
 
     </div>
     <hr class="focom-lastHide">
+
+    <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myModalLabel">Confirmar eliminación</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+            
+                <div class="modal-body">
+                    <p>Esta a punto de eliminar su vehículo <span class="article-title"></span> de Focomotor</p>
+                    <p>¿Estas seguro que desea continuar?</p>
+                    
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <form class="delete" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger btn-ok">Eliminar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     @endforeach
     @endif  
 </article>
@@ -98,4 +129,16 @@
 </div>
 
 
+@endsection
+
+@section('scripts')
+
+<script>
+    $('#confirm-delete').on('show.bs.modal', function(e) {
+        $(this).find('.delete').attr('action', $(e.relatedTarget).data('href'));
+        
+        //$('.debug-url').html('Delete URL: <strong>' + $(this).find('.delete').attr('action') + '</strong>');
+        $('.article-title').html('<strong>' + $(e.relatedTarget).data('title') + '</strong>');
+    });
+</script>
 @endsection

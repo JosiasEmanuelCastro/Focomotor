@@ -11,12 +11,14 @@
             </div>
         </div>
         <div class="flex-grow-1 mx-4 mx-lg-5">
+            <form action="{{route('articles.list')}}" method="GET">
             <div class="input-group focom-nav-desktop-search">
-                <input type="text" class="form-control focom-nav-desktop-input" placeholder="Buscar en Focomotor">
+                <input type="text" class="form-control focom-nav-desktop-input" name="q" placeholder="Buscar en Focomotor">
                 <div class="input-group-append">
                     <button class="focom-nav-desktop-searchbutton bg-primary input-group-text fas fa-search fa-lg text-white" id=""></button>
                 </div>
             </div>
+            </form>
             
             <div class="focom-nav-desktop">
                 <a href="{{ route('home')}}" class="{{ request()->is('/') ? 'text-primary' : 'text-black-50' }}">Inicio</a>

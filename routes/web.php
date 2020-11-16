@@ -56,6 +56,9 @@ Route::get('/planes', [PagesController::class, 'plans'])->name('plans');
 Route::get('/publicar',  [ArticlesController::class, 'create'])->name('articles.create')->middleware(['auth']);
 
 Route::post('/articles',  [ApiArticlesController::class, 'store'])->name('articles.store')->middleware(['auth']);
+Route::delete('/articles/{article}',  [ApiArticlesController::class, 'destroy'])->name('articles.store')->middleware(['auth']);
+Route::patch('/articles/{article}/activate/',  [ApiArticlesController::class, 'activate'])->name('articles.activate')->middleware(['auth']);
+Route::get('/articles/locations/{query}',  [ApiArticlesController::class, 'getLocations'])->name('articles.locations');
 
 Route::get('/listado/{search?}', [ArticlesController::class, 'index'])->name('articles.list');
 
