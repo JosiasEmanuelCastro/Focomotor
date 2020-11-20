@@ -18,6 +18,9 @@ class CreateSubscriptionTable extends Migration
             $table->bigInteger('plan_id');
             $table->bigInteger('user_id');
             $table->integer('articles_limit');
+            $table->string('external_reference');
+            $table->string('external_id');
+            $table->string('status')->default('pending');
             $table->double('price');
             $table->timestamps();
         });

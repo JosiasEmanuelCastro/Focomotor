@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use stdClass;
 use App\Models\Plan;
+use App\Models\Subscription;
 use Illuminate\Http\Request;
-use App\Services\MercadoPago\Plan as MPlan;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
+use App\Services\MercadoPago\Plan as MPlan;
 
 class PlanController extends Controller
 {
@@ -69,8 +70,42 @@ class PlanController extends Controller
 
         $plan = Plan::find($plan);
 
-        $mp_plan = MPlan::subscribeToPlan($plan->external_id);
+        $payer = [ 'email' => "test_user_49708417@testuser.com" ];
+
+        //$payer = [ 'email' => auth()->user()->email ];
+
+        $mp_plan = MPlan::addSubscription2($plan, (Object)$payer);
+
+        //dd($mp_plan);
+
+        $subscription = new Subscription();
+
+        $subscription->plan_id = $plan->id;
+        $subscription->user_id = auth()->user()->id;
+        $subscription->articles_limit = $plan->articles_limit;
+        $subscription->external_id = $mp_plan->id;
+        $subscription->external_reference = $mp_plan->external_reference;
+        $subscription->status = $mp_plan->status;
+        $subscription->price = $mp_plan->auto_recurring['transaction_amount'];
+
+        $subscription->save();
+
+        //dd($plan);
+
+        //return view('users.subscription', compact('plan'));
 
         return Redirect::to($mp_plan->init_point);
+    }
+
+    public function process_payment(Request $request)
+    {
+        //dd($request->all());
+
+        $plan = Plan::find($request->plan);
+
+        $payer = [ 'token' => $request->token, 'email' => $request->email ];
+
+        MPlan::addSubscription($plan->external_id, (Object)$payer);
+        
     }
 }

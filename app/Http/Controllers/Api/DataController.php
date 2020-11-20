@@ -97,7 +97,7 @@ class DataController extends Controller
 	
 	public function notifications()
 	{
-		\MercadoPago\SDK::setAccessToken(env('MP_ACCESS_TOKEN'));
+		//\MercadoPago\SDK::setAccessToken(env('MP_ACCESS_TOKEN'));
 
 		
 		//dd(request()->all());
@@ -108,24 +108,63 @@ class DataController extends Controller
 		switch(request()->input('type')) {
 			case "payment":
 				//$payment = \MercadoPago\Payment::find_by_id($_POST["id"]);
-				Log::info('Mercado pago.', ['Res' => request()->input('data.id')]);
-				return;
+				Log::info('Mercado pago payment.', ['Res' => request()->input('data.id')]);
 				break;
 			case "plan":
-				$plan = \MercadoPago\Plan::find_by_id($_POST["id"]);
+				Log::info('Mercado pago Plan.', ['Res' => request()->input('data.id')]);
 				break;
 			case "subscription":
-				$plan = \MercadoPago\Subscription::find_by_id($_POST["id"]);
-				return;
+				Log::info('Mercado pago subscription.', ['Res' => request()->input('data.id')]);
+				// $plan = \MercadoPago\Subscription::find_by_id($_POST["id"]);
 				break;
 			case "invoice":
-				$plan = \MercadoPago\Invoice::find_by_id($_POST["id"]);
+				Log::info('Mercado pago invoice.', ['Res' => request()->input('data.id')]);
+				//$plan = \MercadoPago\Invoice::find_by_id($_POST["id"]);
 				break;
 			case "test":
-				return "HI!!";
+				Log::info('Mercado pago test.', ['Res' => request()->input('data_id')]);
 				break;
 			default: return 0;
 		}
+
+		return 1;
+
+		
+	}
+
+	public function notificationsIpn()
+	{
+		//\MercadoPago\SDK::setAccessToken(env('MP_ACCESS_TOKEN'));
+
+		
+		//dd(request()->all());
+
+		Log::info('Mercado pago.', ['ipn' => request()->all()]);
+		Log::info('Mercado pago.', ['Type' => request()->input('topic')]);
+
+		switch(request()->input('topic')) {
+			case "payment":
+				//$payment = \MercadoPago\Payment::find_by_id($_POST["id"]);
+				Log::info('Mercado pago payment.', ['Res' => request()->input('data.id')]);
+				break;
+			case "plan":
+				Log::info('Mercado pago Plan.', ['Res' => request()->input('data.id')]);
+				break;
+			case "subscription":
+				Log::info('Mercado pago subscription.', ['Res' => request()->input('data.id')]);
+				// $plan = \MercadoPago\Subscription::find_by_id($_POST["id"]);
+				break;
+			case "invoice":
+				Log::info('Mercado pago invoice.', ['Res' => request()->input('data.id')]);
+				//$plan = \MercadoPago\Invoice::find_by_id($_POST["id"]);
+				break;
+			case "test":
+				Log::info('Mercado pago test.', ['Res' => request()->input('data_id')]);
+				break;
+			default: return 0;
+		}
+
+		return 1;
 
 		
 	}

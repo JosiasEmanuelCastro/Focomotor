@@ -64,7 +64,8 @@ Route::get('/listado/{search?}', [ArticlesController::class, 'index'])->name('ar
 
 //Route::get('/listado/{query?}', [ArticlesController::class, 'find'])->name('articles.find');
 
-Route::get('/subscribe/{plan}',  [PlanController::class, 'subscribe'])->name('subscribe');
+Route::get('/subscribe/{plan}',  [PlanController::class, 'subscribe'])->name('subscribe')->middleware(['auth']);
+Route::post('/payments/process',  [PlanController::class, 'process_payment'])->name('process_payment')->middleware(['auth']);
 
 
 Route::get('/upload', function(){

@@ -39,6 +39,8 @@ Route::get('/categories/{category}', [CategoryController::class, 'show']);
 
 Route::post('/notifications/webhook', [DataController::class, 'notifications']);
 
+Route::post('/notifications/ipn', [DataController::class, 'notificationsIpn']);
+
 Route::get('/admin/plan/create/{name}/{price}', [PlanController::class, 'store']);
 
 Route::get('/admin/plan/subscribe/{plan}', [PlanController::class, 'subscribe']);
