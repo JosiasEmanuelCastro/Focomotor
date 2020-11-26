@@ -133,6 +133,19 @@ class ArticlesController extends Controller
         return response()->json( [ 'data' => $article ]);
     }
 
+    public function images(Article $article)
+    {
+
+        $data = array();
+        array_push($data, [ 'path' => $article->feature_image ]);
+
+        foreach ($article->gallery as $image) {
+            array_push($data, ['path' => $image->image_path]);
+        }
+
+        return $data;
+    }
+
     
     /**
      * Show the form for editing the specified resource.
