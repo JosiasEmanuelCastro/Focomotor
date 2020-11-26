@@ -6,7 +6,7 @@
       name="location"
       v-model="location"
       placeholder="Buscar..."
-      @change="find"
+      @keyup="find"
     />
 
     <div class="pt-4 pl-1">
@@ -42,7 +42,7 @@ export default {
             search: _.debounce((search, vm) => {
 
             
-            fetch(`/articles/locations/${escape(search)}`).then((res) => {
+            fetch(encodeURI(`/articles/locations/${search}`)).then((res) => {
                 res.json().then((json) => (vm.cities = json));
             });
             }, 2000),
