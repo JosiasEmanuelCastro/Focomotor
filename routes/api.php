@@ -2,11 +2,12 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PlanController;
+use App\Http\Controllers\ModelController;
 use App\Http\Controllers\Api\DataController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\PlanController;
 use App\Http\Controllers\TrademarkController;
-use App\Http\Controllers\ModelController;
+use App\Http\Controllers\Api\ArticlesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,8 @@ Route::get('/find/locations/{query}', [DataController::class, 'findArticlesByLoc
 Route::get('/locations/{query}', [DataController::class, 'getLocations']);
 
 Route::get('/categories/all', [CategoryController::class, 'index']);
+
+Route::get('/articles/{article}/images', [ArticlesController::class, 'images']);
 
 //Route::get('/categories/{category}/trademarks', [TrademarkController::class, 'index']);
 

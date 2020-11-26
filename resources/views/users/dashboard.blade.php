@@ -2,6 +2,11 @@
 @section('section')
 <hr class="d-none d-md-block">
 <div class="px-2 px-md-3 px-lg-4 px-xl-5" style="margin-bottom: 400px">
+
+@isset($error)
+    @dump($error)
+@endisset
+    
     
 <div class="py-0 py-md-4 mt-md-0 mt-n2 mb-md-0 mb-3 d-md-flex d-block justify-content-between">
     <div class="d-flex"> 

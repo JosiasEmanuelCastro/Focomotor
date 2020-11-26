@@ -8,9 +8,12 @@
 <div class="w-100">
     <div class="focom-section p-3 p-md-0 mt-n4 mt-md-0 px-0 px-md-4 px-lg-5">
         <div class="row">
-            {{-- BEGIN IMAGES --}}
-            @include('articles.partials.images')
-            {{-- END IMAGES --}}
+
+            <div class="col-12 col-md-8">
+
+                <article-gallery article="{{$article->id}}" />
+
+            </div>
 
 
             {{-- VEHICLE INFO --}}
@@ -47,7 +50,7 @@
                 </div>
             </div>
         </div>
-        {{-- VEHICLE DETAILS --}}
+        
         <div class="row mx-0 mx-md-3">
             <div class="col-12 col-md-8 shadow-d-md border-d-md rounded p-3 mt-n3 mt-md-3 ">
                 <div class="">
@@ -80,7 +83,7 @@
         <hr class="d-block d-md-none">
 
     </div>
-    {{-- BEGIN CONTACT NUMBER MODAL --}}
+    
     <div class="modal focom-minwidth" id="focomContactNumberModal" tabindex="-1" role="dialog"
         aria-labelledby="focomContactNumberModal" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -102,13 +105,7 @@
             </div>
         </div>
     </div>
-    {{-- END CONTACT NUMBER MODAL --}}
-    {{-- END SECTION --}}
 
 </div>
 
-@endsection
-
-@section('scripts')
-    <script type="text/javascript" src="/js/focom-pageVehicle.js"></script>
 @endsection
