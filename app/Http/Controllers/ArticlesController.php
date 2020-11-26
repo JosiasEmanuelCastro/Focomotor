@@ -37,7 +37,8 @@ class ArticlesController extends Controller
         $order = $request->order ? $request->order : 'created_at';
 
         $articles = DB::table('articles')
-                //where('title', '%LIKE%', $query)
+                ->whereNull('deleted_at')
+                ->whereNotNull('published_at')
                 ->when($location, function ($query, $location) {
                     return $query->where('location->address->town', $location)
                             ->orWhere('location->address->city', $location);
