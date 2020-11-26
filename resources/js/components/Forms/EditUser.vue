@@ -150,7 +150,7 @@ export default {
             },
             search: _.debounce((loading, search, vm) => {
                 fetch(
-                    `/api/locations/${escape(search)}`
+                    `/api/locations/${search}`
                 ).then(res => {
                     res.json().then(json => (vm.cities = json));
                     loading(false);
