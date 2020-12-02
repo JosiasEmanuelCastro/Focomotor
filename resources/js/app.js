@@ -20,6 +20,7 @@ Vue.component('form-register', require('./components/RegisterForm.vue').default)
 Vue.component('finder-cities', require('./components/FinderCities.vue').default);
 Vue.component('filter-kilometers', require('./components/Filters/Kilometer.vue').default);
 Vue.component('filter-prices', require('./components/Filters/Price.vue').default);
+Vue.component('article-gallery', require('./components/Articles/Gallery.vue').default);
 
 /* eslint-disable no-new */
 const app = new Vue({
